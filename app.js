@@ -1,0 +1,583 @@
+// Нихао — Chinese for Kazakh and Russian speakers. One script for every page (body[data-page]).
+(function () {
+'use strict';
+
+/* ---------- interface language ---------- */
+const T = {
+  kk: {
+    brandSub:'Қытай тілі · қазақша және орысша', navCourses:'Курстар', navMe:'Менің оқуым', navFeedback:'Кері байланыс', navAbout:'Біз туралы',
+    login:'Кіру / Тіркелу', logout:'Шығу', footer:'Күн сайын аздап — қытайша сөйлеуге бір қадам жақын.',
+    heroEyebrow:'Қазақ және орыс тілінде сөйлейтіндерге арналған', heroTitle:'Қытай тілін нөлден бастаңыз', heroText:'Пиньинь мен тондардан бастап, күнделікті сөйлесуге, иероглифтерге және жұмыс жағдаяттарына дейін. Әр сөйлемнің дыбысы мен жаттығуы бар. Тегін.',
+    heroBy:'Қазақстанда тұратын аудармашы жасаған', about:'Біз туралы',
+    todayTitle:'Бүгінгі оқу', lastAt:'Соңғы сабақ', notStarted:'Әлі бастамадыңыз', startFirst:'Бірінші сабақтан бастаңыз', continue:'Жалғастыру', chooseCourse:'Курс таңдау',
+    goals:'Бүгінгі мақсат', goalLesson:'1 сабақ өту', goalLessonNote:'Сабақтың жаттығуын бітірсеңіз болды', goalReview:'Қателерді қайталау', noDue:'Бүгін қайталайтын ештеңе жоқ', dueN:n=>n+' сөз қайталауды күтіп тұр',
+    streak:n=>'🔥 '+n+' күн қатарынан', streak0:'Бүгін бір сабақ өтіп, сериясын бастаңыз', allDone:'Бүгінгі мақсат орындалды 🎉', go:'Бастау', review:'Қайталау',
+    signupHint:'Прогресті сақтау үшін <a href="auth.html?mode=signup">тегін тіркеліңіз</a> — телефон мен компьютерде жалғастыра аласыз.',
+    routeTitle:'Оқу жолы', routeText:'Ретімен оқыңыз: алдымен дыбыстар, содан кейін сөйлесу мен иероглифтер.',
+    lessons:'сабақ', modules:'модуль', start:'Бастау', open:'Ашу', done:'Аяқталды',
+    module:'Модуль', unlocked:'Ашық', locked:'Жабық', passed:'Тест өтті', lockedText:'Алдыңғы модуль тестінен 70% жинағанда ашылады.',
+    takeTest:'Модуль тесті (≥70%)', retakeTest:'Тестті қайта тапсыру', leftN:n=>'Тестке дейін тағы '+n+' сабақ қалды.',
+    courseRule:'Әр модульдің сабақтарын өтіп, тесттен 70% жинасаңыз, келесі модуль ашылады. Тіркелмей-ақ оқуға болады.', courseOpenRule:'Барлық жағдаяттар ашық — керегін таңдаңыз. Жағдаятты бітірген соң тест тапсыруға болады.',
+    back:'← Курсқа', prev:'Алдыңғы', next:'Келесі', nextTest:'Модуль тестіне өту', backCourse:'Курсқа қайту',
+    normal:'▶ Тыңдау', slow:'▶ Баяу', record:'● Жазу', stopRec:'■ Тоқтату', reRecord:'● Қайта жазу', recHelp:'Жазба тек осы бетте сақталады, ешқайда жіберілмейді.',
+    recDone:'Жазылды — тыңдап, салыстырыңыз.', recNo:'Микрофонға рұқсат берілмеді. Дауыстап қайталасаңыз да болады.', recUnsupported:'Бұл браузер дыбыс жазуды қолдамайды.',
+    playAll:'▶ Барлығы', strokes:'Жазылу реті', tryWrite:'Өзің жазып көр', writeDone:'Жарайсың! Дұрыс жаздыңыз.', words:'Мысал сөздер',
+    practice:'Жаттығу', practiceDone:'✓ Жаттығу орындалды', practiceDoneText:'Келесі сабаққа өтуге болады.', correct:'Дұрыс!', answerIs:a=>'Дұрыс жауабы: '+a, wrongAns:a=>'Дұрыс жауабы: '+a+'. Қайталау тізіміне қосылды — тағы көріңіз.',
+    qMeaning:'Мағынасын таңдаңыз', qHowSay:'Қытайша қалай болады?', qHear:'Тыңдап, естігеніңізді таңдаңыз', qWhichChar:'Қай иероглиф?', play:'🔊 Тыңдау', finishFirst:'Алдымен жаттығуды орындаңыз',
+    testTitle:(n,t)=>n+'-модуль: '+t+' — тест', qOf:(i,n)=>i+' / '+n+' сұрақ · өту шегі 70%', nextQ:'Келесі сұрақ', submit:'Нәтижені көру',
+    testPassed:'Тест өтті!', testFailed:'Әзірге өтпеді', scoreLine:(c,n,p)=>n+' сұрақтың '+c+' дұрыс · '+p+'%', nextUnlocked:'Келесі модуль ашылды.', allModules:'Барлық модуль аяқталды!', tryAgainText:'70%-ға жетпеді. Сабақтарды қайталап, тағы тапсырыңыз. Бұрынғы ең жақсы нәтиже сақталады.', retry:'Қайта тапсыру',
+    testNeedLessons:'Алдымен осы модульдің барлық сабағын өтіңіз.',
+    meTitle:'Менің оқуым', stStreak:'Қатарынан күн', stDays:'Барлық күн', stLessons:'Өткен сабақ', stDue:'Қайталау',
+    account:'Аккаунт', guestText:'Сіз кірмегенсіз: прогресс тек осы құрылғыда сақталады.', guestHint:'Тегін тіркелсеңіз, кез келген құрылғыда жалғастыра аласыз.', signup:'Тіркелу', signin:'Кіру', synced:'Прогресс осы аккаунтқа сақталады.',
+    reviewTitle:'Қайталау', reviewEmpty:'Қазір қайталайтын сөз жоқ. Жаттығуда қате жіберсеңіз, сөз осында түседі.', reviewN:n=>'Қайталауды күтіп тұрған сөз: '+n, showAnswer:'Жауабын көру', again:'Әлі есімде жоқ', known:'Есімде, ертең қайталаймын', sayFirst:'Алдымен өзіңіз айтып көріңіз',
+    authTitle:'Кіру', authSignup:'Тіркелу', email:'Email', password:'Құпиясөз', newPassword:'Жаңа құпиясөз (кемінде 6 таңба)', name:'Атыңыз (міндетті емес)', doLogin:'Кіру', doSignup:'Тіркелу',
+    forgot:'Құпиясөзді ұмыттыңыз ба?', sendReset:'Қалпына келтіру сілтемесін жіберу', setPassword:'Құпиясөзді сақтау', haveAccount:'Аккаунтыңыз бар ма? Кіру', noAccount:'Аккаунтыңыз жоқ па? Тіркелу',
+    signupOk:'Тіркелдіңіз! Поштаңызға келген сілтеме арқылы растап, кейін кіріңіз.', loginOk:'Кірдіңіз, сайтқа қайтып жатырмыз…', resetSent:'Поштаңызға сілтеме жіберілді.', resetOk:'Жаңа құпиясөз сақталды.', alreadyIn:'Сіз кіріп тұрсыз:',
+    authErr:'Қате шықты. Email мен құпиясөзді тексеріп, қайта көріңіз.', authBadLogin:'Email немесе құпиясөз қате.', authUnconfirmed:'Email әлі расталмаған — поштаңызды тексеріңіз.', authNet:'Интернет байланысын тексеріңіз.',
+    fbTitle:'Кері байланыс', fbText:'Қате таптыңыз ба, әлде қандай сабақ қажет? Жазыңыз — әр хатты оқимын.', fbType:'Тақырып түрі', fbSubject:'Тақырып', fbMessage:'Хабарлама', fbEmail:'Email (жауап алу үшін, міндетті емес)', fbRating:'Сайтқа баға', fbSend:'Жіберу', fbSending:'Жіберілуде…',
+    fbOk:'Рақмет! Хабарламаңыз жіберілді.', fbShort:'Кемінде 5 таңба жазыңыз.', fbBadEmail:'Email дұрыс емес.', fbFail:'Жіберілмеді. Кейінірек қайталап көріңіз.',
+    fbCats:[['课程建议','Курс туралы ұсыныс'],['内容纠错','Қате табылды'],['网站问题','Сайт жұмысы'],['账号问题','Аккаунт'],['其他','Басқа']],
+    aboutTitle:'Неге бұл сайтты жасадым',
+    aboutText:['Мен 2013 жылы Қытайдан Қазақстанға көшіп келдім. Қазір аудармашымын, күн сайын қытай, қазақ және орыс тілдерінде жұмыс істеймін.','Қазақстанда қытай компанияларында жұмыс істейтіндер, Қытайда оқығысы келетіндер көп. Бірақ қазақ және орыс тілінде қытай тілін нөлден үйрететін тегін, қарапайым материал аз. Сондықтан осы сайтты жасадым.','Сайт тегін. Пиньинь мен тондардан бастап, күнделікті сөйлесуге, иероглифтерге және жұмыс жағдаяттарына дейін — әр сөйлемнің дыбысы мен жаттығуы бар.','Қате тапсаңыз немесе қандай сабақ керек екенін айтқыңыз келсе, <a href="feedback.html">кері байланыс</a> бетінде жазыңыз.'],
+    loading:'Жүктелуде…', notFound:'Сабақ табылмады.'
+  },
+  ru: {
+    brandSub:'Китайский · на казахском и русском', navCourses:'Курсы', navMe:'Моё обучение', navFeedback:'Обратная связь', navAbout:'О проекте',
+    login:'Вход / Регистрация', logout:'Выйти', footer:'Понемногу каждый день — и вы заговорите по-китайски.',
+    heroEyebrow:'Для тех, кто говорит по-казахски и по-русски', heroTitle:'Китайский язык с нуля', heroText:'От пиньиня и тонов до разговорных фраз, иероглифов и рабочих ситуаций. У каждой фразы есть озвучка и упражнения. Бесплатно.',
+    heroBy:'Сделано переводчиком, живущим в Казахстане', about:'О проекте',
+    todayTitle:'Учёба сегодня', lastAt:'Последний урок', notStarted:'Вы ещё не начали', startFirst:'Начните с первого урока', continue:'Продолжить', chooseCourse:'Выбрать курс',
+    goals:'Цели на сегодня', goalLesson:'Пройти 1 урок', goalLessonNote:'Достаточно выполнить упражнение урока', goalReview:'Повторить ошибки', noDue:'Сегодня повторять нечего', dueN:n=>n+' слов ждут повторения',
+    streak:n=>'🔥 '+n+' дн. подряд', streak0:'Пройдите урок сегодня, чтобы начать серию', allDone:'Цели на сегодня выполнены 🎉', go:'Начать', review:'Повторить',
+    signupHint:'Чтобы не потерять прогресс, <a href="auth.html?mode=signup">зарегистрируйтесь бесплатно</a> — продолжите на телефоне и компьютере.',
+    routeTitle:'Путь обучения', routeText:'Учитесь по порядку: сначала звуки, потом разговор и иероглифы.',
+    lessons:'уроков', modules:'модулей', start:'Начать', open:'Открыть', done:'Пройдено',
+    module:'Модуль', unlocked:'Открыт', locked:'Закрыт', passed:'Тест сдан', lockedText:'Откроется, когда вы наберёте 70% в тесте предыдущего модуля.',
+    takeTest:'Тест модуля (≥70%)', retakeTest:'Пересдать тест', leftN:n=>'До теста осталось уроков: '+n+'.',
+    courseRule:'Пройдите уроки модуля и наберите 70% в тесте — откроется следующий модуль. Учиться можно без регистрации.', courseOpenRule:'Все ситуации открыты — выбирайте нужную. После ситуации можно пройти тест.',
+    back:'← К курсу', prev:'Назад', next:'Дальше', nextTest:'К тесту модуля', backCourse:'Вернуться к курсу',
+    normal:'▶ Слушать', slow:'▶ Медленно', record:'● Запись', stopRec:'■ Стоп', reRecord:'● Записать снова', recHelp:'Запись остаётся только на этой странице и никуда не отправляется.',
+    recDone:'Записано — послушайте и сравните.', recNo:'Нет доступа к микрофону. Можно просто повторять вслух.', recUnsupported:'Этот браузер не поддерживает запись.',
+    playAll:'▶ Все', strokes:'Порядок черт', tryWrite:'Напиши сам', writeDone:'Отлично! Написано верно.', words:'Примеры слов',
+    practice:'Упражнение', practiceDone:'✓ Упражнение выполнено', practiceDoneText:'Можно переходить к следующему уроку.', correct:'Верно!', answerIs:a=>'Правильный ответ: '+a, wrongAns:a=>'Правильный ответ: '+a+'. Добавлено в повторение — попробуйте ещё раз.',
+    qMeaning:'Выберите значение', qHowSay:'Как это по-китайски?', qHear:'Послушайте и выберите, что услышали', qWhichChar:'Какой иероглиф?', play:'🔊 Слушать', finishFirst:'Сначала выполните упражнение',
+    testTitle:(n,t)=>'Модуль '+n+': '+t+' — тест', qOf:(i,n)=>'Вопрос '+i+' из '+n+' · проходной балл 70%', nextQ:'Следующий вопрос', submit:'Показать результат',
+    testPassed:'Тест сдан!', testFailed:'Пока не сдан', scoreLine:(c,n,p)=>'Верно '+c+' из '+n+' · '+p+'%', nextUnlocked:'Следующий модуль открыт.', allModules:'Все модули пройдены!', tryAgainText:'Не хватило до 70%. Повторите уроки и попробуйте снова. Лучший прошлый результат сохраняется.', retry:'Пересдать',
+    testNeedLessons:'Сначала пройдите все уроки этого модуля.',
+    meTitle:'Моё обучение', stStreak:'Дней подряд', stDays:'Всего дней', stLessons:'Уроков пройдено', stDue:'На повторение',
+    account:'Аккаунт', guestText:'Вы не вошли: прогресс хранится только на этом устройстве.', guestHint:'Зарегистрируйтесь бесплатно, чтобы продолжать на любом устройстве.', signup:'Регистрация', signin:'Вход', synced:'Прогресс сохраняется в этом аккаунте.',
+    reviewTitle:'Повторение', reviewEmpty:'Сейчас повторять нечего. Слова, в которых вы ошиблись, появятся здесь.', reviewN:n=>'Ждут повторения: '+n, showAnswer:'Показать ответ', again:'Ещё не запомнил', known:'Помню, повторю завтра', sayFirst:'Сначала скажите сами',
+    authTitle:'Вход', authSignup:'Регистрация', email:'Email', password:'Пароль', newPassword:'Новый пароль (не меньше 6 символов)', name:'Имя (необязательно)', doLogin:'Войти', doSignup:'Зарегистрироваться',
+    forgot:'Забыли пароль?', sendReset:'Отправить ссылку для сброса', setPassword:'Сохранить пароль', haveAccount:'Уже есть аккаунт? Войти', noAccount:'Нет аккаунта? Регистрация',
+    signupOk:'Готово! Подтвердите email по ссылке из письма, затем войдите.', loginOk:'Вы вошли, возвращаемся на сайт…', resetSent:'Ссылка отправлена на вашу почту.', resetOk:'Новый пароль сохранён.', alreadyIn:'Вы уже вошли:',
+    authErr:'Ошибка. Проверьте email и пароль и попробуйте снова.', authBadLogin:'Неверный email или пароль.', authUnconfirmed:'Email ещё не подтверждён — проверьте почту.', authNet:'Проверьте подключение к интернету.',
+    fbTitle:'Обратная связь', fbText:'Нашли ошибку или нужен урок на какую-то тему? Напишите — я читаю каждое сообщение.', fbType:'Тип обращения', fbSubject:'Тема', fbMessage:'Сообщение', fbEmail:'Email (для ответа, необязательно)', fbRating:'Оценка сайта', fbSend:'Отправить', fbSending:'Отправка…',
+    fbOk:'Спасибо! Сообщение отправлено.', fbShort:'Напишите хотя бы 5 символов.', fbBadEmail:'Неверный email.', fbFail:'Не удалось отправить. Попробуйте позже.',
+    fbCats:[['课程建议','Предложение по курсу'],['内容纠错','Нашёл ошибку'],['网站问题','Проблема с сайтом'],['账号问题','Аккаунт'],['其他','Другое']],
+    aboutTitle:'Зачем я сделал этот сайт',
+    aboutText:['В 2013 году я переехал из Китая в Казахстан. Сейчас я переводчик и каждый день работаю с китайским, казахским и русским языками.','В Казахстане много людей работают в китайских компаниях или хотят учиться в Китае. Но бесплатных и понятных материалов, которые учат китайскому с нуля на казахском и русском, мало. Поэтому я сделал этот сайт.','Сайт бесплатный. От пиньиня и тонов до разговорных фраз, иероглифов и рабочих ситуаций — у каждой фразы есть озвучка и упражнения.','Если нашли ошибку или хотите предложить тему урока, напишите на странице <a href="feedback.html">обратной связи</a>.'],
+    loading:'Загрузка…', notFound:'Урок не найден.'
+  }
+};
+const LANG_KEY = 'nihao-ui';
+let lang = (() => {
+  try { const v = localStorage.getItem(LANG_KEY); if (v === 'kk' || v === 'ru') return v; } catch {}
+  return /^ru/i.test(navigator.language || '') ? 'ru' : 'kk';
+})();
+const t = (k, ...a) => { const v = T[lang][k]; return typeof v === 'function' ? v(...a) : v; };
+const L = o => o ? (o[lang] ?? o.kk ?? '') : '';
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const qs = n => new URLSearchParams(location.search).get(n);
+const shuffle = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
+const uniq = a => [...new Set(a)];
+
+/* ---------- courses ---------- */
+const NH = window.NH;
+const say = (r, extra) => ({ kind:'say', hz:r[0], py:r[1], kk:r[2], ru:r[3], note:r[4], ...extra });
+const COURSES = [
+  { id:'pinyin', icon:'🔤', title:{kk:'Пиньинь және тондар', ru:'Пиньинь и тоны'},
+    desc:{kk:'Қытай тілінің дыбыстары, төрт тон және буын оқу. Бәрі осыдан басталады.', ru:'Звуки китайского, четыре тона и чтение слогов. С этого начинается всё.'},
+    modules: NH.pinyin.map(m => ({ title:m.title, lessons:m.lessons })) },
+  { id:'daily', icon:'💬', title:{kk:'Күнделікті сөйлесу', ru:'Разговорный китайский'},
+    desc:{kk:'Сәлемдесу, танысу, сандар, уақыт, дүкен, жол сұрау, жұмыс. Әр сөйлем пиньиньмен.', ru:'Приветствие, знакомство, числа, время, покупки, дорога, работа. Каждая фраза с пиньинем.'},
+    modules: NH.daily.map(m => ({ title:m.title, lessons:m.lessons.map(l => Array.isArray(l) ? say(l) : l) })) },
+  { id:'hanzi', icon:'✍️', title:{kk:'Негізгі иероглифтер', ru:'Базовые иероглифы'},
+    desc:{kk:'Ең жиі кездесетін 46 иероглиф: жазылу реті, оқылуы, мағынасы және мысал сөздер.', ru:'46 самых частых иероглифов: порядок черт, чтение, значение и примеры слов.'},
+    modules: NH.hanzi.map(m => ({ title:m.title, lessons:m.chars.map(c => ({ kind:'char', hz:c[0], py:c[1], kk:c[2], ru:c[3], words:c[4] })) })) },
+  { id:'scenes', icon:'🏢', open:true, title:{kk:'Өмір мен жұмыс жағдаяттары', ru:'Ситуации: жизнь и работа'},
+    desc:{kk:'Такси, банк, мейрамхана, құжаттар, зауыт, логистика — 16 жағдаят, 99 сөйлем.', ru:'Такси, банк, ресторан, документы, завод, логистика — 16 ситуаций, 99 фраз.'},
+    modules: NH.scenes.map(s => ({ title:{kk:NH.sceneTitles[s.id][0], ru:NH.sceneTitles[s.id][1]}, icon:s.icon, lessons:s.items.map(r => say(r)) })) }
+];
+COURSES.forEach(c => c.modules.forEach((m, mi) => m.lessons.forEach((l, li) => { l.id = `${c.id}-${mi + 1}-${li + 1}`; l.mi = mi; l.li = li; l.course = c; })));
+const courseById = id => COURSES.find(c => c.id === id);
+const allLessons = c => c.modules.flatMap(m => m.lessons);
+const lessonTitle = l => l.kind === 'set' ? L(l.title) : l.hz;
+const meaning = x => Array.isArray(x) ? (lang === 'kk' ? x[2] : x[3]) : (lang === 'kk' ? x.kk : x.ru);
+
+/* ---------- audio: recorded clips (zh.bin + index.json), device voice as fallback ---------- */
+const Audio2 = (() => {
+  const SILENT = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=';
+  let index = null, loading = null, player = null, token = 0, listToken = 0, bad = false;
+  const cache = new Map();
+  const norm = s => String(s ?? '').replace(/\s+/g, ' ').trim();
+  const load = () => index ? Promise.resolve(index) : (loading ||= fetch('index.json').then(r => r.ok ? r.json() : {}).catch(() => ({})).then(j => (index = j || {})));
+  async function clip(text) {
+    const idx = await load(), e = idx.zh?.[text];
+    if (!e || bad) return null;
+    if (cache.has(text)) return cache.get(text);
+    const [start, len] = e, res = await fetch('zh.bin', {headers:{Range:`bytes=${start}-${start + len - 1}`}});
+    if (!res.ok) return null;
+    const total = res.status === 206 ? Number((res.headers.get('Content-Range') || '').split('/')[1]) : null;
+    let buf = await res.arrayBuffer();
+    const actual = res.status === 200 ? buf.byteLength : total;
+    if (idx._size?.['zh.bin'] && actual && actual !== idx._size['zh.bin']) { bad = true; return null; } // index and bin from different builds
+    if (res.status === 200) buf = buf.slice(start, start + len);
+    const url = URL.createObjectURL(new Blob([buf], {type:'audio/mpeg'}));
+    cache.set(text, url); return url;
+  }
+  function device(text, rate) {
+    try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = 'zh-CN'; u.rate = 0.85 * rate; speechSynthesis.speak(u); } catch {}
+  }
+  function play(text, rate = 1) {
+    const s = norm(text); if (!s) return Promise.resolve(false);
+    const my = ++token; listToken++;
+    player ||= new Audio();
+    try { player.pause(); player.src = SILENT; player.play().catch(() => {}); } catch {}
+    return clip(s).then(url => {
+      if (my !== token) return false;
+      if (!url) { device(s, rate); return false; }
+      player.src = url; player.playbackRate = rate; if ('preservesPitch' in player) player.preservesPitch = true;
+      return player.play().then(() => true, () => false);
+    }, () => { device(s, rate); return false; });
+  }
+  const ended = () => new Promise(r => { if (!player || player.paused) return r(); const d = () => { player.removeEventListener('ended', d); player.removeEventListener('pause', d); r(); }; player.addEventListener('ended', d); player.addEventListener('pause', d); });
+  async function list(texts, rate = 1) {
+    const my = ++listToken;
+    for (const s of texts) {
+      if (my !== listToken) return;
+      const ok = await play(s, rate); listToken = my;
+      if (ok) await ended(); else await new Promise(r => setTimeout(r, 1200));
+      await new Promise(r => setTimeout(r, 400));
+    }
+  }
+  setTimeout(load, 1200);
+  return { play, list };
+})();
+
+/* ---------- account (Supabase, shared with the main site) ---------- */
+const Auth = (() => {
+  const cfg = window.SUPABASE_CONFIG || {};
+  let client = null, user = null;
+  const ready = (async () => {
+    try {
+      if (!cfg.url || !window.supabase?.createClient) return;
+      client = window.supabase.createClient(cfg.url, cfg.publishableKey, {auth:{persistSession:true, autoRefreshToken:true, detectSessionInUrl:true}});
+      const {data} = await client.auth.getSession(); user = data?.session?.user || null;
+      let prev = user?.id || null;
+      client.auth.onAuthStateChange((event, session) => {
+        const id = session?.user?.id || null; user = session?.user || null;
+        if (event === 'PASSWORD_RECOVERY') { window.dispatchEvent(new Event('nh-recovery')); return; }
+        if (id !== prev && document.body.dataset.page !== 'auth') setTimeout(() => location.reload(), 0);
+        prev = id;
+      });
+    } catch (e) { console.warn('auth init failed', e); }
+  })();
+  return { ready, client: () => client, user: () => user };
+})();
+
+/* ---------- progress: localStorage per user, snapshot synced to the account ---------- */
+const Store = (() => {
+  const key = () => 'nihao:' + (Auth.user()?.id || 'guest');
+  const read = k => { try { return JSON.parse(localStorage.getItem(k) || '{}'); } catch { return {}; } };
+  const state = () => read(key());
+  let timer = null;
+  function save(s) { localStorage.setItem(key(), JSON.stringify(s)); if (Auth.user()) { clearTimeout(timer); timer = setTimeout(push, 2500); } }
+  const update = fn => { const s = state(); fn(s); save(s); };
+  const NODE = 'nihao-state';
+  function push() {
+    clearTimeout(timer); timer = null;
+    const u = Auth.user(), c = Auth.client(); if (!u || !c) return;
+    c.from('test_results').insert({user_id:u.id, node_id:NODE, language:lang, score:0, passed:false, answers:[state()]}).then(() => {}, () => {});
+  }
+  addEventListener('pagehide', () => { if (timer) push(); });
+  function merge(s, r) {
+    if (!r) return s;
+    s.done = {...(r.done || {}), ...(s.done || {})};
+    s.tests ||= {}; for (const [k, v] of Object.entries(r.tests || {})) s.tests[k] = Math.max(s.tests[k] || 0, v);
+    s.review ||= {}; for (const [k, v] of Object.entries(r.review || {})) if (!s.review[k] || (v.due || 0) > (s.review[k].due || 0)) s.review[k] = v;
+    s.days = uniq([...(s.days || []), ...(r.days || [])]).sort().slice(-400);
+    if (r.last && (!s.last || r.last.at > s.last.at)) s.last = r.last;
+    if (r.daily && (!s.daily || r.daily.date > s.daily.date)) s.daily = r.daily;
+    else if (r.daily && s.daily && r.daily.date === s.daily.date) s.daily.lessons = Math.max(s.daily.lessons || 0, r.daily.lessons || 0);
+    return s;
+  }
+  // Signed in: adopt guest progress made on this device once, then merge the newest account snapshot.
+  const pulled = (async () => {
+    await Auth.ready;
+    const u = Auth.user(), c = Auth.client(); if (!u || !c) return;
+    const guest = read('nihao:guest');
+    let s = state();
+    if (Object.keys(guest).length) { s = merge(s, guest); localStorage.removeItem('nihao:guest'); }
+    try {
+      const {data} = await c.from('test_results').select('answers').eq('user_id', u.id).eq('node_id', NODE).order('created_at', {ascending:false}).limit(1);
+      const remote = data?.[0]?.answers?.[0];
+      const before = JSON.stringify(remote || {});
+      s = merge(s, remote);
+      localStorage.setItem(key(), JSON.stringify(s));
+      if (JSON.stringify(s) !== before) push();
+    } catch { localStorage.setItem(key(), JSON.stringify(s)); }
+  })();
+  const dayKey = (d = new Date()) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  function streak(days) { const set = new Set(days || []); let n = 0, d = new Date(); if (!set.has(dayKey(d))) d.setDate(d.getDate() - 1); while (set.has(dayKey(d))) { n++; d.setDate(d.getDate() - 1); } return n; }
+  return {
+    state, update, pulled, dayKey, streak,
+    isDone: id => !!state().done?.[id],
+    best: (c, mi) => state().tests?.[c.id + ':' + mi] || 0,
+    finish(l) { update(s => { const first = !s.done?.[l.id]; (s.done ||= {})[l.id] = 1; const d = dayKey(); if (s.daily?.date !== d) s.daily = {date:d, lessons:0}; if (first) s.daily.lessons++; s.days = uniq([...(s.days || []), d]).sort().slice(-400); }); },
+    visit(l) { update(s => { s.last = {c:l.course.id, id:l.id, at:Date.now()}; }); },
+    test(c, mi, pct) { update(s => { (s.tests ||= {})[c.id + ':' + mi] = Math.max(s.tests[c.id + ':' + mi] || 0, pct); const d = dayKey(); s.days = uniq([...(s.days || []), d]).sort().slice(-400); }); },
+    miss(x) { update(s => { (s.review ||= {})[x.hz] = {hz:x.hz, py:x.py, kk:x.kk, ru:x.ru, due:Date.now(), n:0}; }); },
+    reviewed(hz, known) { update(s => { const r = s.review?.[hz]; if (!r) return; r.n = known ? (r.n || 0) + 1 : 0; r.due = Date.now() + (known ? 864e5 * Math.min(7, 1 + r.n) : 6e5); }); },
+    due() { return Object.values(state().review || {}).filter(r => r.due <= Date.now()); }
+  };
+})();
+
+/* ---------- module locking ---------- */
+const PASS = 70;
+const moduleOpen = (c, mi) => c.open || mi === 0 || Store.best(c, mi - 1) >= PASS;
+const moduleDone = (c, mi) => c.modules[mi].lessons.every(l => Store.isDone(l.id));
+const lessonUrl = l => `lesson.html?c=${l.course.id}&l=${l.id}`;
+const testUrl = (c, mi) => `test.html?c=${c.id}&m=${mi + 1}`;
+const courseUrl = c => `course.html?c=${c.id}`;
+function nextStep(c) { // first unfinished lesson in an open module
+  for (let mi = 0; mi < c.modules.length; mi++) {
+    if (!moduleOpen(c, mi)) break;
+    const l = c.modules[mi].lessons.find(x => !Store.isDone(x.id));
+    if (l) return lessonUrl(l);
+    if (!c.open && Store.best(c, mi) < PASS) return testUrl(c, mi);
+  }
+  return courseUrl(c);
+}
+const findLesson = id => { for (const c of COURSES) for (const l of allLessons(c)) if (l.id === id) return l; return null; };
+
+/* ---------- shared page chrome ---------- */
+function chrome() {
+  document.documentElement.lang = lang === 'kk' ? 'kk' : 'ru';
+  document.querySelectorAll('[data-t]').forEach(el => { el.innerHTML = t(el.dataset.t); });
+  document.querySelectorAll('.lang-switch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang); b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    b.onclick = () => { if (b.dataset.lang === lang) return; try { localStorage.setItem(LANG_KEY, b.dataset.lang); } catch {} location.reload(); };
+  });
+  const nav = document.getElementById('authNav');
+  Auth.ready.then(() => {
+    const u = Auth.user(); if (!nav) return;
+    nav.innerHTML = u ? `<button type="button" class="auth-btn" id="logoutBtn" title="${esc(u.email)}">${t('logout')}</button>` : `<a class="auth-btn" href="auth.html">${t('login')}</a>`;
+    document.getElementById('logoutBtn')?.addEventListener('click', async () => { try { await Auth.client().auth.signOut(); } catch {} location.reload(); });
+  });
+}
+const app = () => document.getElementById('app');
+const btn = (label, attrs = '') => `<button type="button" ${attrs}>${label}</button>`;
+const pct = (a, b) => Math.round(a / (b || 1) * 100);
+const meter = p => `<span class="meter" role="progressbar" aria-valuenow="${p}" aria-valuemin="0" aria-valuemax="100"><i style="width:${p}%"></i></span>`;
+
+/* ---------- home ---------- */
+function home() {
+  const s = Store.state(), d = s.daily?.date === Store.dayKey() ? s.daily : {lessons:0}, due = Store.due().length, last = s.last && findLesson(s.last.id);
+  const goals = [
+    {ok:d.lessons >= 1, label:t('goalLesson'), note:t('goalLessonNote'), url:last ? lessonUrl(last) : nextStep(COURSES[0]), b:t('go')},
+    {ok:due === 0, label:t('goalReview'), note:due ? t('dueN', due) : t('noDue'), url:'me.html#review', b:t('review')}
+  ];
+  const card = `<span class="eyebrow">${t('todayTitle')}</span>
+    <div class="today-last">${last ? `<small>${t('lastAt')}</small><strong>${esc(L(last.course.title))} · ${esc(lessonTitle(last))}</strong><a class="primary-btn" href="${lessonUrl(last)}">${t('continue')} →</a>`
+      : `<small>${t('notStarted')}</small><strong>${t('startFirst')}</strong><a class="primary-btn" href="${nextStep(COURSES[0])}">${t('start')} →</a>`}</div>
+    <h2>${goals.every(g => g.ok) ? t('allDone') : t('goals')}</h2>
+    <ul class="goals">${goals.map(g => `<li class="${g.ok ? 'done' : ''}"><span class="mark">${g.ok ? '✓' : ''}</span><span><b>${g.label}</b><small>${esc(g.note)}</small></span><a class="goal-btn" href="${g.url}">${g.b} →</a></li>`).join('')}</ul>
+    <p class="streak">${Store.streak(s.days) ? t('streak', Store.streak(s.days)) : t('streak0')}</p>${Auth.user() ? '' : `<p class="signup-hint">💾 ${t('signupHint')}</p>`}`;
+  document.getElementById('todayCard').innerHTML = card;
+  document.getElementById('courseList').innerHTML = COURSES.map((c, i) => {
+    const all = allLessons(c), dn = all.filter(l => Store.isDone(l.id)).length, p = pct(dn, all.length);
+    return `<article class="course-card"><div class="course-num">${i + 1}</div><div class="course-body"><h3>${c.icon} ${esc(L(c.title))}</h3><p>${esc(L(c.desc))}</p>${meter(p)}<small>${dn} / ${all.length} ${t('lessons')} · ${c.modules.length} ${t('modules')}</small></div><a class="primary-btn" href="${dn ? nextStep(c) : courseUrl(c)}">${dn ? t('continue') : t('open')} →</a></article>`;
+  }).join('');
+}
+
+/* ---------- course ---------- */
+function course() {
+  const c = courseById(qs('c')) || COURSES[0], all = allLessons(c), dn = all.filter(l => Store.isDone(l.id)).length;
+  document.title = L(c.title) + ' | Нихао';
+  const current = c.modules.findIndex((m, mi) => moduleOpen(c, mi) && (!moduleDone(c, mi) || (!c.open && Store.best(c, mi) < PASS)));
+  app().innerHTML = `<section class="section"><div class="container narrow">
+    <span class="eyebrow">${c.icon}</span><h1>${esc(L(c.title))}</h1><p class="lead">${esc(L(c.desc))}</p>
+    <div class="course-progress">${meter(pct(dn, all.length))}<small>${dn} / ${all.length} ${t('lessons')}</small></div>
+    <p class="rule">${t(c.open ? 'courseOpenRule' : 'courseRule')}</p>
+    ${c.modules.map((m, mi) => {
+      const open = moduleOpen(c, mi), d = m.lessons.filter(l => Store.isDone(l.id)).length, best = Store.best(c, mi);
+      const status = best >= PASS ? t('passed') + ' · ' + best + '%' : open ? t('unlocked') : t('locked');
+      const head = `<summary><div><span class="eyebrow">${t('module')} ${mi + 1} · ${status}</span><h3>${m.icon || ''} ${esc(L(m.title))}</h3></div><span>${d} / ${m.lessons.length}</span></summary>`;
+      if (!open) return `<details class="module locked">${head}<p class="muted">${t('lockedText')}</p></details>`;
+      const rows = m.lessons.map(l => `<a class="lesson-row" href="${lessonUrl(l)}"><span class="num">${Store.isDone(l.id) ? '✓' : l.li + 1}</span><span class="row-main"><strong>${esc(lessonTitle(l))}</strong><small>${esc(l.kind === 'set' ? l.items.map(x => x[0]).join(' · ') : l.py + ' — ' + meaning(l))}</small></span><span class="arrow">→</span></a>`).join('');
+      const action = d === m.lessons.length ? `<a class="primary-btn" href="${testUrl(c, mi)}">${best ? t('retakeTest') : t('takeTest')}</a>` : `<p class="muted">${t('leftN', m.lessons.length - d)}</p>`;
+      return `<details class="module" ${mi === current ? 'open' : ''}>${head}${rows}${action}</details>`;
+    }).join('')}</div></section>`;
+}
+
+/* ---------- questions (lesson practice and module tests) ---------- */
+function pool(c, kind) { return allLessons(c).filter(l => l.kind === kind); }
+function questionsFor(l) {
+  const c = l.course;
+  if (l.kind === 'say') {
+    const others = pool(c, 'say').filter(x => x.hz !== l.hz);
+    return [
+      {prompt:t('qMeaning'), big:l.hz, sub:l.py, play:l.hz, answer:meaning(l), options:shuffle([meaning(l), ...shuffle(uniq(others.map(meaning)).filter(x => x !== meaning(l))).slice(0, 3)]), item:l},
+      {prompt:t('qHowSay'), big:meaning(l), answer:l.hz, zhOptions:true, options:shuffle([l.hz, ...shuffle(uniq(others.map(x => x.hz))).slice(0, 3)]), item:l}
+    ];
+  }
+  if (l.kind === 'set') {
+    const it = shuffle(l.items)[0], it2 = shuffle(l.items)[0], same = l.items.map(x => x), extra = shuffle(pool(c, 'set').filter(x => x !== l).flatMap(x => x.items));
+    const fill = (vals, ans) => shuffle([ans, ...shuffle(uniq(vals).filter(v => v !== ans)).slice(0, 3)]);
+    const pick = f => uniq([...same.map(f), ...extra.map(f)]);
+    const item = x => ({hz:x[0], py:x[1], kk:x[2], ru:x[3]});
+    const q1 = c.id === 'pinyin'
+      ? {prompt:t('qHear'), play:it[0], answer:it[1], options:fill(same.length >= 4 ? same.map(x => x[1]) : pick(x => x[1]), it[1]), item:item(it)}
+      : {prompt:t('qHear'), play:it[0], answer:meaning(it), options:fill(same.length >= 4 ? same.map(meaning) : pick(meaning), meaning(it)), item:item(it)};
+    const q2 = {prompt:c.id === 'pinyin' ? t('qWhichChar') : t('qHowSay'), big:c.id === 'pinyin' ? it2[1] : meaning(it2), answer:it2[0], zhOptions:true, options:fill(same.length >= 4 ? same.map(x => x[0]) : pick(x => x[0]), it2[0]), item:item(it2)};
+    return [q1, q2];
+  }
+  const chars = pool(c, 'char').filter(x => x.hz !== l.hz);
+  return [
+    {prompt:t('qMeaning'), big:l.hz, answer:meaning(l), options:shuffle([meaning(l), ...shuffle(uniq(chars.map(meaning)).filter(x => x !== meaning(l))).slice(0, 3)]), item:l},
+    {prompt:t('qWhichChar'), play:l.hz, answer:l.hz, zhOptions:true, options:shuffle([l.hz, ...shuffle(chars.filter(x => x.py !== l.py).map(x => x.hz)).slice(0, 3)]), item:l}
+  ];
+}
+function renderQuestion(host, q, onAnswer) {
+  host.innerHTML = `<p class="q-prompt">${esc(q.prompt)}</p>${q.big ? `<p class="q-big ${/[一-鿿]/.test(q.big) ? 'zh' : ''}">${esc(q.big)}</p>` : ''}${q.sub ? `<p class="q-sub">${esc(q.sub)}</p>` : ''}${q.play ? btn(t('play'), 'class="play-btn" data-play') : ''}
+    <div class="options">${q.options.map((o, i) => `<button type="button" class="option ${q.zhOptions ? 'zh' : ''}" data-i="${i}">${esc(o)}</button>`).join('')}</div><p class="feedback" role="status"></p>`;
+  const p = host.querySelector('[data-play]'); if (p) { p.onclick = () => Audio2.play(q.play); }
+  host.querySelectorAll('.option').forEach(b => b.onclick = () => onAnswer(q.options[+b.dataset.i] === q.answer, b));
+}
+
+/* ---------- lesson ---------- */
+let releaseRec = () => {};
+addEventListener('pagehide', () => releaseRec());
+function recorder(host) {
+  const b = host.querySelector('[data-rec]'), status = host.querySelector('.rec-status'), audio = host.querySelector('audio');
+  if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) { b.disabled = true; status.textContent = t('recUnsupported'); return; }
+  let stream, rec, url, timer;
+  const stop = () => stream?.getTracks().forEach(x => x.stop());
+  releaseRec = () => { clearTimeout(timer); if (rec?.state === 'recording') rec.stop(); stop(); if (url) URL.revokeObjectURL(url); };
+  b.onclick = async () => {
+    if (rec?.state === 'recording') { rec.stop(); return; }
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({audio:true});
+      const parts = []; rec = new MediaRecorder(stream);
+      rec.ondataavailable = e => { if (e.data.size) parts.push(e.data); };
+      rec.onstop = () => { clearTimeout(timer); stop(); if (url) URL.revokeObjectURL(url); url = URL.createObjectURL(new Blob(parts, {type:rec.mimeType})); audio.src = url; audio.hidden = false; b.textContent = t('reRecord'); status.textContent = t('recDone'); };
+      rec.start(); b.textContent = t('stopRec'); timer = setTimeout(() => rec.state === 'recording' && rec.stop(), 30000);
+    } catch { stop(); status.textContent = t('recNo'); }
+  };
+}
+let hwLoad = null;
+const loadHanziWriter = () => hwLoad ||= new Promise((res, rej) => { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.2/dist/hanzi-writer.min.js'; s.onload = () => res(window.HanziWriter); s.onerror = rej; document.head.appendChild(s); });
+
+function lesson() {
+  const l = findLesson(qs('l')), c = l?.course || courseById(qs('c'));
+  if (!l) { app().innerHTML = `<section class="section"><div class="container narrow"><p>${t('notFound')}</p><a class="primary-btn" href="index.html">←</a></div></section>`; return; }
+  if (!moduleOpen(c, l.mi)) { location.replace(courseUrl(c)); return; }
+  Store.visit(l);
+  const m = c.modules[l.mi], last = l.li === m.lessons.length - 1;
+  const prevUrl = l.li ? lessonUrl(m.lessons[l.li - 1]) : courseUrl(c);
+  const nextUrl = last ? (c.open && !moduleDone(c, l.mi) ? courseUrl(c) : testUrl(c, l.mi)) : lessonUrl(m.lessons[l.li + 1]);
+  document.title = lessonTitle(l) + ' | ' + L(c.title) + ' | Нихао';
+  let body = '';
+  if (l.kind === 'say') body = `<p class="py">${esc(l.py)}</p><p class="hz">${esc(l.hz)}</p><p class="tr">${esc(meaning(l))}</p>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}`;
+  if (l.kind === 'set') body = `<h2 class="set-title">${esc(L(l.title))}</h2>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}<div class="items">${l.items.map((x, i) => `<button type="button" class="item" data-item="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${esc(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
+  if (l.kind === 'char') body = `<div class="char-wrap"><div class="char-box" id="charBox" aria-label="${esc(l.hz)}"><span class="char-fallback">${esc(l.hz)}</span></div><div class="char-info"><p class="py">${esc(l.py)}</p><p class="tr">${esc(meaning(l))}</p><div class="tools">${btn(t('strokes'), 'data-animate')}${btn(t('tryWrite'), 'data-quiz')}</div><p class="feedback" id="writeStatus" role="status"></p></div></div>
+    <h3 class="words-title">${t('words')}</h3><div class="items">${l.words.map((x, i) => `<button type="button" class="item" data-word="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${esc(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
+  const main = l.kind === 'set' ? l.items.map(x => x[0]) : [l.hz];
+  app().innerHTML = `<section class="section lesson-section"><div class="container narrow">
+    <div class="lesson-top"><a href="${courseUrl(c)}">${t('back')}</a><span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
+    <article class="lesson-card">${body}
+      <section class="tool-box"><div class="tools">${btn(l.kind === 'set' ? t('playAll') : t('normal'), 'data-rate="1"')}${btn(t('slow'), 'data-rate="0.7"')}${btn(t('record'), 'data-rec')}</div><p class="rec-status muted">${t('recHelp')}</p><audio controls hidden></audio></section>
+      <section class="practice" id="practice"></section>
+      <div class="lesson-actions"><a class="secondary-btn" href="${prevUrl}">${t('prev')}</a><a class="primary-btn" id="nextBtn" href="${nextUrl}">${last ? t('nextTest') : t('next')} →</a></div>
+    </article></div></section>`;
+  const root = app();
+  root.querySelectorAll('[data-rate]').forEach(b => b.onclick = () => main.length > 1 ? Audio2.list(main, +b.dataset.rate) : Audio2.play(main[0], +b.dataset.rate));
+  root.querySelectorAll('[data-item]').forEach(b => b.onclick = () => Audio2.play(l.items[+b.dataset.item][0]));
+  root.querySelectorAll('[data-word]').forEach(b => b.onclick = () => Audio2.play(l.words[+b.dataset.word][0]));
+  root.querySelector('.hz')?.addEventListener('click', () => Audio2.play(l.hz));
+  recorder(root.querySelector('.tool-box'));
+  if (l.kind === 'char') {
+    const status = root.querySelector('#writeStatus');
+    loadHanziWriter().then(HW => {
+      const box = root.querySelector('#charBox'); box.innerHTML = '';
+      const size = Math.min(220, box.clientWidth || 220);
+      const w = HW.create(box, l.hz, {width:size, height:size, padding:8, showOutline:true, strokeColor:'#1d2a24', radicalColor:'#b3261e', delayBetweenStrokes:250});
+      root.querySelector('[data-animate]').onclick = () => { status.textContent = ''; w.animateCharacter(); };
+      root.querySelector('[data-quiz]').onclick = () => { status.textContent = ''; w.quiz({onComplete:() => { status.textContent = t('writeDone'); }}); };
+      setTimeout(() => w.animateCharacter(), 400);
+    }).catch(() => { root.querySelectorAll('[data-animate],[data-quiz]').forEach(b => b.hidden = true); });
+  }
+  // Practice: two questions; "next" stays locked until both are answered correctly.
+  const box = root.querySelector('#practice'), next = root.querySelector('#nextBtn');
+  let passed = Store.isDone(l.id), step = 0;
+  const qs2 = questionsFor(l);
+  const lock = () => { next.classList.toggle('pending', !passed); next.setAttribute('aria-disabled', String(!passed)); };
+  next.onclick = e => { if (!passed) { e.preventDefault(); box.scrollIntoView({behavior:'smooth', block:'center'}); box.querySelector('.feedback') && (box.querySelector('.feedback').textContent = t('finishFirst')); } };
+  function done() { passed = true; Store.finish(l); lock(); box.innerHTML = `<h3>${t('practiceDone')}</h3><p class="muted">${t('practiceDoneText')}</p>`; }
+  function draw() {
+    if (passed) return done();
+    const q = qs2[step];
+    box.innerHTML = `<h3>${t('practice')} ${step + 1} / 2</h3><div class="q"></div>`;
+    renderQuestion(box.querySelector('.q'), q, (ok, b) => {
+      const fb = box.querySelector('.feedback');
+      if (!ok) { b.classList.add('wrong'); fb.textContent = t('wrongAns', q.answer); Store.miss(q.item); return; }
+      b.classList.add('right'); fb.textContent = t('correct');
+      setTimeout(() => { step++; step < 2 ? draw() : done(); }, 500);
+    });
+  }
+  lock(); draw();
+}
+
+/* ---------- module test ---------- */
+function test() {
+  const c = courseById(qs('c')) || COURSES[0], mi = Math.max(0, (+qs('m') || 1) - 1), m = c.modules[mi];
+  const wrap = h => `<section class="section"><div class="container narrow"><article class="lesson-card">${h}</article></div></section>`;
+  if (!m || !moduleOpen(c, mi)) { location.replace(courseUrl(c)); return; }
+  document.title = t('testTitle', mi + 1, L(m.title)) + ' | Нихао';
+  if (!moduleDone(c, mi)) { app().innerHTML = wrap(`<h2>${t('testTitle', mi + 1, esc(L(m.title)))}</h2><p>${t('testNeedLessons')}</p><a class="primary-btn" href="${courseUrl(c)}">${t('backCourse')}</a>`); return; }
+  // Up to 10 different questions: sets and characters give new items each round.
+  const makeBank = () => { const seen = new Set(), b = []; for (let r = 0; r < 6 && b.length < 10; r++) for (const q of shuffle(m.lessons.flatMap(questionsFor))) { const k = q.prompt + '|' + (q.big || q.play) + '|' + q.answer; if (!seen.has(k) && b.length < 10) { seen.add(k); b.push(q); } } return shuffle(b); };
+  let bank = makeBank(), i = 0, right = 0, answered = false;
+  function draw() {
+    answered = false;
+    app().innerHTML = wrap(`<h2>${t('testTitle', mi + 1, esc(L(m.title)))}</h2><p class="muted">${t('qOf', i + 1, bank.length)}</p><div class="q"></div><div class="lesson-actions"><a class="secondary-btn" href="${courseUrl(c)}">${t('backCourse')}</a><button type="button" class="primary-btn" id="tNext" disabled>${i === bank.length - 1 ? t('submit') : t('nextQ')}</button></div>`);
+    const q = bank[i];
+    renderQuestion(app().querySelector('.q'), q, (ok, b) => {
+      if (answered) return; answered = true;
+      app().querySelectorAll('.option').forEach(x => { x.disabled = true; if (q.options[+x.dataset.i] === q.answer) x.classList.add('right'); });
+      if (ok) right++; else { b.classList.add('wrong'); Store.miss(q.item); }
+      app().querySelector('.feedback').textContent = ok ? t('correct') : t('answerIs', q.answer);
+      app().querySelector('#tNext').disabled = false;
+    });
+    app().querySelector('#tNext').onclick = () => { if (!answered) return; if (++i < bank.length) draw(); else result(); };
+  }
+  function result() {
+    const p = Math.round(right / bank.length * 100), ok = p >= PASS; Store.test(c, mi, p);
+    const lastModule = mi === c.modules.length - 1;
+    app().innerHTML = wrap(`<h2>${ok ? t('testPassed') : t('testFailed')}</h2><p class="score">${p}%</p><p>${t('scoreLine', right, bank.length, p)}</p><p class="muted">${ok ? (lastModule ? t('allModules') : t('nextUnlocked')) : t('tryAgainText')}</p>
+      <div class="lesson-actions"><a class="primary-btn" href="${ok && !lastModule ? (c.modules[mi + 1].lessons[0] ? lessonUrl(c.modules[mi + 1].lessons[0]) : courseUrl(c)) : courseUrl(c)}">${ok && !lastModule ? t('next') + ' →' : t('backCourse')}</a><button type="button" class="secondary-btn" id="tRetry">${t('retry')}</button></div>`);
+    app().querySelector('#tRetry').onclick = () => { bank = makeBank(); i = 0; right = 0; draw(); };
+  }
+  draw();
+}
+
+/* ---------- my learning ---------- */
+function me() {
+  const s = Store.state(), u = Auth.user(), due = Store.due();
+  const doneCount = Object.keys(s.done || {}).length;
+  app().innerHTML = `<section class="section"><div class="container narrow">
+    <h1>${t('meTitle')}</h1>
+    <div class="stats">${[[Store.streak(s.days), t('stStreak')], [(s.days || []).length, t('stDays')], [doneCount, t('stLessons')], [due.length, t('stDue')]].map(([n, l]) => `<div><b>${n}</b><small>${l}</small></div>`).join('')}</div>
+    <div class="account"><span class="eyebrow">${t('account')}</span>${u ? `<p>${esc(u.email)}<br><small class="muted">${t('synced')}</small></p>` : `<p>${t('guestText')}<br><small class="muted">${t('guestHint')}</small></p><div class="tools"><a class="primary-btn" href="auth.html?mode=signup&next=me.html">${t('signup')}</a><a class="secondary-btn" href="auth.html?next=me.html">${t('signin')}</a></div>`}</div>
+    <ul class="progress-list">${COURSES.map(c => { const all = allLessons(c), d = all.filter(l => Store.isDone(l.id)).length; return `<li><a href="${d ? nextStep(c) : courseUrl(c)}"><span class="pl-title">${c.icon} ${esc(L(c.title))}</span>${meter(pct(d, all.length))}<small>${d} / ${all.length} ${t('lessons')}</small><b>${d >= all.length ? '✓' : (d ? t('continue') : t('start')) + ' →'}</b></a></li>`; }).join('')}</ul>
+    <section id="review" class="review"><h2>${t('reviewTitle')}</h2><p class="muted">${due.length ? t('reviewN', due.length) : t('reviewEmpty')}</p><div class="review-list"></div></section>
+  </div></section>`;
+  const list = app().querySelector('.review-list');
+  due.slice(0, 12).forEach(r => {
+    const card = document.createElement('article'); card.className = 'review-card';
+    card.innerHTML = `<p class="tr">${esc(meaning(r))}</p><p class="muted">${t('sayFirst')}</p>${btn(t('showAnswer'), 'data-show')}<div hidden><p class="py">${esc(r.py)}</p><p class="hz small">${esc(r.hz)}</p>${btn(t('play'), 'data-hear')}<div class="tools">${btn(t('again'), 'data-again')}${btn(t('known'), 'data-known')}</div></div>`;
+    card.querySelector('[data-show]').onclick = e => { e.target.hidden = true; card.querySelector('div').hidden = false; Audio2.play(r.hz); };
+    card.querySelector('[data-hear]').onclick = () => Audio2.play(r.hz);
+    card.querySelector('[data-again]').onclick = () => { Store.reviewed(r.hz, false); me(); };
+    card.querySelector('[data-known]').onclick = () => { Store.reviewed(r.hz, true); me(); };
+    list.appendChild(card);
+  });
+  if (location.hash === '#review') document.getElementById('review')?.scrollIntoView();
+}
+
+/* ---------- sign in / sign up ---------- */
+function authPage() {
+  let mode = ['signup', 'forgot', 'reset'].includes(qs('mode')) ? qs('mode') : 'login';
+  const nextUrl = (() => { try { const u = new URL(qs('next') || 'index.html', location.href); return u.origin === location.origin ? u.href : 'index.html'; } catch { return 'index.html'; } })();
+  const friendly = e => { const m = String(e?.message || ''); if (/invalid login/i.test(m)) return t('authBadLogin'); if (/not confirmed/i.test(m)) return t('authUnconfirmed'); if (/fetch|network/i.test(m)) return t('authNet'); return t('authErr'); };
+  function draw(msg = '', ok = false) {
+    const title = {login:t('authTitle'), signup:t('authSignup'), forgot:t('forgot'), reset:t('setPassword')}[mode];
+    app().innerHTML = `<section class="section"><div class="container auth-wrap"><article class="lesson-card"><h1>${title}</h1><div id="already"></div>
+      <form id="authForm" novalidate>
+        ${mode === 'signup' ? `<label>${t('name')}<input id="aName" autocomplete="name"></label>` : ''}
+        ${mode !== 'reset' ? `<label>${t('email')}<input id="aEmail" type="email" autocomplete="email" required></label>` : ''}
+        ${mode !== 'forgot' ? `<label>${mode === 'reset' || mode === 'signup' ? t('newPassword') : t('password')}<input id="aPass" type="password" minlength="6" autocomplete="${mode === 'login' ? 'current-password' : 'new-password'}" required></label>` : ''}
+        <button class="primary-btn" type="submit">${{login:t('doLogin'), signup:t('doSignup'), forgot:t('sendReset'), reset:t('setPassword')}[mode]}</button>
+        <p class="feedback ${ok ? 'ok' : msg ? 'bad' : ''}" role="status">${esc(msg)}</p>
+      </form>
+      <p class="auth-links">${mode === 'login' ? `<a href="#" data-mode="signup">${t('noAccount')}</a> · <a href="#" data-mode="forgot">${t('forgot')}</a>` : mode !== 'reset' ? `<a href="#" data-mode="login">${t('haveAccount')}</a>` : ''}</p>
+    </article></div></section>`;
+    app().querySelectorAll('[data-mode]').forEach(a => a.onclick = e => { e.preventDefault(); mode = a.dataset.mode; draw(); });
+    app().querySelector('#authForm').onsubmit = async e => {
+      e.preventDefault();
+      const c = Auth.client(); if (!c) return draw(t('authNet'));
+      const email = app().querySelector('#aEmail')?.value.trim(), pass = app().querySelector('#aPass')?.value || '';
+      const b = app().querySelector('button[type=submit]'); b.disabled = true;
+      try {
+        const back = new URL('auth.html', location.href).href;
+        if (mode === 'login') { const {error} = await c.auth.signInWithPassword({email, password:pass}); if (error) throw error; draw(t('loginOk'), true); location.href = nextUrl; }
+        else if (mode === 'signup') { const {data, error} = await c.auth.signUp({email, password:pass, options:{emailRedirectTo:back, data:{display_name:app().querySelector('#aName')?.value.trim() || ''}}}); if (error) throw error; if (data.session) location.href = nextUrl; else draw(t('signupOk'), true); }
+        else if (mode === 'forgot') { const {error} = await c.auth.resetPasswordForEmail(email, {redirectTo:back + '?mode=reset'}); if (error) throw error; draw(t('resetSent'), true); }
+        else { const {error} = await c.auth.updateUser({password:pass}); if (error) throw error; mode = 'login'; draw(t('resetOk'), true); }
+      } catch (err) { draw(friendly(err)); }
+    };
+    if (mode === 'login') Auth.ready.then(() => { const u = Auth.user(); if (u) app().querySelector('#already').innerHTML = `<p class="note">${t('alreadyIn')} ${esc(u.email)}</p>`; });
+  }
+  addEventListener('nh-recovery', () => { mode = 'reset'; draw(); });
+  draw();
+}
+
+/* ---------- feedback ---------- */
+function feedback() {
+  app().innerHTML = `<section class="section"><div class="container narrow"><h1>${t('fbTitle')}</h1><p class="lead">${t('fbText')}</p>
+    <form id="fbForm" class="lesson-card" novalidate>
+      <label>${t('fbType')}<select id="fbCat">${t('fbCats').map(([v, l]) => `<option value="${v}">${l}</option>`).join('')}</select></label>
+      <label>${t('fbSubject')}<input id="fbSubject" maxlength="120"></label>
+      <label>${t('fbMessage')}<textarea id="fbMsg" rows="6" maxlength="2000" required></textarea></label>
+      <label>${t('fbEmail')}<input id="fbEmail" type="email" autocomplete="email"></label>
+      <fieldset class="rating"><legend>${t('fbRating')}</legend>${[1, 2, 3, 4, 5].map(n => `<label><input type="radio" name="rating" value="${n}"> ${'★'.repeat(n)}</label>`).join('')}</fieldset>
+      <button class="primary-btn" type="submit">${t('fbSend')}</button><p class="feedback" role="status"></p>
+    </form></div></section>`;
+  const f = app().querySelector('#fbForm'), status = f.querySelector('.feedback'), set = (m, ok) => { status.textContent = m; status.className = 'feedback ' + (ok ? 'ok' : 'bad'); };
+  Auth.ready.then(() => { const u = Auth.user(); if (u?.email) f.querySelector('#fbEmail').value = u.email; });
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const msg = f.querySelector('#fbMsg').value.trim(), email = f.querySelector('#fbEmail').value.trim();
+    if (msg.length < 5) return set(t('fbShort'));
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return set(t('fbBadEmail'));
+    const c = Auth.client(); if (!c) return set(t('fbFail'));
+    const b = f.querySelector('button'); b.disabled = true; b.textContent = t('fbSending');
+    try {
+      const u = Auth.user();
+      // Same feedback table as the main site; the subject is tagged so the two sites can be told apart.
+      const {error} = await c.from('feedback').insert([{user_id:u?.id || null, email:email || u?.email || null, category:f.querySelector('#fbCat').value,
+        subject:'[Нихао ' + lang + '] ' + f.querySelector('#fbSubject').value.trim(), message:msg, rating:+(f.querySelector('input[name=rating]:checked')?.value || 0) || null}]);
+      if (error) throw error;
+      f.reset(); if (u?.email) f.querySelector('#fbEmail').value = u.email; set(t('fbOk'), true);
+    } catch (err) { console.warn(err); set(t('fbFail')); }
+    finally { b.disabled = false; b.textContent = t('fbSend'); }
+  };
+}
+
+function about() {
+  app().innerHTML = `<section class="section"><div class="container narrow about"><h1>${t('aboutTitle')}</h1>${t('aboutText').map(p => `<p>${p}</p>`).join('')}<div class="tools"><a class="primary-btn" href="index.html">${t('start')} →</a><a class="secondary-btn" href="feedback.html">${t('navFeedback')}</a></div></div></section>`;
+}
+
+/* ---------- boot ---------- */
+async function boot() {
+  chrome();
+  const page = document.body.dataset.page;
+  if (page === 'auth') return authPage();
+  if (page === 'feedback') return feedback();
+  if (page === 'about') return about();
+  await Store.pulled; // signed-in progress first, so locks and ✓ are right
+  ({home, course, lesson, test, me})[page]?.();
+}
+window.NihaoDebug = {COURSES, Store, Audio2};
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
