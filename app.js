@@ -8,7 +8,7 @@ const T = {
     brandSub:'Қытай тілі · қазақша және орысша', navCourses:'Курстар', navMe:'Менің оқуым', navFeedback:'Кері байланыс', navAbout:'Біз туралы',
     login:'Кіру / Тіркелу', logout:'Шығу', footer:'Күн сайын аздап — қытайша сөйлеуге бір қадам жақын.',
     heroEyebrow:'Қазақ және орыс тілінде сөйлейтіндерге арналған', heroTitle:'Қытай тілін нөлден бастаңыз', heroText:'Пиньинь мен тондардан бастап, күнделікті сөйлесуге, иероглифтерге және жұмыс жағдаяттарына дейін. Әр сөйлемнің дыбысы мен жаттығуы бар. Тегін.',
-    heroBy:'Қазақстанда тұратын аудармашы жасаған', about:'Біз туралы',
+    heroBy:'Қазақстанда тұратын аудармашы жасаған', heroCourses:'Курстарды көру', hcTr:'Сәлем!', hcTones:'Төрт тон — төрт мағына', hcTap:'Басып тыңдаңыз', about:'Біз туралы',
     todayTitle:'Бүгінгі оқу', lastAt:'Соңғы сабақ', notStarted:'Әлі бастамадыңыз', startFirst:'Бірінші сабақтан бастаңыз', continue:'Жалғастыру', chooseCourse:'Курс таңдау',
     goals:'Бүгінгі мақсат', goalLesson:'1 сабақ өту', goalLessonNote:'Сабақтың жаттығуын бітірсеңіз болды', goalReview:'Қателерді қайталау', noDue:'Бүгін қайталайтын ештеңе жоқ', dueN:n=>n+' сөз қайталауды күтіп тұр',
     streak:n=>'🔥 '+n+' күн қатарынан', streak0:'Бүгін бір сабақ өтіп, сериясын бастаңыз', allDone:'Бүгінгі мақсат орындалды 🎉', go:'Бастау', review:'Қайталау',
@@ -45,7 +45,7 @@ const T = {
     brandSub:'Китайский · на казахском и русском', navCourses:'Курсы', navMe:'Моё обучение', navFeedback:'Обратная связь', navAbout:'О проекте',
     login:'Вход / Регистрация', logout:'Выйти', footer:'Понемногу каждый день — и вы заговорите по-китайски.',
     heroEyebrow:'Для тех, кто говорит по-казахски и по-русски', heroTitle:'Китайский язык с нуля', heroText:'От пиньиня и тонов до разговорных фраз, иероглифов и рабочих ситуаций. У каждой фразы есть озвучка и упражнения. Бесплатно.',
-    heroBy:'Сделано переводчиком, живущим в Казахстане', about:'О проекте',
+    heroBy:'Сделано переводчиком, живущим в Казахстане', heroCourses:'Смотреть курсы', hcTr:'Привет!', hcTones:'Четыре тона — четыре смысла', hcTap:'Нажмите, чтобы послушать', about:'О проекте',
     todayTitle:'Учёба сегодня', lastAt:'Последний урок', notStarted:'Вы ещё не начали', startFirst:'Начните с первого урока', continue:'Продолжить', chooseCourse:'Выбрать курс',
     goals:'Цели на сегодня', goalLesson:'Пройти 1 урок', goalLessonNote:'Достаточно выполнить упражнение урока', goalReview:'Повторить ошибки', noDue:'Сегодня повторять нечего', dueN:n=>n+' слов ждут повторения',
     streak:n=>'🔥 '+n+' дн. подряд', streak0:'Пройдите урок сегодня, чтобы начать серию', allDone:'Цели на сегодня выполнены 🎉', go:'Начать', review:'Повторить',
@@ -95,16 +95,16 @@ const uniq = a => [...new Set(a)];
 const NH = window.NH;
 const say = (r, extra) => ({ kind:'say', hz:r[0], py:r[1], kk:r[2], ru:r[3], note:r[4], ...extra });
 const COURSES = [
-  { id:'pinyin', icon:'🔤', title:{kk:'Пиньинь және тондар', ru:'Пиньинь и тоны'},
+  { id:'pinyin', icon:'拼', title:{kk:'Пиньинь және тондар', ru:'Пиньинь и тоны'},
     desc:{kk:'Қытай тілінің дыбыстары, төрт тон және буын оқу. Бәрі осыдан басталады.', ru:'Звуки китайского, четыре тона и чтение слогов. С этого начинается всё.'},
     modules: NH.pinyin.map(m => ({ title:m.title, lessons:m.lessons })) },
-  { id:'daily', icon:'💬', title:{kk:'Күнделікті сөйлесу', ru:'Разговорный китайский'},
+  { id:'daily', icon:'说', title:{kk:'Күнделікті сөйлесу', ru:'Разговорный китайский'},
     desc:{kk:'Сәлемдесу, танысу, сандар, уақыт, дүкен, жол сұрау, жұмыс. Әр сөйлем пиньиньмен.', ru:'Приветствие, знакомство, числа, время, покупки, дорога, работа. Каждая фраза с пиньинем.'},
     modules: NH.daily.map(m => ({ title:m.title, lessons:m.lessons.map(l => Array.isArray(l) ? say(l) : l) })) },
-  { id:'hanzi', icon:'✍️', title:{kk:'Негізгі иероглифтер', ru:'Базовые иероглифы'},
+  { id:'hanzi', icon:'字', title:{kk:'Негізгі иероглифтер', ru:'Базовые иероглифы'},
     desc:{kk:'Ең жиі кездесетін 46 иероглиф: жазылу реті, оқылуы, мағынасы және мысал сөздер.', ru:'46 самых частых иероглифов: порядок черт, чтение, значение и примеры слов.'},
     modules: NH.hanzi.map(m => ({ title:m.title, lessons:m.chars.map(c => ({ kind:'char', hz:c[0], py:c[1], kk:c[2], ru:c[3], words:c[4] })) })) },
-  { id:'scenes', icon:'🏢', open:true, title:{kk:'Өмір мен жұмыс жағдаяттары', ru:'Ситуации: жизнь и работа'},
+  { id:'scenes', icon:'场', open:true, title:{kk:'Өмір мен жұмыс жағдаяттары', ru:'Ситуации: жизнь и работа'},
     desc:{kk:'Такси, банк, мейрамхана, құжаттар, зауыт, логистика — 16 жағдаят, 99 сөйлем.', ru:'Такси, банк, ресторан, документы, завод, логистика — 16 ситуаций, 99 фраз.'},
     modules: NH.scenes.map(s => ({ title:{kk:NH.sceneTitles[s.id][0], ru:NH.sceneTitles[s.id][1]}, icon:s.icon, lessons:s.items.map(r => say(r)) })) }
 ];
@@ -113,6 +113,11 @@ const courseById = id => COURSES.find(c => c.id === id);
 const allLessons = c => c.modules.flatMap(m => m.lessons);
 const lessonTitle = l => l.kind === 'set' ? L(l.title) : l.hz;
 const meaning = x => Array.isArray(x) ? (lang === 'kk' ? x[2] : x[3]) : (lang === 'kk' ? x.kk : x.ru);
+// Pinyin with each tone-marked vowel coloured by its tone (1 red, 2 orange, 3 green, 4 blue).
+const TONE = {};
+['āēīōūǖ', 'áéíóúǘ', 'ǎěǐǒǔǚ', 'àèìòùǜ'].forEach((v, i) => [...v].forEach(ch => { TONE[ch] = i + 1; }));
+const toneHtml = py => esc(py).replace(/[āēīōūǖáéíóúǘǎěǐǒǔǚàèìòùǜ]/g, ch => '<b class="t' + TONE[ch] + '">' + ch + '</b>');
+const glyph = c => '<span class="glyph g-' + c.id + '" aria-hidden="true">' + c.icon + '</span>';
 
 /* ---------- audio: recorded clips (zh.bin + index.json), device voice as fallback ---------- */
 const Audio2 = (() => {
@@ -264,6 +269,8 @@ const findLesson = id => { for (const c of COURSES) for (const l of allLessons(c
 function chrome() {
   document.documentElement.lang = lang === 'kk' ? 'kk' : 'ru';
   document.querySelectorAll('[data-t]').forEach(el => { el.innerHTML = t(el.dataset.t); });
+  const section = {me:'me', feedback:'feedback', about:'about'}[document.body.dataset.page] || 'home';
+  document.querySelectorAll('[data-nav]').forEach(a => { if (a.dataset.nav === section) a.setAttribute('aria-current', 'page'); });
   document.querySelectorAll('.lang-switch button').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang); b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
     b.onclick = () => { if (b.dataset.lang === lang) return; try { localStorage.setItem(LANG_KEY, b.dataset.lang); } catch {} location.reload(); };
@@ -288,16 +295,20 @@ function home() {
     {ok:d.lessons >= 1, label:t('goalLesson'), note:t('goalLessonNote'), url:last ? lessonUrl(last) : nextStep(COURSES[0]), b:t('go')},
     {ok:due === 0, label:t('goalReview'), note:due ? t('dueN', due) : t('noDue'), url:'me.html#review', b:t('review')}
   ];
-  const card = `<span class="eyebrow">${t('todayTitle')}</span>
-    <div class="today-last">${last ? `<small>${t('lastAt')}</small><strong>${esc(L(last.course.title))} · ${esc(lessonTitle(last))}</strong><a class="primary-btn" href="${lessonUrl(last)}">${t('continue')} →</a>`
-      : `<small>${t('notStarted')}</small><strong>${t('startFirst')}</strong><a class="primary-btn" href="${nextStep(COURSES[0])}">${t('start')} →</a>`}</div>
-    <h2>${goals.every(g => g.ok) ? t('allDone') : t('goals')}</h2>
+  // Today strip: where to continue · today's goals · streak (+ sign-up hint for guests).
+  const startUrl = last ? lessonUrl(last) : nextStep(COURSES[0]);
+  const card = `<div class="today-main"><span class="eyebrow">${t('todayTitle')}</span>${last ? `<small>${t('lastAt')}</small><strong>${esc(L(last.course.title))} · ${esc(lessonTitle(last))}</strong><a class="primary-btn" href="${startUrl}">${t('continue')} →</a>`
+      : `<small>${t('notStarted')}</small><strong>${t('startFirst')}</strong><a class="primary-btn" href="${startUrl}">${t('start')} →</a>`}</div>
+    <div class="today-goals"><h3>${goals.every(g => g.ok) ? t('allDone') : t('goals')}</h3>
     <ul class="goals">${goals.map(g => `<li class="${g.ok ? 'done' : ''}"><span class="mark">${g.ok ? '✓' : ''}</span><span><b>${g.label}</b><small>${esc(g.note)}</small></span><a class="goal-btn" href="${g.url}">${g.b} →</a></li>`).join('')}</ul>
-    <p class="streak">${Store.streak(s.days) ? t('streak', Store.streak(s.days)) : t('streak0')}</p>${Auth.user() ? '' : `<p class="signup-hint">💾 ${t('signupHint')}</p>`}`;
+    <p class="streak">${Store.streak(s.days) ? t('streak', Store.streak(s.days)) : t('streak0')}</p></div>${Auth.user() ? '' : `<p class="signup-hint">💾 ${t('signupHint')}</p>`}`;
   document.getElementById('todayCard').innerHTML = card;
+  const heroStart = document.getElementById('heroStart'); if (heroStart) { heroStart.href = startUrl; heroStart.textContent = (last ? t('continue') : t('start')) + ' →'; }
+  const heroPlay = document.getElementById('heroPlay'); if (heroPlay) heroPlay.onclick = () => Audio2.play('你好！');
+  document.querySelectorAll('[data-tone]').forEach(b => b.onclick = () => Audio2.play(b.dataset.tone));
   document.getElementById('courseList').innerHTML = COURSES.map((c, i) => {
     const all = allLessons(c), dn = all.filter(l => Store.isDone(l.id)).length, p = pct(dn, all.length);
-    return `<article class="course-card"><div class="course-num">${i + 1}</div><div class="course-body"><h3>${c.icon} ${esc(L(c.title))}</h3><p>${esc(L(c.desc))}</p>${meter(p)}<small>${dn} / ${all.length} ${t('lessons')} · ${c.modules.length} ${t('modules')}</small></div><a class="primary-btn" href="${dn ? nextStep(c) : courseUrl(c)}">${dn ? t('continue') : t('open')} →</a></article>`;
+    return `<a class="course-card" href="${dn ? nextStep(c) : courseUrl(c)}"><div class="course-top">${glyph(c)}<span class="course-step">${i + 1}</span></div><h3>${esc(L(c.title))}</h3><p>${esc(L(c.desc))}</p><div class="course-foot">${meter(p)}<small>${dn} / ${all.length} ${t('lessons')} · ${c.modules.length} ${t('modules')}</small></div><span class="course-go">${dn ? t('continue') : t('open')} →</span></a>`;
   }).join('');
 }
 
@@ -307,7 +318,7 @@ function course() {
   document.title = L(c.title) + ' | Нихао';
   const current = c.modules.findIndex((m, mi) => moduleOpen(c, mi) && (!moduleDone(c, mi) || (!c.open && Store.best(c, mi) < PASS)));
   app().innerHTML = `<section class="section"><div class="container narrow">
-    <span class="eyebrow">${c.icon}</span><h1>${esc(L(c.title))}</h1><p class="lead">${esc(L(c.desc))}</p>
+    <div class="course-head">${glyph(c)}<div><h1>${esc(L(c.title))}</h1><p class="lead">${esc(L(c.desc))}</p></div></div>
     <div class="course-progress">${meter(pct(dn, all.length))}<small>${dn} / ${all.length} ${t('lessons')}</small></div>
     <p class="rule">${t(c.open ? 'courseOpenRule' : 'courseRule')}</p>
     ${c.modules.map((m, mi) => {
@@ -350,7 +361,7 @@ function questionsFor(l) {
   ];
 }
 function renderQuestion(host, q, onAnswer) {
-  host.innerHTML = `<p class="q-prompt">${esc(q.prompt)}</p>${q.big ? `<p class="q-big ${/[一-鿿]/.test(q.big) ? 'zh' : ''}">${esc(q.big)}</p>` : ''}${q.sub ? `<p class="q-sub">${esc(q.sub)}</p>` : ''}${q.play ? btn(t('play'), 'class="play-btn" data-play') : ''}
+  host.innerHTML = `<p class="q-prompt">${esc(q.prompt)}</p>${q.big ? `<p class="q-big ${/[一-鿿]/.test(q.big) ? 'zh' : ''}">${esc(q.big)}</p>` : ''}${q.sub ? `<p class="q-sub">${toneHtml(q.sub)}</p>` : ''}${q.play ? btn(t('play'), 'class="play-btn" data-play') : ''}
     <div class="options">${q.options.map((o, i) => `<button type="button" class="option ${q.zhOptions ? 'zh' : ''}" data-i="${i}">${esc(o)}</button>`).join('')}</div><p class="feedback" role="status"></p>`;
   const p = host.querySelector('[data-play]'); if (p) { p.onclick = () => Audio2.play(q.play); }
   host.querySelectorAll('.option').forEach(b => b.onclick = () => onAnswer(q.options[+b.dataset.i] === q.answer, b));
@@ -389,10 +400,10 @@ function lesson() {
   const nextUrl = last ? (c.open && !moduleDone(c, l.mi) ? courseUrl(c) : testUrl(c, l.mi)) : lessonUrl(m.lessons[l.li + 1]);
   document.title = lessonTitle(l) + ' | ' + L(c.title) + ' | Нихао';
   let body = '';
-  if (l.kind === 'say') body = `<p class="py">${esc(l.py)}</p><p class="hz">${esc(l.hz)}</p><p class="tr">${esc(meaning(l))}</p>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}`;
-  if (l.kind === 'set') body = `<h2 class="set-title">${esc(L(l.title))}</h2>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}<div class="items">${l.items.map((x, i) => `<button type="button" class="item" data-item="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${esc(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
-  if (l.kind === 'char') body = `<div class="char-wrap"><div class="char-box" id="charBox" aria-label="${esc(l.hz)}"><span class="char-fallback">${esc(l.hz)}</span></div><div class="char-info"><p class="py">${esc(l.py)}</p><p class="tr">${esc(meaning(l))}</p><div class="tools">${btn(t('strokes'), 'data-animate')}${btn(t('tryWrite'), 'data-quiz')}</div><p class="feedback" id="writeStatus" role="status"></p></div></div>
-    <h3 class="words-title">${t('words')}</h3><div class="items">${l.words.map((x, i) => `<button type="button" class="item" data-word="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${esc(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
+  if (l.kind === 'say') body = `<p class="py">${toneHtml(l.py)}</p><p class="hz">${esc(l.hz)}</p><p class="tr">${esc(meaning(l))}</p>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}`;
+  if (l.kind === 'set') body = `<h2 class="set-title">${esc(L(l.title))}</h2>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}<div class="items">${l.items.map((x, i) => `<button type="button" class="item" data-item="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
+  if (l.kind === 'char') body = `<div class="char-wrap"><div class="char-box" id="charBox" aria-label="${esc(l.hz)}"><span class="char-fallback">${esc(l.hz)}</span></div><div class="char-info"><p class="py">${toneHtml(l.py)}</p><p class="tr">${esc(meaning(l))}</p><div class="tools">${btn(t('strokes'), 'data-animate')}${btn(t('tryWrite'), 'data-quiz')}</div><p class="feedback" id="writeStatus" role="status"></p></div></div>
+    <h3 class="words-title">${t('words')}</h3><div class="items">${l.words.map((x, i) => `<button type="button" class="item" data-word="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
   const main = l.kind === 'set' ? l.items.map(x => x[0]) : [l.hz];
   app().innerHTML = `<section class="section lesson-section"><div class="container narrow">
     <div class="lesson-top"><a href="${courseUrl(c)}">${t('back')}</a>${c.id === 'pinyin' ? '' : '<button type="button" class="py-toggle" id="pyToggle"></button>'}<span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
@@ -485,13 +496,13 @@ function me() {
     <h1>${t('meTitle')}</h1>
     <div class="stats">${[[Store.streak(s.days), t('stStreak')], [(s.days || []).length, t('stDays')], [doneCount, t('stLessons')], [due.length, t('stDue')]].map(([n, l]) => `<div><b>${n}</b><small>${l}</small></div>`).join('')}</div>
     <div class="account"><span class="eyebrow">${t('account')}</span>${u ? `<p>${esc(u.email)}<br><small class="muted">${t('synced')}</small></p>` : `<p>${t('guestText')}<br><small class="muted">${t('guestHint')}</small></p><div class="tools"><a class="primary-btn" href="auth.html?mode=signup&next=me.html">${t('signup')}</a><a class="secondary-btn" href="auth.html?next=me.html">${t('signin')}</a></div>`}</div>
-    <ul class="progress-list">${COURSES.map(c => { const all = allLessons(c), d = all.filter(l => Store.isDone(l.id)).length; return `<li><a href="${d ? nextStep(c) : courseUrl(c)}"><span class="pl-title">${c.icon} ${esc(L(c.title))}</span>${meter(pct(d, all.length))}<small>${d} / ${all.length} ${t('lessons')}</small><b>${d >= all.length ? '✓' : (d ? t('continue') : t('start')) + ' →'}</b></a></li>`; }).join('')}</ul>
+    <ul class="progress-list">${COURSES.map(c => { const all = allLessons(c), d = all.filter(l => Store.isDone(l.id)).length; return `<li><a href="${d ? nextStep(c) : courseUrl(c)}"><span class="pl-title">${glyph(c)} ${esc(L(c.title))}</span>${meter(pct(d, all.length))}<small>${d} / ${all.length} ${t('lessons')}</small><b>${d >= all.length ? '✓' : (d ? t('continue') : t('start')) + ' →'}</b></a></li>`; }).join('')}</ul>
     <section id="review" class="review"><h2>${t('reviewTitle')}</h2><p class="muted">${due.length ? t('reviewN', due.length) : t('reviewEmpty')}</p><div class="review-list"></div></section>
   </div></section>`;
   const list = app().querySelector('.review-list');
   due.slice(0, 12).forEach(r => {
     const card = document.createElement('article'); card.className = 'review-card';
-    card.innerHTML = `<p class="tr">${esc(meaning(r))}</p><p class="muted">${t('sayFirst')} · ${t('syll', [...r.hz].filter(ch => /[一-鿿]/.test(ch)).length)}</p>${btn(t('showAnswer'), 'data-show')}<div hidden><p class="py">${esc(r.py)}</p><p class="hz small">${esc(r.hz)}</p>${btn(t('play'), 'data-hear')}<div class="tools">${btn(t('again'), 'data-again')}${btn(t('known'), 'data-known')}</div></div>`;
+    card.innerHTML = `<p class="tr">${esc(meaning(r))}</p><p class="muted">${t('sayFirst')} · ${t('syll', [...r.hz].filter(ch => /[一-鿿]/.test(ch)).length)}</p>${btn(t('showAnswer'), 'data-show')}<div hidden><p class="py">${toneHtml(r.py)}</p><p class="hz small">${esc(r.hz)}</p>${btn(t('play'), 'data-hear')}<div class="tools">${btn(t('again'), 'data-again')}${btn(t('known'), 'data-known')}</div></div>`;
     card.querySelector('[data-show]').onclick = e => { e.target.hidden = true; card.querySelector('div').hidden = false; Audio2.play(r.hz); };
     card.querySelector('[data-hear]').onclick = () => Audio2.play(r.hz);
     card.querySelector('[data-again]').onclick = () => { Store.reviewed(r.hz, false); me(); };
