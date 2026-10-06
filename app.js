@@ -39,7 +39,7 @@ const T = {
     fbCats:[['课程建议','Курс туралы ұсыныс'],['内容纠错','Қате табылды'],['网站问题','Сайт жұмысы'],['账号问题','Аккаунт'],['其他','Басқа']],
     aboutTitle:'Неге бұл сайтты жасадым',
     aboutText:['Мен 2013 жылы Қытайдан Қазақстанға көшіп келдім. Қазір аудармашымын, күн сайын қытай, қазақ және орыс тілдерінде жұмыс істеймін.','Қазақстанда қытай компанияларында жұмыс істейтіндер, Қытайда оқығысы келетіндер көп. Бірақ қазақ және орыс тілінде қытай тілін нөлден үйрететін тегін, қарапайым материал аз. Сондықтан осы сайтты жасадым.','Сайт тегін. Пиньинь мен тондардан бастап, күнделікті сөйлесуге, иероглифтерге және жұмыс жағдаяттарына дейін — әр сөйлемнің дыбысы мен жаттығуы бар.','Қате тапсаңыз немесе қандай сабақ керек екенін айтқыңыз келсе, <a href="feedback.html">кері байланыс</a> бетінде жазыңыз.'],
-    loading:'Жүктелуде…', notFound:'Сабақ табылмады.'
+    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
   },
   ru: {
     brandSub:'Китайский · на казахском и русском', navCourses:'Курсы', navMe:'Моё обучение', navFeedback:'Обратная связь', navAbout:'О проекте',
@@ -76,7 +76,7 @@ const T = {
     fbCats:[['课程建议','Предложение по курсу'],['内容纠错','Нашёл ошибку'],['网站问题','Проблема с сайтом'],['账号问题','Аккаунт'],['其他','Другое']],
     aboutTitle:'Зачем я сделал этот сайт',
     aboutText:['В 2013 году я переехал из Китая в Казахстан. Сейчас я переводчик и каждый день работаю с китайским, казахским и русским языками.','В Казахстане много людей работают в китайских компаниях или хотят учиться в Китае. Но бесплатных и понятных материалов, которые учат китайскому с нуля на казахском и русском, мало. Поэтому я сделал этот сайт.','Сайт бесплатный. От пиньиня и тонов до разговорных фраз, иероглифов и рабочих ситуаций — у каждой фразы есть озвучка и упражнения.','Если нашли ошибку или хотите предложить тему урока, напишите на странице <a href="feedback.html">обратной связи</a>.'],
-    loading:'Загрузка…', notFound:'Урок не найден.'
+    loading:'Загрузка…', notFound:'Урок не найден.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
   }
 };
 const LANG_KEY = 'nihao-ui';
@@ -276,6 +276,7 @@ function chrome() {
   });
 }
 const app = () => document.getElementById('app');
+const pyHidden = () => { try { return localStorage.getItem('nihao-py') === 'off'; } catch { return false; } };
 const btn = (label, attrs = '') => `<button type="button" ${attrs}>${label}</button>`;
 const pct = (a, b) => Math.round(a / (b || 1) * 100);
 const meter = p => `<span class="meter" role="progressbar" aria-valuenow="${p}" aria-valuemin="0" aria-valuemax="100"><i style="width:${p}%"></i></span>`;
@@ -394,13 +395,18 @@ function lesson() {
     <h3 class="words-title">${t('words')}</h3><div class="items">${l.words.map((x, i) => `<button type="button" class="item" data-word="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${esc(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
   const main = l.kind === 'set' ? l.items.map(x => x[0]) : [l.hz];
   app().innerHTML = `<section class="section lesson-section"><div class="container narrow">
-    <div class="lesson-top"><a href="${courseUrl(c)}">${t('back')}</a><span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
+    <div class="lesson-top"><a href="${courseUrl(c)}">${t('back')}</a>${c.id === 'pinyin' ? '' : '<button type="button" class="py-toggle" id="pyToggle"></button>'}<span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
     <article class="lesson-card">${body}
       <section class="tool-box"><div class="tools">${btn(l.kind === 'set' ? t('playAll') : t('normal'), 'data-rate="1"')}${btn(t('slow'), 'data-rate="0.7"')}${btn(t('record'), 'data-rec')}</div><p class="rec-status muted">${t('recHelp')}</p><audio controls hidden></audio></section>
       <section class="practice" id="practice"></section>
       <div class="lesson-actions"><a class="secondary-btn" href="${prevUrl}">${t('prev')}</a><a class="primary-btn" id="nextBtn" href="${nextUrl}">${last ? t('nextTest') : t('next')} →</a></div>
     </article></div></section>`;
   const root = app();
+  // Hide pinyin to practise reading characters (the pinyin course always shows it).
+  const pyBtn = root.querySelector('#pyToggle');
+  const pyApply = () => { const off = c.id !== 'pinyin' && pyHidden(); document.body.classList.toggle('no-py', off); if (pyBtn) pyBtn.textContent = off ? t('pyOn') : t('pyOff'); };
+  if (pyBtn) pyBtn.onclick = () => { try { localStorage.setItem('nihao-py', pyHidden() ? 'on' : 'off'); } catch {} pyApply(); };
+  pyApply();
   root.querySelectorAll('[data-rate]').forEach(b => b.onclick = () => main.length > 1 ? Audio2.list(main, +b.dataset.rate) : Audio2.play(main[0], +b.dataset.rate));
   root.querySelectorAll('[data-item]').forEach(b => b.onclick = () => Audio2.play(l.items[+b.dataset.item][0]));
   root.querySelectorAll('[data-word]').forEach(b => b.onclick = () => Audio2.play(l.words[+b.dataset.word][0]));
@@ -485,7 +491,7 @@ function me() {
   const list = app().querySelector('.review-list');
   due.slice(0, 12).forEach(r => {
     const card = document.createElement('article'); card.className = 'review-card';
-    card.innerHTML = `<p class="tr">${esc(meaning(r))}</p><p class="muted">${t('sayFirst')}</p>${btn(t('showAnswer'), 'data-show')}<div hidden><p class="py">${esc(r.py)}</p><p class="hz small">${esc(r.hz)}</p>${btn(t('play'), 'data-hear')}<div class="tools">${btn(t('again'), 'data-again')}${btn(t('known'), 'data-known')}</div></div>`;
+    card.innerHTML = `<p class="tr">${esc(meaning(r))}</p><p class="muted">${t('sayFirst')} · ${t('syll', [...r.hz].filter(ch => /[一-鿿]/.test(ch)).length)}</p>${btn(t('showAnswer'), 'data-show')}<div hidden><p class="py">${esc(r.py)}</p><p class="hz small">${esc(r.hz)}</p>${btn(t('play'), 'data-hear')}<div class="tools">${btn(t('again'), 'data-again')}${btn(t('known'), 'data-known')}</div></div>`;
     card.querySelector('[data-show]').onclick = e => { e.target.hidden = true; card.querySelector('div').hidden = false; Audio2.play(r.hz); };
     card.querySelector('[data-hear]').onclick = () => Audio2.play(r.hz);
     card.querySelector('[data-again]').onclick = () => { Store.reviewed(r.hz, false); me(); };

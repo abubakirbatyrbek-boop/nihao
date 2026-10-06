@@ -143,3 +143,8 @@ input,select,textarea{font:inherit;padding:10px 12px;border:1px solid #d9cdbd;bo
 .about p{font-size:17px;line-height:1.8}.about a{color:var(--red)}
 @media(max-width:640px){.tool-box .tools button{white-space:nowrap;font-size:15px}}
 .hero .hero-zh{font:700 64px/1 var(--zh);color:var(--red);margin:0 0 8px}@media(max-width:640px){.hero .hero-zh{font-size:48px}.nav-wrap{gap:10px}.nav-right{margin-left:auto}}
+
+/* pinyin toggle */
+.py-toggle{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 12px;cursor:pointer}
+body.no-py .py,body.no-py .item-py,body.no-py .q-sub{visibility:hidden}
+.lesson-top{align-items:center}
