@@ -39,7 +39,7 @@ const T = {
     fbCats:[['课程建议','Курс туралы ұсыныс'],['内容纠错','Қате табылды'],['网站问题','Сайт жұмысы'],['账号问题','Аккаунт'],['其他','Басқа']],
     aboutTitle:'Неге бұл сайтты жасадым',
     aboutText:['Мен 2013 жылы Қытайдан Қазақстанға көшіп келдім. Қазір аудармашымын, күн сайын қытай, қазақ және орыс тілдерінде жұмыс істеймін.','Қазақстанда қытай компанияларында жұмыс істейтіндер, Қытайда оқығысы келетіндер көп. Бірақ қазақ және орыс тілінде қытай тілін нөлден үйрететін тегін, қарапайым материал аз. Сондықтан осы сайтты жасадым.','Сайт тегін. Пиньинь мен тондардан бастап, күнделікті сөйлесуге, иероглифтерге және жұмыс жағдаяттарына дейін — әр сөйлемнің дыбысы мен жаттығуы бар.','Қате тапсаңыз немесе қандай сабақ керек екенін айтқыңыз келсе, <a href="feedback.html">кері байланыс</a> бетінде жазыңыз.'],
-    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', grammar:'Грамматика', qSentence:'Сөйлемнің мағынасын таңдаңыз', qHearSentence:'Тыңдап, сөйлемнің мағынасын таңдаңыз', qFill:'Бос орынға сәйкес сөзді таңдаңыз', qOrder:'Сөздерді дұрыс ретпен басыңыз', check:'Тексеру', hskTitle:'HSK-ға дайындық', hskText:'HSK 3.0 — Қытайдың ресми тіл емтиханы, 1-ден 9-ға дейін деңгей. Ресми сөздер тізімімен оқып, сынақ тест тапсырыңыз.', hskWords:n=>n+' сөз', hskLearn:'Сөздерді оқу', hskMock:'Сынақ тест', hskSoon:'Келесі деңгейлер дайындалуда. Алдымен 1–2-деңгейді меңгеріңіз.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'HSK '+l+' сөздері мен грамматикасы бойынша 40 сұрақ: 20 тыңдау, 20 оқу (сөздер, сөйлемдер, бос орын). Өту шегі — 60%.', mockStart:'Тестті бастау', mockTitle:l=>'HSK '+l+' сынақ тесті', secListen:'Тыңдау', secRead:'Оқу', qHearChar:'Тыңдап, иероглифті таңдаңыз', qPinyin:'Пиньиньге сай иероглифті таңдаңыз', mockNote:'Бұл ресми емтихан емес, бірақ формасы HSK-ға ұқсас: тыңдау және оқу. Қате жауаптар қайталау тізіміне түседі.', mockPassed:'Өту шегінен асты!', mockFailed:'Әзірге 60%-ға жетпеді', mockAfter:'Қате сөздер «Қайталау» бөліміне қосылды. Оларды қайталап, тестті қайта тапсырыңыз.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
+    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', tabWords:'Сөздер', tabGram:'Грамматика', mockShort:'40 сұрақ · 60% өту шегі', grammar:'Грамматика', qSentence:'Сөйлемнің мағынасын таңдаңыз', qHearSentence:'Тыңдап, сөйлемнің мағынасын таңдаңыз', qFill:'Бос орынға сәйкес сөзді таңдаңыз', qOrder:'Сөздерді дұрыс ретпен басыңыз', check:'Тексеру', hskTitle:'HSK-ға дайындық', hskText:'HSK 3.0 — Қытайдың ресми тіл емтиханы, 1-ден 9-ға дейін деңгей. Ресми сөздер тізімімен оқып, сынақ тест тапсырыңыз.', hskWords:n=>n+' сөз', hskLearn:'Сөздерді оқу', hskMock:'Сынақ тест', hskSoon:'Келесі деңгейлер дайындалуда. Алдымен 1–2-деңгейді меңгеріңіз.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'HSK '+l+' сөздері мен грамматикасы бойынша 40 сұрақ: 20 тыңдау, 20 оқу (сөздер, сөйлемдер, бос орын). Өту шегі — 60%.', mockStart:'Тестті бастау', mockTitle:l=>'HSK '+l+' сынақ тесті', secListen:'Тыңдау', secRead:'Оқу', qHearChar:'Тыңдап, иероглифті таңдаңыз', qPinyin:'Пиньиньге сай иероглифті таңдаңыз', mockNote:'Бұл ресми емтихан емес, бірақ формасы HSK-ға ұқсас: тыңдау және оқу. Қате жауаптар қайталау тізіміне түседі.', mockPassed:'Өту шегінен асты!', mockFailed:'Әзірге 60%-ға жетпеді', mockAfter:'Қате сөздер «Қайталау» бөліміне қосылды. Оларды қайталап, тестті қайта тапсырыңыз.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
   },
   ru: {
     brandSub:'Китайский · на казахском и русском', navCourses:'Курсы', navMe:'Моё обучение', navFeedback:'Обратная связь', navAbout:'О проекте',
@@ -76,7 +76,7 @@ const T = {
     fbCats:[['课程建议','Предложение по курсу'],['内容纠错','Нашёл ошибку'],['网站问题','Проблема с сайтом'],['账号问题','Аккаунт'],['其他','Другое']],
     aboutTitle:'Зачем я сделал этот сайт',
     aboutText:['В 2013 году я переехал из Китая в Казахстан. Сейчас я переводчик и каждый день работаю с китайским, казахским и русским языками.','В Казахстане много людей работают в китайских компаниях или хотят учиться в Китае. Но бесплатных и понятных материалов, которые учат китайскому с нуля на казахском и русском, мало. Поэтому я сделал этот сайт.','Сайт бесплатный. От пиньиня и тонов до разговорных фраз, иероглифов и рабочих ситуаций — у каждой фразы есть озвучка и упражнения.','Если нашли ошибку или хотите предложить тему урока, напишите на странице <a href="feedback.html">обратной связи</a>.'],
-    loading:'Загрузка…', notFound:'Урок не найден.', grammar:'Грамматика', qSentence:'Выберите значение предложения', qHearSentence:'Послушайте и выберите значение предложения', qFill:'Выберите слово для пропуска', qOrder:'Нажимайте слова в правильном порядке', check:'Проверить', hskTitle:'Подготовка к HSK', hskText:'HSK 3.0 — официальный экзамен по китайскому языку, уровни с 1 по 9. Учите слова по официальному списку и проходите пробный тест.', hskWords:n=>n+' слов', hskLearn:'Учить слова', hskMock:'Пробный тест', hskSoon:'Следующие уровни готовятся. Сначала освойте уровни 1–2.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'40 вопросов по словам и грамматике HSK '+l+': 20 на аудирование, 20 на чтение (слова, предложения, пропуски). Проходной балл — 60%.', mockStart:'Начать тест', mockTitle:l=>'Пробный тест HSK '+l, secListen:'Аудирование', secRead:'Чтение', qHearChar:'Послушайте и выберите иероглиф', qPinyin:'Выберите иероглиф по пиньиню', mockNote:'Это не официальный экзамен, но формат похож на HSK: аудирование и чтение. Ошибки попадут в повторение.', mockPassed:'Проходной балл набран!', mockFailed:'Пока меньше 60%', mockAfter:'Слова с ошибками добавлены в «Повторение». Повторите их и пройдите тест ещё раз.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
+    loading:'Загрузка…', notFound:'Урок не найден.', tabWords:'Слова', tabGram:'Грамматика', mockShort:'40 вопросов · проходной 60%', grammar:'Грамматика', qSentence:'Выберите значение предложения', qHearSentence:'Послушайте и выберите значение предложения', qFill:'Выберите слово для пропуска', qOrder:'Нажимайте слова в правильном порядке', check:'Проверить', hskTitle:'Подготовка к HSK', hskText:'HSK 3.0 — официальный экзамен по китайскому языку, уровни с 1 по 9. Учите слова по официальному списку и проходите пробный тест.', hskWords:n=>n+' слов', hskLearn:'Учить слова', hskMock:'Пробный тест', hskSoon:'Следующие уровни готовятся. Сначала освойте уровни 1–2.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'40 вопросов по словам и грамматике HSK '+l+': 20 на аудирование, 20 на чтение (слова, предложения, пропуски). Проходной балл — 60%.', mockStart:'Начать тест', mockTitle:l=>'Пробный тест HSK '+l, secListen:'Аудирование', secRead:'Чтение', qHearChar:'Послушайте и выберите иероглиф', qPinyin:'Выберите иероглиф по пиньиню', mockNote:'Это не официальный экзамен, но формат похож на HSK: аудирование и чтение. Ошибки попадут в повторение.', mockPassed:'Проходной балл набран!', mockFailed:'Пока меньше 60%', mockAfter:'Слова с ошибками добавлены в «Повторение». Повторите их и пройдите тест ещё раз.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
   }
 };
 const LANG_KEY = 'nihao-ui';
@@ -119,7 +119,7 @@ const COURSES = [
   }
   // Grammar: official HSK 3.0 grammar points of the level, grouped into lessons (pattern, explanation, 3 examples).
   const gram = (NH.hskGrammar || {})[h.level] || [];
-  gram.forEach(g => modules.push({ gram:true, title:{kk:'Грамматика: ' + g.t[0], ru:'Грамматика: ' + g.t[1]},
+  gram.forEach(g => modules.push({ gram:true, title:{kk:g.t[0], ru:g.t[1]},
     lessons:g.lessons.map(x => ({ kind:'gram', title:{kk:x.t[0], ru:x.t[1]}, pat:x.p, note:{kk:x.n[0], ru:x.n[1]}, refs:x.r, ex:x.e })) }));
   const nGram = gram.reduce((k, g) => k + g.lessons.length, 0);
   COURSES.push({ id:'hsk' + h.level, icon:String(h.level), hsk:h.level, open:true,
@@ -276,7 +276,9 @@ const moduleOpen = (c, mi) => c.open || mi === 0 || Store.best(c, mi - 1) >= PAS
 const moduleDone = (c, mi) => c.modules[mi].lessons.every(l => Store.isDone(l.id));
 const lessonUrl = l => `lesson.html?c=${l.course.id}&l=${l.id}`;
 const testUrl = (c, mi) => `test.html?c=${c.id}&m=${mi + 1}`;
-const courseUrl = c => `course.html?c=${c.id}`;
+// HSK courses have two tabs: words and grammar (part = 'words' | 'gram').
+const courseUrl = (c, part) => `course.html?c=${c.id}${part ? '&tab=' + part : ''}`;
+const modPart = (c, mi) => c.hsk ? (c.modules[mi]?.gram ? 'gram' : 'words') : '';
 function nextStep(c) { // first unfinished lesson in an open module
   for (let mi = 0; mi < c.modules.length; mi++) {
     if (!moduleOpen(c, mi)) break;
@@ -332,9 +334,13 @@ function home() {
   // HSK section: one card per level, plus the levels still to come.
   const hskList = document.getElementById('hskList');
   if (hskList) hskList.innerHTML = COURSES.filter(c => c.hsk).map(c => {
-    const all = allLessons(c), dn = all.filter(l => Store.isDone(l.id)).length, best = Store.state().tests?.[c.id + ':mock'] || 0;
-    return `<article class="course-card hsk-card"><div class="course-top">${glyph(c)}<span class="course-step">${t('hskWords', c.modules.reduce((n, m) => n + m.lessons.reduce((k, l) => k + (l.items?.length || 0), 0), 0))}</span></div><h3>${esc(L(c.title))}</h3><p>${esc(L(c.desc))}</p><div class="course-foot">${meter(pct(dn, all.length))}<small>${dn} / ${all.length} ${t('lessons')}${best ? ' · ' + t('mockBest', best) : ''}</small></div><div class="hsk-actions"><a class="primary-btn" href="${dn ? nextStep(c) : courseUrl(c)}">${dn ? t('continue') : t('hskLearn')} →</a><a class="secondary-btn" href="test.html?c=${c.id}&mock=1">${t('hskMock')}</a></div></article>`;
-  }).join('') + `<article class="course-card hsk-card soon"><div class="course-top"><span class="glyph g-soon">3+</span></div><h3>HSK 3–9</h3><p>${t('hskSoon')}</p></article>`;
+    const best = Store.state().tests?.[c.id + ':mock'] || 0;
+    const part = gram => { const ls = c.modules.filter(m => !!m.gram === gram).flatMap(m => m.lessons), d = ls.filter(l => Store.isDone(l.id)).length; return {d, n:ls.length}; };
+    const w = part(false), g = part(true), nWords = c.modules.reduce((n, m) => n + m.lessons.reduce((k, l) => k + (l.items?.length || 0), 0), 0);
+    const line = (label, x, url) => `<a class="hsk-part" href="${url}"><span><b>${label}</b><small>${x.d} / ${x.n} ${t('lessons')}</small></span>${meter(pct(x.d, x.n))}<span class="arrow">→</span></a>`;
+    return `<article class="course-card hsk-card"><div class="course-top">${glyph(c)}<span class="course-step">${t('hskWords', nWords)} · ${g.n} ${t('tabGram').toLowerCase()}</span></div><h3>${esc(L(c.title))}</h3>
+      ${line(t('tabWords'), w, courseUrl(c, 'words'))}${line(t('tabGram'), g, courseUrl(c, 'gram'))}
+      <a class="hsk-part mock" href="test.html?c=${c.id}&mock=1"><span><b>${t('hskMock')}</b><small>${best ? t('mockBest', best) : t('mockShort')}</small></span><span class="arrow">→</span></a></article>`;  }).join('') + `<article class="course-card hsk-card soon"><div class="course-top"><span class="glyph g-soon">3+</span></div><h3>HSK 3–9</h3><p>${t('hskSoon')}</p></article>`;
   document.getElementById('courseList').innerHTML = COURSES.filter(c => !c.hsk).map((c, i) => {
     const all = allLessons(c), dn = all.filter(l => Store.isDone(l.id)).length, p = pct(dn, all.length);
     return `<a class="course-card" href="${dn ? nextStep(c) : courseUrl(c)}"><div class="course-top">${glyph(c)}<span class="course-step">${i + 1}</span></div><h3>${esc(L(c.title))}</h3><p>${esc(L(c.desc))}</p><div class="course-foot">${meter(p)}<small>${dn} / ${all.length} ${t('lessons')} · ${c.modules.length} ${t('modules')}</small></div><span class="course-go">${dn ? t('continue') : t('open')} →</span></a>`;
@@ -343,17 +349,22 @@ function home() {
 
 /* ---------- course ---------- */
 function course() {
-  const c = courseById(qs('c')) || COURSES[0], all = allLessons(c), dn = all.filter(l => Store.isDone(l.id)).length;
-  document.title = L(c.title) + ' | Нихао';
-  const current = c.modules.findIndex((m, mi) => moduleOpen(c, mi) && (!moduleDone(c, mi) || (!c.open && Store.best(c, mi) < PASS)));
+  const c = courseById(qs('c')) || COURSES[0];
+  // HSK: show either the word modules or the grammar modules (tab), numbered within the tab.
+  const tab = c.hsk ? (qs('tab') === 'gram' ? 'gram' : 'words') : '';
+  const shown = c.modules.map((m, mi) => ({m, mi})).filter(x => !c.hsk || !!x.m.gram === (tab === 'gram'));
+  const all = shown.flatMap(x => x.m.lessons), dn = all.filter(l => Store.isDone(l.id)).length;
+  document.title = L(c.title) + (c.hsk ? ' · ' + t(tab === 'gram' ? 'tabGram' : 'tabWords') : '') + ' | Нихао';
+  const current = shown.map(x => x.mi).find(mi => moduleOpen(c, mi) && (!moduleDone(c, mi) || (!c.open && Store.best(c, mi) < PASS)));
+  const tabs = c.hsk ? `<div class="tabs" role="tablist">${['words', 'gram'].map(p => `<a role="tab" href="${courseUrl(c, p)}" ${p === tab ? 'aria-selected="true" class="active"' : ''}>${t(p === 'gram' ? 'tabGram' : 'tabWords')}</a>`).join('')}</div>` : '';
   app().innerHTML = `<section class="section"><div class="container narrow">
     <div class="course-head">${glyph(c)}<div><h1>${esc(L(c.title))}</h1><p class="lead">${esc(L(c.desc))}</p></div></div>
-    <div class="course-progress">${meter(pct(dn, all.length))}<small>${dn} / ${all.length} ${t('lessons')}</small></div>
+    ${tabs}<div class="course-progress">${meter(pct(dn, all.length))}<small>${dn} / ${all.length} ${t('lessons')}</small></div>
     <p class="rule">${t(c.open ? 'courseOpenRule' : 'courseRule')}</p>${c.hsk ? `<div class="hsk-mock-cta"><div><b>${t('hskMock')}</b><small>${t('mockInfo', c.hsk)}</small></div><a class="primary-btn" href="test.html?c=${c.id}&mock=1">${t('mockStart')} →</a></div>` : ''}
-    ${c.modules.map((m, mi) => {
+    ${shown.map(({m, mi}, k) => {
       const open = moduleOpen(c, mi), d = m.lessons.filter(l => Store.isDone(l.id)).length, best = Store.best(c, mi);
       const status = best >= PASS ? t('passed') + ' · ' + best + '%' : open ? t('unlocked') : t('locked');
-      const head = `<summary><div><span class="eyebrow">${t('module')} ${mi + 1} · ${status}</span><h3>${m.icon || ''} ${esc(L(m.title))}</h3></div><span>${d} / ${m.lessons.length}</span></summary>`;
+      const head = `<summary><div><span class="eyebrow">${t('module')} ${k + 1} · ${status}</span><h3>${m.icon || ''} ${esc(L(m.title))}</h3></div><span>${d} / ${m.lessons.length}</span></summary>`;
       if (!open) return `<details class="module locked">${head}<p class="muted">${t('lockedText')}</p></details>`;
       const rows = m.lessons.map(l => `<a class="lesson-row" href="${lessonUrl(l)}"><span class="num">${Store.isDone(l.id) ? '✓' : l.li + 1}</span><span class="row-main"><strong>${esc(lessonTitle(l))}</strong><small>${esc(l.kind === 'set' ? l.items.map(x => x[0]).join(' · ') : l.kind === 'gram' ? l.pat : l.py + ' — ' + meaning(l))}</small></span><span class="arrow">→</span></a>`).join('');
       const action = d === m.lessons.length ? `<a class="primary-btn" href="${testUrl(c, mi)}">${best ? t('retakeTest') : t('takeTest')}</a>` : `<p class="muted">${t('leftN', m.lessons.length - d)}</p>`;
@@ -482,8 +493,9 @@ function lesson() {
   if (!moduleOpen(c, l.mi)) { location.replace(courseUrl(c)); return; }
   Store.visit(l);
   const m = c.modules[l.mi], last = l.li === m.lessons.length - 1;
-  const prevUrl = l.li ? lessonUrl(m.lessons[l.li - 1]) : courseUrl(c);
-  const nextUrl = last ? (c.open && !moduleDone(c, l.mi) ? courseUrl(c) : testUrl(c, l.mi)) : lessonUrl(m.lessons[l.li + 1]);
+  const back = courseUrl(c, modPart(c, l.mi));
+  const prevUrl = l.li ? lessonUrl(m.lessons[l.li - 1]) : back;
+  const nextUrl = last ? (c.open && !moduleDone(c, l.mi) ? back : testUrl(c, l.mi)) : lessonUrl(m.lessons[l.li + 1]);
   document.title = lessonTitle(l) + ' | ' + L(c.title) + ' | Нихао';
   let body = '';
   if (l.kind === 'say') body = `<p class="py">${toneHtml(l.py)}</p><p class="hz">${esc(l.hz)}</p><p class="tr">${esc(meaning(l))}</p>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}`;
@@ -494,7 +506,7 @@ function lesson() {
     <h3 class="words-title">${t('words')}</h3><div class="items">${l.words.map((x, i) => `<button type="button" class="item" data-word="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
   const main = l.kind === 'set' ? l.items.map(aKey) : l.kind === 'gram' ? l.ex.map(x => x[0]) : [l.hz];
   app().innerHTML = `<section class="section lesson-section"><div class="container narrow">
-    <div class="lesson-top"><a href="${courseUrl(c)}">${t('back')}</a>${c.id === 'pinyin' ? '' : '<button type="button" class="py-toggle" id="pyToggle"></button>'}<span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
+    <div class="lesson-top"><a href="${back}">${t('back')}</a>${c.id === 'pinyin' ? '' : '<button type="button" class="py-toggle" id="pyToggle"></button>'}<span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
     <article class="lesson-card">${body}
       <section class="tool-box"><div class="tools">${btn(l.kind === 'set' || l.kind === 'gram' ? t('playAll') : t('normal'), 'data-rate="1"')}${btn(t('slow'), 'data-rate="0.7"')}${btn(t('record'), 'data-rec')}</div><p class="rec-status muted">${t('recHelp')}</p><audio controls hidden></audio></section>
       <section class="practice" id="practice"></section>
@@ -605,15 +617,15 @@ function test() {
   if (qs('mock') && courseById(qs('c'))?.hsk) return mock(courseById(qs('c')));
   const c = courseById(qs('c')) || COURSES[0], mi = Math.max(0, (+qs('m') || 1) - 1), m = c.modules[mi];
   const wrap = h => `<section class="section"><div class="container narrow"><article class="lesson-card">${h}</article></div></section>`;
-  if (!m || !moduleOpen(c, mi)) { location.replace(courseUrl(c)); return; }
+  if (!m || !moduleOpen(c, mi)) { location.replace(courseUrl(c, modPart(c, mi))); return; }
   document.title = t('testTitle', mi + 1, L(m.title)) + ' | Нихао';
-  if (!moduleDone(c, mi)) { app().innerHTML = wrap(`<h2>${t('testTitle', mi + 1, esc(L(m.title)))}</h2><p>${t('testNeedLessons')}</p><a class="primary-btn" href="${courseUrl(c)}">${t('backCourse')}</a>`); return; }
+  if (!moduleDone(c, mi)) { app().innerHTML = wrap(`<h2>${t('testTitle', mi + 1, esc(L(m.title)))}</h2><p>${t('testNeedLessons')}</p><a class="primary-btn" href="${courseUrl(c, modPart(c, mi))}">${t('backCourse')}</a>`); return; }
   // Up to 10 different questions: sets and characters give new items each round.
   const makeBank = () => { const seen = new Set(), b = []; for (let r = 0; r < 6 && b.length < 10; r++) for (const q of shuffle(m.lessons.flatMap(questionsFor))) { const k = q.prompt + '|' + (q.big || q.play) + '|' + q.answer; if (!seen.has(k) && b.length < 10) { seen.add(k); b.push(q); } } return shuffle(b); };
   let bank = makeBank(), i = 0, right = 0, answered = false;
   function draw() {
     answered = false;
-    app().innerHTML = wrap(`<h2>${t('testTitle', mi + 1, esc(L(m.title)))}</h2><p class="muted">${t('qOf', i + 1, bank.length)}</p><div class="q"></div><div class="lesson-actions"><a class="secondary-btn" href="${courseUrl(c)}">${t('backCourse')}</a><button type="button" class="primary-btn" id="tNext" disabled>${i === bank.length - 1 ? t('submit') : t('nextQ')}</button></div>`);
+    app().innerHTML = wrap(`<h2>${t('testTitle', mi + 1, esc(L(m.title)))}</h2><p class="muted">${t('qOf', i + 1, bank.length)}</p><div class="q"></div><div class="lesson-actions"><a class="secondary-btn" href="${courseUrl(c, modPart(c, mi))}">${t('backCourse')}</a><button type="button" class="primary-btn" id="tNext" disabled>${i === bank.length - 1 ? t('submit') : t('nextQ')}</button></div>`);
     const q = bank[i];
     renderQuestion(app().querySelector('.q'), q, (ok, b) => {
       if (answered) return; answered = true;
@@ -628,7 +640,7 @@ function test() {
     const p = Math.round(right / bank.length * 100), ok = p >= PASS; Store.test(c, mi, p);
     const lastModule = mi === c.modules.length - 1;
     app().innerHTML = wrap(`<h2>${ok ? t('testPassed') : t('testFailed')}</h2><p class="score">${p}%</p><p>${t('scoreLine', right, bank.length, p)}</p><p class="muted">${ok ? (lastModule ? t('allModules') : t('nextUnlocked')) : t('tryAgainText')}</p>
-      <div class="lesson-actions"><a class="primary-btn" href="${ok && !lastModule ? (c.modules[mi + 1].lessons[0] ? lessonUrl(c.modules[mi + 1].lessons[0]) : courseUrl(c)) : courseUrl(c)}">${ok && !lastModule ? t('next') + ' →' : t('backCourse')}</a><button type="button" class="secondary-btn" id="tRetry">${t('retry')}</button></div>`);
+      <div class="lesson-actions"><a class="primary-btn" href="${ok && !lastModule ? (c.modules[mi + 1].lessons[0] ? lessonUrl(c.modules[mi + 1].lessons[0]) : courseUrl(c, modPart(c, mi))) : courseUrl(c, modPart(c, mi))}">${ok && !lastModule ? t('next') + ' →' : t('backCourse')}</a><button type="button" class="secondary-btn" id="tRetry">${t('retry')}</button></div>`);
     app().querySelector('#tRetry').onclick = () => { bank = makeBank(); i = 0; right = 0; draw(); };
   }
   draw();

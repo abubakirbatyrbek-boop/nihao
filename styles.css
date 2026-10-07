@@ -240,3 +240,14 @@ input:focus,select:focus,textarea:focus{border-color:var(--ink-2);outline:none}
 .order-line{min-height:48px;font:700 26px/1.5 var(--zh);border-bottom:2px dashed var(--line-2);margin:8px 0 12px}
 .options.order{grid-template-columns:repeat(auto-fill,minmax(80px,1fr))}.options.order .option{text-align:center}
 .tools .check{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* HSK: tabs and card parts */
+.tabs{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line-2);border-radius:999px;background:#fff;margin:14px 0 4px}
+.tabs a{padding:8px 20px;border-radius:999px;text-decoration:none;font-weight:700;color:var(--ink-2)}
+.tabs a.active{background:var(--ink);color:#fff}
+.hsk-part{display:grid;grid-template-columns:150px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:var(--paper)}
+.hsk-part:hover{border-color:var(--red);background:#fff}
+.hsk-part b{display:block}.hsk-part small{color:var(--muted)}
+.hsk-part.mock{grid-template-columns:1fr auto;background:var(--red-soft);border-color:#f1cfc8}
+.hsk-part .meter{margin:0}
+@media(max-width:560px){.hsk-part{grid-template-columns:1fr auto}.hsk-part .meter{grid-column:1/-1;grid-row:2}}
