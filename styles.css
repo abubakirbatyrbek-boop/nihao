@@ -232,7 +232,15 @@ input:focus,select:focus,textarea:focus{border-color:var(--ink-2);outline:none}
 @media(max-width:640px){.hsk-mock-cta{flex-direction:column;align-items:stretch}}
 
 /* HSK grammar */
-.pattern{display:inline-block;font:700 20px/1.4 var(--zh);background:var(--ink);color:#fff;padding:8px 16px;border-radius:12px;margin:6px 0 4px}
+.pattern{display:inline-grid;gap:6px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:14px;margin:6px 0 4px}
+.pattern p{margin:0;font:700 21px/1.5 var(--zh)}
+.pattern .slot{display:inline-block;font:600 14px/1.2 var(--sans,inherit);background:rgba(255,255,255,.16);color:#f6e7c8;border-radius:8px;padding:4px 8px;vertical-align:3px}
+.pattern i{font-style:normal;color:#9aa7a0;font-weight:400;margin:0 2px}
+.ex-help{font-size:13px;margin:14px 0 0}
+.example .gloss{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.gl{display:grid;justify-items:center;background:var(--paper);border-radius:10px;padding:4px 8px;min-width:38px}
+.gl b{font:600 17px/1.3 var(--zh)}.gl small{font-size:12px!important;line-height:1.2;text-align:center;max-width:120px}
+.gl.key{background:var(--red-soft)}.gl.key b{color:var(--red)}
 .examples{display:grid;gap:10px;margin-top:16px}
 .example{display:grid;gap:2px;text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;cursor:pointer;font:inherit}
 .example:hover{border-color:var(--red)}.example .py{font-size:16px}.example small{color:var(--muted);font-size:15px}
