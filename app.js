@@ -29,7 +29,7 @@ const T = {
     testNeedLessons:'Алдымен осы модульдің барлық сабағын өтіңіз.',
     meTitle:'Менің оқуым', stStreak:'Қатарынан күн', stDays:'Барлық күн', stLessons:'Өткен сабақ', stDue:'Қайталау',
     account:'Аккаунт', guestText:'Сіз кірмегенсіз: прогресс тек осы құрылғыда сақталады.', guestHint:'Тегін тіркелсеңіз, кез келген құрылғыда жалғастыра аласыз.', signup:'Тіркелу', signin:'Кіру', synced:'Прогресс осы аккаунтқа сақталады.',
-    reviewTitle:'Қайталау', reviewEmpty:'Қазір қайталайтын сөз жоқ. Жаттығуда қате жіберсеңіз, сөз осында түседі.', reviewN:n=>'Қайталауды күтіп тұрған сөз: '+n, showAnswer:'Жауабын көру', again:'Әлі есімде жоқ', known:'Есімде, ертең қайталаймын', sayFirst:'Алдымен өзіңіз айтып көріңіз',
+    reviewTitle:'Қайталау', reviewEmpty:'Қазір қайталайтын сөз жоқ. Жаттығуда қате жіберсеңіз, сөз осында түседі.', reviewN:n=>'Қайталауды күтіп тұрған сөз: '+n, showAnswer:'Жауабын көру', again:'✗ Есімде жоқ', known:'✓ Есімде', sayFirst:'Алдымен өзіңіз айтып көріңіз',
     authTitle:'Кіру', authSignup:'Тіркелу', email:'Email', password:'Құпиясөз', newPassword:'Жаңа құпиясөз (кемінде 6 таңба)', name:'Атыңыз (міндетті емес)', doLogin:'Кіру', doSignup:'Тіркелу',
     forgot:'Құпиясөзді ұмыттыңыз ба?', sendReset:'Қалпына келтіру сілтемесін жіберу', setPassword:'Құпиясөзді сақтау', haveAccount:'Аккаунтыңыз бар ма? Кіру', noAccount:'Аккаунтыңыз жоқ па? Тіркелу',
     signupOk:'Тіркелдіңіз! Поштаңызға келген сілтеме арқылы растап, кейін кіріңіз.', loginOk:'Кірдіңіз, сайтқа қайтып жатырмыз…', resetSent:'Поштаңызға сілтеме жіберілді.', resetOk:'Жаңа құпиясөз сақталды.', alreadyIn:'Сіз кіріп тұрсыз:',
@@ -39,7 +39,7 @@ const T = {
     fbCats:[['课程建议','Курс туралы ұсыныс'],['内容纠错','Қате табылды'],['网站问题','Сайт жұмысы'],['账号问题','Аккаунт'],['其他','Басқа']],
     aboutTitle:'Неге бұл сайтты жасадым',
     aboutText:['Мен 2013 жылы Қытайдан Қазақстанға көшіп келдім. Қазір аудармашымын, күн сайын қытай, қазақ және орыс тілдерінде жұмыс істеймін.','Қазақстанда қытай компанияларында жұмыс істейтіндер, Қытайда оқығысы келетіндер көп. Бірақ қазақ және орыс тілінде қытай тілін нөлден үйрететін тегін, қарапайым материал аз. Сондықтан осы сайтты жасадым.','Сайт тегін. Пиньинь мен тондардан бастап, күнделікті сөйлесуге, иероглифтерге және жұмыс жағдаяттарына дейін — әр сөйлемнің дыбысы мен жаттығуы бар.','Қате тапсаңыз немесе қандай сабақ керек екенін айтқыңыз келсе, <a href="feedback.html">кері байланыс</a> бетінде жазыңыз.'],
-    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', tabWords:'Сөздер', tabGram:'Грамматика', mockShort:'40 сұрақ · 60% өту шегі', grammar:'Грамматика', qSentence:'Сөйлемнің мағынасын таңдаңыз', qHearSentence:'Тыңдап, сөйлемнің мағынасын таңдаңыз', qFill:'Бос орынға сәйкес сөзді таңдаңыз', qOrder:'Сөздерді дұрыс ретпен басыңыз', check:'Тексеру', hskTitle:'HSK-ға дайындық', hskText:'HSK 3.0 — Қытайдың ресми тіл емтиханы (1–9 деңгей). Жаңа нұсқа 2026 жылғы 13 желтоқсаннан бастап өтеді. Сабақтар 2025 жылғы ресми бағдарлама бойынша.', hskWords:n=>n+' сөз', hskLearn:'Сөздерді оқу', hskMock:'Сынақ тест', hskSoon:'Келесі деңгейлер дайындалуда. Алдымен 1–2-деңгейді меңгеріңіз.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'HSK '+l+' сөздері мен грамматикасы бойынша 40 сұрақ: 20 тыңдау, 20 оқу (сөздер, сөйлемдер, бос орын). Өту шегі — 60%.', mockStart:'Тестті бастау', mockTitle:l=>'HSK '+l+' сынақ тесті', secListen:'Тыңдау', secRead:'Оқу', qHearChar:'Тыңдап, иероглифті таңдаңыз', qPinyin:'Пиньиньге сай иероглифті таңдаңыз', mockNote:'Бұл ресми емтихан емес, бірақ формасы HSK-ға ұқсас: тыңдау және оқу. Қате жауаптар қайталау тізіміне түседі.', mockPassed:'Өту шегінен асты!', mockFailed:'Әзірге 60%-ға жетпеді', mockAfter:'Қате сөздер «Қайталау» бөліміне қосылды. Оларды қайталап, тестті қайта тапсырыңыз.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
+    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', tabWords:'Сөздер', tabGram:'Грамматика', vCards:'Карточкалар', vQuiz:'Тексеру: барлық сөз', vShow:'Мағынасын көру', vYes:'✓ Білемін', vNo:'✗ Білмеймін', vHint1:'Иероглифке қарап, дыбысын тыңдап, мағынасын еске түсіріңіз.', vHint2:'Білсеңіз — «Білемін». Білмесеңіз, карточка тағы шығады және 10 минуттан кейін қайталауға түседі.', vDone:n=>n+' сөздің бәрі тексерілді!', vDoneWrong:n=>n+' қате болды — ол сөздер қайталау тізімінде.', vDonePerfect:'Бірде-бір қате жоқ!', vAgain:'Карточкаларды қайталау', mockShort:'40 сұрақ · 60% өту шегі', grammar:'Грамматика', qSentence:'Сөйлемнің мағынасын таңдаңыз', qHearSentence:'Тыңдап, сөйлемнің мағынасын таңдаңыз', qFill:'Бос орынға сәйкес сөзді таңдаңыз', qOrder:'Сөздерді дұрыс ретпен басыңыз', check:'Тексеру', hskTitle:'HSK-ға дайындық', hskText:'HSK 3.0 — Қытайдың ресми тіл емтиханы (1–9 деңгей). Жаңа нұсқа 2026 жылғы 13 желтоқсаннан бастап өтеді. Сабақтар 2025 жылғы ресми бағдарлама бойынша.', hskWords:n=>n+' сөз', hskLearn:'Сөздерді оқу', hskMock:'Сынақ тест', hskSoon:'Келесі деңгейлер дайындалуда. Алдымен 1–2-деңгейді меңгеріңіз.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'HSK '+l+' сөздері мен грамматикасы бойынша 40 сұрақ: 20 тыңдау, 20 оқу (сөздер, сөйлемдер, бос орын). Өту шегі — 60%.', mockStart:'Тестті бастау', mockTitle:l=>'HSK '+l+' сынақ тесті', secListen:'Тыңдау', secRead:'Оқу', qHearChar:'Тыңдап, иероглифті таңдаңыз', qPinyin:'Пиньиньге сай иероглифті таңдаңыз', mockNote:'Бұл ресми емтихан емес, бірақ формасы HSK-ға ұқсас: тыңдау және оқу. Қате жауаптар қайталау тізіміне түседі.', mockPassed:'Өту шегінен асты!', mockFailed:'Әзірге 60%-ға жетпеді', mockAfter:'Қате сөздер «Қайталау» бөліміне қосылды. Оларды қайталап, тестті қайта тапсырыңыз.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
   },
   ru: {
     brandSub:'Китайский · на казахском и русском', navCourses:'Курсы', navMe:'Моё обучение', navFeedback:'Обратная связь', navAbout:'О проекте',
@@ -66,7 +66,7 @@ const T = {
     testNeedLessons:'Сначала пройдите все уроки этого модуля.',
     meTitle:'Моё обучение', stStreak:'Дней подряд', stDays:'Всего дней', stLessons:'Уроков пройдено', stDue:'На повторение',
     account:'Аккаунт', guestText:'Вы не вошли: прогресс хранится только на этом устройстве.', guestHint:'Зарегистрируйтесь бесплатно, чтобы продолжать на любом устройстве.', signup:'Регистрация', signin:'Вход', synced:'Прогресс сохраняется в этом аккаунте.',
-    reviewTitle:'Повторение', reviewEmpty:'Сейчас повторять нечего. Слова, в которых вы ошиблись, появятся здесь.', reviewN:n=>'Ждут повторения: '+n, showAnswer:'Показать ответ', again:'Ещё не запомнил', known:'Помню, повторю завтра', sayFirst:'Сначала скажите сами',
+    reviewTitle:'Повторение', reviewEmpty:'Сейчас повторять нечего. Слова, в которых вы ошиблись, появятся здесь.', reviewN:n=>'Ждут повторения: '+n, showAnswer:'Показать ответ', again:'✗ Не помню', known:'✓ Помню', sayFirst:'Сначала скажите сами',
     authTitle:'Вход', authSignup:'Регистрация', email:'Email', password:'Пароль', newPassword:'Новый пароль (не меньше 6 символов)', name:'Имя (необязательно)', doLogin:'Войти', doSignup:'Зарегистрироваться',
     forgot:'Забыли пароль?', sendReset:'Отправить ссылку для сброса', setPassword:'Сохранить пароль', haveAccount:'Уже есть аккаунт? Войти', noAccount:'Нет аккаунта? Регистрация',
     signupOk:'Готово! Подтвердите email по ссылке из письма, затем войдите.', loginOk:'Вы вошли, возвращаемся на сайт…', resetSent:'Ссылка отправлена на вашу почту.', resetOk:'Новый пароль сохранён.', alreadyIn:'Вы уже вошли:',
@@ -76,7 +76,7 @@ const T = {
     fbCats:[['课程建议','Предложение по курсу'],['内容纠错','Нашёл ошибку'],['网站问题','Проблема с сайтом'],['账号问题','Аккаунт'],['其他','Другое']],
     aboutTitle:'Зачем я сделал этот сайт',
     aboutText:['В 2013 году я переехал из Китая в Казахстан. Сейчас я переводчик и каждый день работаю с китайским, казахским и русским языками.','В Казахстане много людей работают в китайских компаниях или хотят учиться в Китае. Но бесплатных и понятных материалов, которые учат китайскому с нуля на казахском и русском, мало. Поэтому я сделал этот сайт.','Сайт бесплатный. От пиньиня и тонов до разговорных фраз, иероглифов и рабочих ситуаций — у каждой фразы есть озвучка и упражнения.','Если нашли ошибку или хотите предложить тему урока, напишите на странице <a href="feedback.html">обратной связи</a>.'],
-    loading:'Загрузка…', notFound:'Урок не найден.', tabWords:'Слова', tabGram:'Грамматика', mockShort:'40 вопросов · проходной 60%', grammar:'Грамматика', qSentence:'Выберите значение предложения', qHearSentence:'Послушайте и выберите значение предложения', qFill:'Выберите слово для пропуска', qOrder:'Нажимайте слова в правильном порядке', check:'Проверить', hskTitle:'Подготовка к HSK', hskText:'HSK 3.0 — официальный экзамен по китайскому (уровни 1–9). Новая версия проводится с 13 декабря 2026 года. Уроки — по официальной программе 2025 года.', hskWords:n=>n+' слов', hskLearn:'Учить слова', hskMock:'Пробный тест', hskSoon:'Следующие уровни готовятся. Сначала освойте уровни 1–2.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'40 вопросов по словам и грамматике HSK '+l+': 20 на аудирование, 20 на чтение (слова, предложения, пропуски). Проходной балл — 60%.', mockStart:'Начать тест', mockTitle:l=>'Пробный тест HSK '+l, secListen:'Аудирование', secRead:'Чтение', qHearChar:'Послушайте и выберите иероглиф', qPinyin:'Выберите иероглиф по пиньиню', mockNote:'Это не официальный экзамен, но формат похож на HSK: аудирование и чтение. Ошибки попадут в повторение.', mockPassed:'Проходной балл набран!', mockFailed:'Пока меньше 60%', mockAfter:'Слова с ошибками добавлены в «Повторение». Повторите их и пройдите тест ещё раз.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
+    loading:'Загрузка…', notFound:'Урок не найден.', tabWords:'Слова', tabGram:'Грамматика', vCards:'Карточки', vQuiz:'Проверка: все слова', vShow:'Показать значение', vYes:'✓ Знаю', vNo:'✗ Не знаю', vHint1:'Посмотрите на иероглиф, послушайте и вспомните значение.', vHint2:'Знаете — «Знаю». Не знаете — карточка вернётся и попадёт в повторение через 10 минут.', vDone:n=>'Все '+n+' слов проверены!', vDoneWrong:n=>'Ошибок: '+n+' — эти слова в повторении.', vDonePerfect:'Ни одной ошибки!', vAgain:'Повторить карточки', mockShort:'40 вопросов · проходной 60%', grammar:'Грамматика', qSentence:'Выберите значение предложения', qHearSentence:'Послушайте и выберите значение предложения', qFill:'Выберите слово для пропуска', qOrder:'Нажимайте слова в правильном порядке', check:'Проверить', hskTitle:'Подготовка к HSK', hskText:'HSK 3.0 — официальный экзамен по китайскому (уровни 1–9). Новая версия проводится с 13 декабря 2026 года. Уроки — по официальной программе 2025 года.', hskWords:n=>n+' слов', hskLearn:'Учить слова', hskMock:'Пробный тест', hskSoon:'Следующие уровни готовятся. Сначала освойте уровни 1–2.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'40 вопросов по словам и грамматике HSK '+l+': 20 на аудирование, 20 на чтение (слова, предложения, пропуски). Проходной балл — 60%.', mockStart:'Начать тест', mockTitle:l=>'Пробный тест HSK '+l, secListen:'Аудирование', secRead:'Чтение', qHearChar:'Послушайте и выберите иероглиф', qPinyin:'Выберите иероглиф по пиньиню', mockNote:'Это не официальный экзамен, но формат похож на HSK: аудирование и чтение. Ошибки попадут в повторение.', mockPassed:'Проходной балл набран!', mockFailed:'Пока меньше 60%', mockAfter:'Слова с ошибками добавлены в «Повторение». Повторите их и пройдите тест ещё раз.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
   }
 };
 const LANG_KEY = 'nihao-ui';
@@ -110,12 +110,20 @@ const COURSES = [
 ];
 // HSK 3.0 vocabulary (official word list, levels 1–2): 10 words a lesson, 5 lessons a module. All modules open.
 (NH.hsk || []).forEach(h => {
-  const n = h.words.length, lessons = [];
-  for (let i = 0; i < n; i += 10) lessons.push({ kind:'set', title:{kk:`${i + 1}–${Math.min(n, i + 10)}-сөздер`, ru:`Слова ${i + 1}–${Math.min(n, i + 10)}`}, items:h.words.slice(i, i + 10) });
+  // Words by topic (NH.hskTopics): one lesson per topic, each word with an example sentence.
+  // Item = [hz, py, kk, ru, audio key, example [hz, py, kk, ru]]. "过@2" picks the 2nd row of 过 in the word list.
+  const n = h.words.length, byHz = {};
+  h.words.forEach(w => (byHz[w[0]] ||= []).push(w));
+  const used = new Set(), lessons = ((NH.hskTopics || {})[h.level] || []).map(tp => ({ kind:'vocab', title:{kk:tp.t[0], ru:tp.t[1]},
+    items:tp.w.map(e => {
+      const [hz, nth] = e[0].split('@'), rows = byHz[hz] || [];
+      const row = nth ? rows[+nth - 1] : rows.find(r => !used.has(r)) || rows[0];
+      used.add(row);
+      return [row[0], row[1], row[2], row[3], row[4] || '', [e[1], e[2], e[3], e[4]]];
+    }) }));
   const modules = [];
   for (let i = 0; i < lessons.length; i += 5) {
-    const a = i * 10 + 1, b = Math.min(n, (i + 5) * 10);
-    modules.push({ title:{kk:`${a}–${b}-сөздер`, ru:`Слова ${a}–${b}`}, lessons:lessons.slice(i, i + 5) });
+    modules.push({ title:{kk:`${i + 1}–${Math.min(lessons.length, i + 5)}-тақырыптар`, ru:`Темы ${i + 1}–${Math.min(lessons.length, i + 5)}`}, lessons:lessons.slice(i, i + 5) });
   }
   // Grammar: official HSK 3.0 grammar points of the level, grouped into lessons (pattern, explanation, 3 examples).
   const gram = (NH.hskGrammar || {})[h.level] || [];
@@ -130,7 +138,7 @@ const COURSES = [
 COURSES.forEach(c => c.modules.forEach((m, mi) => m.lessons.forEach((l, li) => { l.id = `${c.id}-${mi + 1}-${li + 1}`; l.mi = mi; l.li = li; l.course = c; })));
 const courseById = id => COURSES.find(c => c.id === id);
 const allLessons = c => c.modules.flatMap(m => m.lessons);
-const lessonTitle = l => l.kind === 'set' || l.kind === 'gram' ? L(l.title) : l.hz;
+const lessonTitle = l => l.kind === 'set' || l.kind === 'gram' || l.kind === 'vocab' ? L(l.title) : l.hz;
 // Audio key of a word row [hz, py, kk, ru, key?]: polyphones and variant words have their own clip.
 const aKey = x => x[4] || x[0];
 const meaning = x => Array.isArray(x) ? (lang === 'kk' ? x[2] : x[3]) : (lang === 'kk' ? x.kk : x.ru);
@@ -213,6 +221,7 @@ const Auth = (() => {
   return { ready, client: () => client, user: () => user };
 })();
 
+const SRS_DAYS = [1, 3, 7, 16, 35];
 /* ---------- progress: localStorage per user, snapshot synced to the account ---------- */
 const Store = (() => {
   const key = () => 'nihao:' + (Auth.user()?.id || 'guest');
@@ -265,7 +274,12 @@ const Store = (() => {
     visit(l) { update(s => { s.last = {c:l.course.id, id:l.id, at:Date.now()}; }); },
     test(c, mi, pct) { update(s => { (s.tests ||= {})[c.id + ':' + mi] = Math.max(s.tests[c.id + ':' + mi] || 0, pct); const d = dayKey(); s.days = uniq([...(s.days || []), d]).sort().slice(-400); }); },
     miss(x) { update(s => { (s.review ||= {})[x.a || x.hz] = {hz:x.hz, py:x.py, kk:x.kk, ru:x.ru, a:x.a, due:Date.now(), n:0}; }); },
-    reviewed(hz, known) { update(s => { const r = s.review?.[hz]; if (!r) return; r.n = known ? (r.n || 0) + 1 : 0; r.due = Date.now() + (known ? 864e5 * Math.min(7, 1 + r.n) : 6e5); }); },
+    // Spaced repetition (Leitner): "don't know" → again in 10 minutes; each "know" pushes the word further: 1, 3, 7, 16, 35 days.
+    reviewed(hz, known) { update(s => { const r = s.review?.[hz]; if (!r) return; r.n = known ? (r.n || 0) + 1 : 0; r.due = Date.now() + (known ? 864e5 * SRS_DAYS[Math.min(r.n, SRS_DAYS.length) - 1] : 6e5); }); },
+    // A word card seen in a lesson joins the review deck (or moves in it).
+    mark(x, known) { update(s => { const k = x.a || x.hz, r = (s.review ||= {})[k] ||= {hz:x.hz, py:x.py, kk:x.kk, ru:x.ru, a:x.a, n:0};
+      r.n = known ? (r.n || 0) + 1 : 0; r.due = Date.now() + (known ? 864e5 * SRS_DAYS[Math.min(r.n, SRS_DAYS.length) - 1] : 6e5); }); },
+    deckSize() { return Object.keys(state().review || {}).length; },
     due() { return Object.values(state().review || {}).filter(r => r.due <= Date.now()); }
   };
 })();
@@ -366,7 +380,7 @@ function course() {
       const status = best >= PASS ? t('passed') + ' · ' + best + '%' : open ? t('unlocked') : t('locked');
       const head = `<summary><div><span class="eyebrow">${t('module')} ${k + 1} · ${status}</span><h3>${m.icon || ''} ${esc(L(m.title))}</h3></div><span>${d} / ${m.lessons.length}</span></summary>`;
       if (!open) return `<details class="module locked">${head}<p class="muted">${t('lockedText')}</p></details>`;
-      const rows = m.lessons.map(l => `<a class="lesson-row" href="${lessonUrl(l)}"><span class="num">${Store.isDone(l.id) ? '✓' : l.li + 1}</span><span class="row-main"><strong>${esc(lessonTitle(l))}</strong><small>${esc(l.kind === 'set' ? l.items.map(x => x[0]).join(' · ') : l.kind === 'gram' ? l.pat : l.py + ' — ' + meaning(l))}</small></span><span class="arrow">→</span></a>`).join('');
+      const rows = m.lessons.map(l => `<a class="lesson-row" href="${lessonUrl(l)}"><span class="num">${Store.isDone(l.id) ? '✓' : l.li + 1}</span><span class="row-main"><strong>${esc(lessonTitle(l))}</strong><small>${esc(l.kind === 'set' || l.kind === 'vocab' ? l.items.map(x => x[0]).join(' · ') : l.kind === 'gram' ? l.pat : l.py + ' — ' + meaning(l))}</small></span><span class="arrow">→</span></a>`).join('');
       const action = d === m.lessons.length ? `<a class="primary-btn" href="${testUrl(c, mi)}">${best ? t('retakeTest') : t('takeTest')}</a>` : `<p class="muted">${t('leftN', m.lessons.length - d)}</p>`;
       return `<details class="module" ${mi === current ? 'open' : ''}>${head}${rows}${action}</details>`;
     }).join('')}</div></section>`;
@@ -394,6 +408,7 @@ function questionsFor(l) {
     const q2 = {prompt:c.id === 'pinyin' ? t('qWhichChar') : t('qHowSay'), big:c.id === 'pinyin' ? it2[1] : meaning(it2), answer:it2[0], zhOptions:true, options:fill(same.length >= 4 ? same.map(x => x[0]) : pick(x => x[0]), it2[0]), item:item(it2)};
     return [q1, q2];
   }
+  if (l.kind === 'vocab') return shuffle(vocabQuestions(l)).slice(0, 3);
   if (l.kind === 'gram') {
     const ex = shuffle(l.ex), a = ex[0], b = ex[1] || ex[0];
     const ord = orderWords(b); // very short sentences (请坐。) cannot be put in order: fill the blank instead
@@ -498,6 +513,7 @@ function lesson() {
   const prevUrl = l.li ? lessonUrl(m.lessons[l.li - 1]) : back;
   const nextUrl = last ? (c.open && !moduleDone(c, l.mi) ? back : testUrl(c, l.mi)) : lessonUrl(m.lessons[l.li + 1]);
   document.title = lessonTitle(l) + ' | ' + L(c.title) + ' | Нихао';
+  if (l.kind === 'vocab') return vocabLesson(l, c, m, back, prevUrl, nextUrl, last);
   let body = '';
   if (l.kind === 'say') body = `<p class="py">${toneHtml(l.py)}</p><p class="hz">${esc(l.hz)}</p><p class="tr">${esc(meaning(l))}</p>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}`;
   if (l.kind === 'set') body = `<h2 class="set-title">${esc(L(l.title))}</h2>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}<div class="items">${l.items.map((x, i) => `<button type="button" class="item" data-item="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
@@ -555,6 +571,82 @@ function lesson() {
     });
   }
   lock(); draw();
+}
+
+/* ---------- HSK words: flashcards → quiz on every word of the topic ---------- */
+// One question per word, types taking turns: hear → character, meaning → character, character → meaning, example with a gap.
+// Wrong options come from the same topic first, then from the rest of the level.
+function vocabQuestions(l) {
+  const items = l.items, more = allLessons(l.course).filter(x => x.kind === 'vocab' && x !== l).flatMap(x => x.items);
+  const pick = (x, f, same) => { const pool = uniq([...shuffle(items), ...shuffle(more)].filter(y => y !== x && !same(y)).map(f)); return shuffle([f(x), ...pool.slice(0, 3)]); };
+  const sameHz = x => y => y[0] === x[0] || y[1] === x[1] || meaning(y) === meaning(x);
+  return shuffle(items).map((x, i) => {
+    const it = {hz:x[0], py:x[1], kk:x[2], ru:x[3], a:x[4] || undefined};
+    switch (i % 4) {
+      case 0: return {prompt:t('qHearChar'), play:aKey(x), answer:x[0], zhOptions:true, options:pick(x, y => y[0], sameHz(x)), item:it};
+      case 1: return {prompt:t('qHowSay'), big:meaning(x), answer:x[0], zhOptions:true, options:pick(x, y => y[0], sameHz(x)), item:it};
+      case 2: return {prompt:t('qMeaning'), big:x[0], sub:x[1], answer:meaning(x), options:pick(x, meaning, y => meaning(y) === meaning(x)), item:it};
+      default: return {prompt:t('qFill'), big:x[5][0].replace(x[0], '＿＿'), sub2:meaning(x[5]), answer:x[0], zhOptions:true, options:pick(x, y => y[0], y => sameHz(x)(y) || x[5][0].includes(y[0])), item:it};
+    }
+  });
+}
+function vocabLesson(l, c, m, back, prevUrl, nextUrl, last) {
+  const items = l.items, wordOf = x => ({hz:x[0], py:x[1], kk:x[2], ru:x[3], a:x[4] || undefined});
+  let queue = items.map((x, i) => i), pos = 0, shown = false, repeated = new Set(), quiz = null, qi = 0, wrong = 0;
+  let passed = Store.isDone(l.id);
+  app().innerHTML = `<section class="section lesson-section"><div class="container narrow">
+    <div class="lesson-top"><a href="${back}">${t('back')}</a><button type="button" class="py-toggle" id="pyToggle"></button><span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
+    <article class="lesson-card"><h2 class="set-title">${esc(L(l.title))}</h2><div id="vStage"></div>
+      <div class="lesson-actions"><a class="secondary-btn" href="${prevUrl}">${t('prev')}</a><a class="primary-btn" id="nextBtn" href="${nextUrl}">${last ? t('nextTest') : t('next')} →</a></div>
+    </article></div></section>`;
+  const stage = app().querySelector('#vStage'), next = app().querySelector('#nextBtn'), pyBtn = app().querySelector('#pyToggle');
+  const pyApply = () => { const off = pyHidden(); document.body.classList.toggle('no-py', off); pyBtn.textContent = off ? t('pyOn') : t('pyOff'); };
+  pyBtn.onclick = () => { try { localStorage.setItem('nihao-py', pyHidden() ? 'on' : 'off'); } catch {} pyApply(); }; pyApply();
+  const lock = () => { next.classList.toggle('pending', !passed); next.setAttribute('aria-disabled', String(!passed)); };
+  next.onclick = e => { if (!passed) { e.preventDefault(); stage.scrollIntoView({behavior:'smooth', block:'center'}); } };
+  lock();
+  const bar = (a, b) => `<div class="v-progress"><span>${a} / ${b}</span>${meter(pct(a, b))}</div>`;
+  const exHtml = (x, ex) => esc(ex[0]).replace(esc(x[0]), `<mark>${esc(x[0])}</mark>`);
+  function card() {
+    if (pos >= queue.length) return startQuiz();
+    const x = items[queue[pos]], ex = x[5];
+    stage.innerHTML = `${bar(Math.min(pos + 1, queue.length), queue.length)}<p class="eyebrow">${t('vCards')}</p>
+      <div class="flash"><button type="button" class="flash-hz" data-say>${esc(x[0])}</button>
+        <div class="flash-back" ${shown ? '' : 'hidden'}><p class="py">${toneHtml(x[1])}</p><p class="tr">${esc(meaning(x))}</p>
+          <button type="button" class="example" data-ex><span class="ex-hz">${exHtml(x, ex)}</span><span class="py">${toneHtml(ex[1])}</span><small>${esc(meaning(ex))}</small></button></div></div>
+      <div class="flash-actions">${shown ? `${btn(t('vNo'), 'class="no" data-no')}${btn(t('vYes'), 'class="yes" data-yes')}` : btn(t('vShow'), 'class="show" data-show')}</div>
+      <p class="muted v-hint">${shown ? t('vHint2') : t('vHint1')}</p>`;
+    stage.querySelector('[data-say]').onclick = () => Audio2.play(aKey(x));
+    stage.querySelector('[data-ex]').onclick = () => Audio2.play(ex[0]);
+    const show = stage.querySelector('[data-show]'); if (show) show.onclick = () => { shown = true; card(); Audio2.play(ex[0]); };
+    const yes = stage.querySelector('[data-yes]'), no = stage.querySelector('[data-no]');
+    if (yes) yes.onclick = () => { Store.mark(wordOf(x), true); pos++; shown = false; card(); };
+    // "Don't know": the card comes back once more at the end of this round, and in review after 10 minutes.
+    if (no) no.onclick = () => { Store.mark(wordOf(x), false); if (!repeated.has(queue[pos])) { repeated.add(queue[pos]); queue.push(queue[pos]); } pos++; shown = false; card(); };
+    if (!shown) setTimeout(() => Audio2.play(aKey(x)), 250);
+  }
+  function startQuiz() { quiz = vocabQuestions(l); qi = 0; wrong = 0; ask(); }
+  function ask() {
+    if (qi >= quiz.length) return finish();
+    const q = quiz[qi];
+    stage.innerHTML = `${bar(qi + 1, quiz.length)}<p class="eyebrow">${t('vQuiz')}</p><div class="q"></div>`;
+    renderQuestion(stage.querySelector('.q'), q, (ok, b) => {
+      const fb = stage.querySelector('.feedback');
+      if (!ok) { b.classList.add('wrong'); b.disabled = true; fb.textContent = t('wrongAns', q.answer); Store.mark(q.item, false); wrong++;
+        if (!q.again) quiz.push({...q, again:true, options:shuffle(q.options)}); return; } // asked once more at the end
+      b.classList.add('right'); fb.textContent = t('correct');
+      stage.querySelectorAll('.option').forEach(o => o.disabled = true);
+      setTimeout(() => { qi++; ask(); }, 600);
+    });
+    if (q.play) setTimeout(() => Audio2.play(q.play), 250);
+  }
+  function finish() {
+    passed = true; Store.finish(l); lock();
+    stage.innerHTML = `<div class="v-done"><p class="score">✓</p><h3>${t('vDone', items.length)}</h3><p class="muted">${wrong ? t('vDoneWrong', wrong) : t('vDonePerfect')}</p>
+      <div class="tools">${btn(t('vAgain'), 'data-again')}<a class="secondary-btn" href="me.html#review">${t('reviewTitle')} →</a></div></div>`;
+    stage.querySelector('[data-again]').onclick = () => { queue = items.map((x, i) => i); pos = 0; repeated = new Set(); card(); };
+  }
+  card();
 }
 
 /* ---------- module test ---------- */

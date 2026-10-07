@@ -251,3 +251,20 @@ input:focus,select:focus,textarea:focus{border-color:var(--ink-2);outline:none}
 .hsk-part.mock{grid-template-columns:1fr auto;background:var(--red-soft);border-color:#f1cfc8}
 .hsk-part .meter{margin:0}
 @media(max-width:560px){.hsk-part{grid-template-columns:1fr auto}.hsk-part .meter{grid-column:1/-1;grid-row:2}}
+
+/* HSK word cards */
+.v-progress{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;font-size:13px;color:var(--muted);margin:4px 0 10px}
+.v-progress .meter{margin:0}
+.flash{display:grid;justify-items:center;text-align:center;gap:6px;padding:20px 12px;border:1px solid var(--line);border-radius:22px;background:#fffdf9;margin:8px 0}
+.flash-hz{font:700 clamp(56px,14vw,96px)/1.15 var(--zh);border:0;background:none;cursor:pointer;color:var(--ink);padding:4px 16px}
+.flash-back{display:grid;gap:6px;justify-items:center;width:100%}
+.flash-back .tr{font-size:22px;font-weight:600}
+.flash-back .example{text-align:center;justify-items:center;width:100%;margin-top:8px}
+.example mark{background:var(--red-soft);color:var(--red);border-radius:6px;padding:0 3px}
+.flash-actions{display:flex;gap:10px;margin-top:6px}
+.flash-actions button{flex:1;font:inherit;font-weight:700;font-size:17px;min-height:54px;border-radius:16px;cursor:pointer;border:1px solid var(--line-2);background:#fff}
+.flash-actions .yes{background:var(--green);border-color:var(--green);color:#fff}
+.flash-actions .no{color:var(--red);border-color:#e9c4bd}
+.flash-actions .show{background:var(--ink);color:#fff;border-color:var(--ink)}
+.v-hint{font-size:13px;text-align:center;margin:10px 0 0}
+.v-done{text-align:center;padding:10px 0}.v-done .tools{justify-content:center;margin-top:10px}
