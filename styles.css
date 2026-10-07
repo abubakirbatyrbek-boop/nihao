@@ -219,3 +219,14 @@ input:focus,select:focus,textarea:focus{border-color:var(--ink-2);outline:none}
 .about p{font-size:17px;line-height:1.8}.about a{color:var(--red)}
 @media(max-width:860px){.topbar{backdrop-filter:none;background:var(--paper)}.hero-cta .big{min-height:48px;padding:10px 20px;font-size:16px}.hero-cta{margin:20px 0 14px}.hero .eyebrow{font-size:11px}}
 @media(max-width:860px){body[data-page=lesson] .main-nav,body[data-page=test] .main-nav{display:none}body[data-page=lesson],body[data-page=test]{padding-bottom:0}}@media(max-width:640px){body[data-page=lesson] .lesson-actions,body[data-page=test] .lesson-actions{bottom:0;padding-bottom:calc(10px + env(safe-area-inset-bottom))}}
+
+/* HSK */
+.hsk-section{padding-top:8px}
+.g-hsk1,.g-hsk2{background:linear-gradient(135deg,#9b2c21,#c0392b);font-family:var(--ui);font-weight:800}.g-hsk2{background:linear-gradient(135deg,#7a3e8f,#a052b8)}
+.g-soon{background:var(--paper-2);color:var(--muted);font-family:var(--ui);font-weight:800;font-size:22px}
+.hsk-card.soon{background:var(--paper);box-shadow:none;border-style:dashed}
+.hsk-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.hsk-mock-cta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0;padding:14px 16px;border-radius:16px;background:var(--red-soft);border:1px solid #f1cfc8}
+.hsk-mock-cta small{display:block;color:var(--ink-2)}
+.mock-parts{list-style:none;padding:0;margin:10px 0;display:flex;gap:10px;flex-wrap:wrap}.mock-parts li{background:var(--paper);border-radius:12px;padding:8px 14px}
+@media(max-width:640px){.hsk-mock-cta{flex-direction:column;align-items:stretch}}
