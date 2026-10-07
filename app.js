@@ -39,7 +39,7 @@ const T = {
     fbCats:[['课程建议','Курс туралы ұсыныс'],['内容纠错','Қате табылды'],['网站问题','Сайт жұмысы'],['账号问题','Аккаунт'],['其他','Басқа']],
     aboutTitle:'Неге бұл сайтты жасадым',
     aboutText:['Мен 2013 жылы Қытайдан Қазақстанға көшіп келдім. Қазір аудармашымын, күн сайын қытай, қазақ және орыс тілдерінде жұмыс істеймін.','Қазақстанда қытай компанияларында жұмыс істейтіндер, Қытайда оқығысы келетіндер көп. Бірақ қазақ және орыс тілінде қытай тілін нөлден үйрететін тегін, қарапайым материал аз. Сондықтан осы сайтты жасадым.','Сайт тегін. Пиньинь мен тондардан бастап, күнделікті сөйлесуге, иероглифтерге және жұмыс жағдаяттарына дейін — әр сөйлемнің дыбысы мен жаттығуы бар.','Қате тапсаңыз немесе қандай сабақ керек екенін айтқыңыз келсе, <a href="feedback.html">кері байланыс</a> бетінде жазыңыз.'],
-    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', tabWords:'Сөздер', tabGram:'Грамматика', vCards:'Карточкалар', vQuiz:'Тексеру: барлық сөз', vShow:'Мағынасын көру', vYes:'✓ Білемін', vNo:'✗ Білмеймін', vHint1:'Иероглифке қарап, дыбысын тыңдап, мағынасын еске түсіріңіз.', vHint2:'Білсеңіз — «Білемін». Білмесеңіз, карточка тағы шығады және 10 минуттан кейін қайталауға түседі.', vDone:n=>n+' сөздің бәрі тексерілді!', vDoneWrong:n=>n+' қате болды — ол сөздер қайталау тізімінде.', vDonePerfect:'Бірде-бір қате жоқ!', vAgain:'Карточкаларды қайталау', mockShort:'40 сұрақ · 60% өту шегі', grammar:'Грамматика', qSentence:'Сөйлемнің мағынасын таңдаңыз', qHearSentence:'Тыңдап, сөйлемнің мағынасын таңдаңыз', qFill:'Бос орынға сәйкес сөзді таңдаңыз', qOrder:'Сөздерді дұрыс ретпен басыңыз', check:'Тексеру', hskTitle:'HSK-ға дайындық', hskText:'HSK 3.0 — Қытайдың ресми тіл емтиханы (1–9 деңгей). Жаңа нұсқа 2026 жылғы 13 желтоқсаннан бастап өтеді. Сабақтар 2025 жылғы ресми бағдарлама бойынша.', hskWords:n=>n+' сөз', hskLearn:'Сөздерді оқу', hskMock:'Сынақ тест', hskSoon:'Келесі деңгейлер дайындалуда. Алдымен 1–2-деңгейді меңгеріңіз.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'HSK '+l+' сөздері мен грамматикасы бойынша 40 сұрақ: 20 тыңдау, 20 оқу (сөздер, сөйлемдер, бос орын). Өту шегі — 60%.', mockStart:'Тестті бастау', mockTitle:l=>'HSK '+l+' сынақ тесті', secListen:'Тыңдау', secRead:'Оқу', qHearChar:'Тыңдап, иероглифті таңдаңыз', qPinyin:'Пиньиньге сай иероглифті таңдаңыз', mockNote:'Бұл ресми емтихан емес, бірақ формасы HSK-ға ұқсас: тыңдау және оқу. Қате жауаптар қайталау тізіміне түседі.', mockPassed:'Өту шегінен асты!', mockFailed:'Әзірге 60%-ға жетпеді', mockAfter:'Қате сөздер «Қайталау» бөліміне қосылды. Оларды қайталап, тестті қайта тапсырыңыз.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
+    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', tabWords:'Сөздер', tabGram:'Грамматика', vCards:'Карточкалар', vQuiz:'Тексеру: барлық сөз', vShow:'Мағынасын көру', vYes:'✓ Білемін', vNo:'✗ Білмеймін', vListen:'Тыңдау', vWrite:'Жазып үйреніңіз', vTrace:'1. Үлгі бойынша жазыңыз', vRecall:'2. Енді жатқа жазыңыз', vWriteDone:'Жарайсыз! Енді сөзді білесіз бе?', vWriteSkip:'Жазу құралы жүктелмеді — бұл қадам өткізілді.',vHint1:'Иероглифке қарап, дыбысын тыңдап, мағынасын еске түсіріңіз.', vHint2:'Білсеңіз — «Білемін». Білмесеңіз, карточка тағы шығады және 10 минуттан кейін қайталауға түседі.', vDone:n=>n+' сөздің бәрі тексерілді!', vDoneWrong:n=>n+' қате болды — ол сөздер қайталау тізімінде.', vDonePerfect:'Бірде-бір қате жоқ!', vAgain:'Карточкаларды қайталау', mockShort:'40 сұрақ · 60% өту шегі', grammar:'Грамматика', qSentence:'Сөйлемнің мағынасын таңдаңыз', qHearSentence:'Тыңдап, сөйлемнің мағынасын таңдаңыз', qFill:'Бос орынға сәйкес сөзді таңдаңыз', qOrder:'Сөздерді дұрыс ретпен басыңыз', check:'Тексеру', hskTitle:'HSK-ға дайындық', hskText:'HSK 3.0 — Қытайдың ресми тіл емтиханы (1–9 деңгей). Жаңа нұсқа 2026 жылғы 13 желтоқсаннан бастап өтеді. Сабақтар 2025 жылғы ресми бағдарлама бойынша.', hskWords:n=>n+' сөз', hskLearn:'Сөздерді оқу', hskMock:'Сынақ тест', hskSoon:'Келесі деңгейлер дайындалуда. Алдымен 1–2-деңгейді меңгеріңіз.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'HSK '+l+' сөздері мен грамматикасы бойынша 40 сұрақ: 20 тыңдау, 20 оқу (сөздер, сөйлемдер, бос орын). Өту шегі — 60%.', mockStart:'Тестті бастау', mockTitle:l=>'HSK '+l+' сынақ тесті', secListen:'Тыңдау', secRead:'Оқу', qHearChar:'Тыңдап, иероглифті таңдаңыз', qPinyin:'Пиньиньге сай иероглифті таңдаңыз', mockNote:'Бұл ресми емтихан емес, бірақ формасы HSK-ға ұқсас: тыңдау және оқу. Қате жауаптар қайталау тізіміне түседі.', mockPassed:'Өту шегінен асты!', mockFailed:'Әзірге 60%-ға жетпеді', mockAfter:'Қате сөздер «Қайталау» бөліміне қосылды. Оларды қайталап, тестті қайта тапсырыңыз.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
   },
   ru: {
     brandSub:'Китайский · на казахском и русском', navCourses:'Курсы', navMe:'Моё обучение', navFeedback:'Обратная связь', navAbout:'О проекте',
@@ -76,7 +76,7 @@ const T = {
     fbCats:[['课程建议','Предложение по курсу'],['内容纠错','Нашёл ошибку'],['网站问题','Проблема с сайтом'],['账号问题','Аккаунт'],['其他','Другое']],
     aboutTitle:'Зачем я сделал этот сайт',
     aboutText:['В 2013 году я переехал из Китая в Казахстан. Сейчас я переводчик и каждый день работаю с китайским, казахским и русским языками.','В Казахстане много людей работают в китайских компаниях или хотят учиться в Китае. Но бесплатных и понятных материалов, которые учат китайскому с нуля на казахском и русском, мало. Поэтому я сделал этот сайт.','Сайт бесплатный. От пиньиня и тонов до разговорных фраз, иероглифов и рабочих ситуаций — у каждой фразы есть озвучка и упражнения.','Если нашли ошибку или хотите предложить тему урока, напишите на странице <a href="feedback.html">обратной связи</a>.'],
-    loading:'Загрузка…', notFound:'Урок не найден.', tabWords:'Слова', tabGram:'Грамматика', vCards:'Карточки', vQuiz:'Проверка: все слова', vShow:'Показать значение', vYes:'✓ Знаю', vNo:'✗ Не знаю', vHint1:'Посмотрите на иероглиф, послушайте и вспомните значение.', vHint2:'Знаете — «Знаю». Не знаете — карточка вернётся и попадёт в повторение через 10 минут.', vDone:n=>'Все '+n+' слов проверены!', vDoneWrong:n=>'Ошибок: '+n+' — эти слова в повторении.', vDonePerfect:'Ни одной ошибки!', vAgain:'Повторить карточки', mockShort:'40 вопросов · проходной 60%', grammar:'Грамматика', qSentence:'Выберите значение предложения', qHearSentence:'Послушайте и выберите значение предложения', qFill:'Выберите слово для пропуска', qOrder:'Нажимайте слова в правильном порядке', check:'Проверить', hskTitle:'Подготовка к HSK', hskText:'HSK 3.0 — официальный экзамен по китайскому (уровни 1–9). Новая версия проводится с 13 декабря 2026 года. Уроки — по официальной программе 2025 года.', hskWords:n=>n+' слов', hskLearn:'Учить слова', hskMock:'Пробный тест', hskSoon:'Следующие уровни готовятся. Сначала освойте уровни 1–2.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'40 вопросов по словам и грамматике HSK '+l+': 20 на аудирование, 20 на чтение (слова, предложения, пропуски). Проходной балл — 60%.', mockStart:'Начать тест', mockTitle:l=>'Пробный тест HSK '+l, secListen:'Аудирование', secRead:'Чтение', qHearChar:'Послушайте и выберите иероглиф', qPinyin:'Выберите иероглиф по пиньиню', mockNote:'Это не официальный экзамен, но формат похож на HSK: аудирование и чтение. Ошибки попадут в повторение.', mockPassed:'Проходной балл набран!', mockFailed:'Пока меньше 60%', mockAfter:'Слова с ошибками добавлены в «Повторение». Повторите их и пройдите тест ещё раз.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
+    loading:'Загрузка…', notFound:'Урок не найден.', tabWords:'Слова', tabGram:'Грамматика', vCards:'Карточки', vQuiz:'Проверка: все слова', vShow:'Показать значение', vYes:'✓ Знаю', vNo:'✗ Не знаю', vListen:'Слушать', vWrite:'Пропишите слово', vTrace:'1. Обведите по образцу', vRecall:'2. Теперь напишите по памяти', vWriteDone:'Отлично! Теперь — знаете ли вы это слово?', vWriteSkip:'Не удалось загрузить прописи — шаг пропущен.',vHint1:'Посмотрите на иероглиф, послушайте и вспомните значение.', vHint2:'Знаете — «Знаю». Не знаете — карточка вернётся и попадёт в повторение через 10 минут.', vDone:n=>'Все '+n+' слов проверены!', vDoneWrong:n=>'Ошибок: '+n+' — эти слова в повторении.', vDonePerfect:'Ни одной ошибки!', vAgain:'Повторить карточки', mockShort:'40 вопросов · проходной 60%', grammar:'Грамматика', qSentence:'Выберите значение предложения', qHearSentence:'Послушайте и выберите значение предложения', qFill:'Выберите слово для пропуска', qOrder:'Нажимайте слова в правильном порядке', check:'Проверить', hskTitle:'Подготовка к HSK', hskText:'HSK 3.0 — официальный экзамен по китайскому (уровни 1–9). Новая версия проводится с 13 декабря 2026 года. Уроки — по официальной программе 2025 года.', hskWords:n=>n+' слов', hskLearn:'Учить слова', hskMock:'Пробный тест', hskSoon:'Следующие уровни готовятся. Сначала освойте уровни 1–2.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'40 вопросов по словам и грамматике HSK '+l+': 20 на аудирование, 20 на чтение (слова, предложения, пропуски). Проходной балл — 60%.', mockStart:'Начать тест', mockTitle:l=>'Пробный тест HSK '+l, secListen:'Аудирование', secRead:'Чтение', qHearChar:'Послушайте и выберите иероглиф', qPinyin:'Выберите иероглиф по пиньиню', mockNote:'Это не официальный экзамен, но формат похож на HSK: аудирование и чтение. Ошибки попадут в повторение.', mockPassed:'Проходной балл набран!', mockFailed:'Пока меньше 60%', mockAfter:'Слова с ошибками добавлены в «Повторение». Повторите их и пройдите тест ещё раз.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
   }
 };
 const LANG_KEY = 'nihao-ui';
@@ -607,22 +607,54 @@ function vocabLesson(l, c, m, back, prevUrl, nextUrl, last) {
   lock();
   const bar = (a, b) => `<div class="v-progress"><span>${a} / ${b}</span>${meter(pct(a, b))}</div>`;
   const exHtml = (x, ex) => esc(ex[0]).replace(esc(x[0]), `<mark>${esc(x[0])}</mark>`);
+  // Handwriting: each new word is written twice — once over the outline, once from memory.
+  const written = new Set();
+  function writeRows(x, area, done) {
+    const chars = [...x[0]].filter(ch => /\p{Script=Han}/u.test(ch));
+    if (!chars.length) return done();
+    const row = (kind, label) => `<p class="write-label">${label}</p><div class="write-row">${chars.map(ch => `<div class="write-box" data-kind="${kind}"><span class="write-fallback">${kind === 'trace' ? esc(ch) : ''}</span></div>`).join('')}</div>`;
+    area.innerHTML = `<p class="eyebrow">✍️ ${t('vWrite')}</p>${row('trace', t('vTrace'))}${row('recall', t('vRecall'))}<p class="feedback" role="status"></p>`;
+    const status = area.querySelector('.feedback');
+    loadHanziWriter().then(HW => {
+      const boxes = [...area.querySelectorAll('.write-box')];
+      const size = Math.min(110, Math.floor((area.clientWidth - 8 * (chars.length - 1)) / chars.length) || 110);
+      const writers = boxes.map((box, i) => {
+        box.innerHTML = ''; box.style.width = box.style.height = size + 'px';
+        const trace = box.dataset.kind === 'trace';
+        return HW.create(box, chars[i % chars.length], {width:size, height:size, padding:6, showOutline:trace, showCharacter:false,
+          strokeColor:'#1d2a24', outlineColor:'#d9d2c6', drawingColor:'#1d2a24', drawingWidth:Math.max(14, size / 7), highlightColor:'#e0a63c'});
+      });
+      const step = i => {
+        boxes.forEach((b, j) => b.classList.toggle('active', j === i));
+        if (i >= boxes.length) { status.textContent = t('vWriteDone'); return done(); }
+        writers[i].quiz({showHintAfterMisses:boxes[i].dataset.kind === 'trace' ? 1 : 2, onComplete:() => { boxes[i].classList.add('ok'); step(i + 1); }});
+      };
+      step(0);
+    }).catch(() => { status.textContent = t('vWriteSkip'); done(); });
+  }
   function card() {
     if (pos >= queue.length) return startQuiz();
-    const x = items[queue[pos]], ex = x[5];
+    const x = items[queue[pos]], ex = x[5], mustWrite = shown && !written.has(queue[pos]);
     stage.innerHTML = `${bar(Math.min(pos + 1, queue.length), queue.length)}<p class="eyebrow">${t('vCards')}</p>
       <div class="flash"><button type="button" class="flash-hz" data-say>${esc(x[0])}</button>
+        <button type="button" class="say-btn" data-say>🔊 ${t('vListen')}</button>
         <div class="flash-back" ${shown ? '' : 'hidden'}><p class="py">${toneHtml(x[1])}</p><p class="tr">${esc(meaning(x))}</p>
-          <button type="button" class="example" data-ex><span class="ex-hz">${exHtml(x, ex)}</span><span class="py">${toneHtml(ex[1])}</span><small>${esc(meaning(ex))}</small></button></div></div>
-      <div class="flash-actions">${shown ? `${btn(t('vNo'), 'class="no" data-no')}${btn(t('vYes'), 'class="yes" data-yes')}` : btn(t('vShow'), 'class="show" data-show')}</div>
-      <p class="muted v-hint">${shown ? t('vHint2') : t('vHint1')}</p>`;
-    stage.querySelector('[data-say]').onclick = () => Audio2.play(aKey(x));
+          <button type="button" class="example" data-ex><span class="ex-hz">🔊 ${exHtml(x, ex)}</span><span class="py">${toneHtml(ex[1])}</span><small>${esc(meaning(ex))}</small></button></div></div>
+      ${mustWrite ? '<div class="write-area"></div>' : ''}
+      <div class="flash-actions" ${mustWrite ? 'hidden' : ''}>${shown ? `${btn(t('vNo'), 'class="no" data-no')}${btn(t('vYes'), 'class="yes" data-yes')}` : btn(t('vShow'), 'class="show" data-show')}</div>
+      <p class="muted v-hint" ${mustWrite ? 'hidden' : ''}>${shown ? t('vHint2') : t('vHint1')}</p>`;
+    stage.querySelectorAll('[data-say]').forEach(b => b.onclick = () => Audio2.play(aKey(x)));
     stage.querySelector('[data-ex]').onclick = () => Audio2.play(ex[0]);
-    const show = stage.querySelector('[data-show]'); if (show) show.onclick = () => { shown = true; card(); Audio2.play(ex[0]); };
+    const show = stage.querySelector('[data-show]'); if (show) show.onclick = () => { shown = true; card(); Audio2.list([aKey(x), ex[0]]); };
     const yes = stage.querySelector('[data-yes]'), no = stage.querySelector('[data-no]');
     if (yes) yes.onclick = () => { Store.mark(wordOf(x), true); pos++; shown = false; card(); };
     // "Don't know": the card comes back once more at the end of this round, and in review after 10 minutes.
     if (no) no.onclick = () => { Store.mark(wordOf(x), false); if (!repeated.has(queue[pos])) { repeated.add(queue[pos]); queue.push(queue[pos]); } pos++; shown = false; card(); };
+    if (mustWrite) writeRows(x, stage.querySelector('.write-area'), () => {
+      written.add(queue[pos]);
+      stage.querySelectorAll('.flash-actions, .v-hint').forEach(e => e.hidden = false);
+      stage.querySelector('.flash-actions').scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
     if (!shown) setTimeout(() => Audio2.play(aKey(x)), 250);
   }
   function startQuiz() { quiz = vocabQuestions(l); qi = 0; wrong = 0; ask(); }
