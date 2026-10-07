@@ -39,7 +39,7 @@ const T = {
     fbCats:[['课程建议','Курс туралы ұсыныс'],['内容纠错','Қате табылды'],['网站问题','Сайт жұмысы'],['账号问题','Аккаунт'],['其他','Басқа']],
     aboutTitle:'Неге бұл сайтты жасадым',
     aboutText:['Мен 2013 жылы Қытайдан Қазақстанға көшіп келдім. Қазір аудармашымын, күн сайын қытай, қазақ және орыс тілдерінде жұмыс істеймін.','Қазақстанда қытай компанияларында жұмыс істейтіндер, Қытайда оқығысы келетіндер көп. Бірақ қазақ және орыс тілінде қытай тілін нөлден үйрететін тегін, қарапайым материал аз. Сондықтан осы сайтты жасадым.','Сайт тегін. Пиньинь мен тондардан бастап, күнделікті сөйлесуге, иероглифтерге және жұмыс жағдаяттарына дейін — әр сөйлемнің дыбысы мен жаттығуы бар.','Қате тапсаңыз немесе қандай сабақ керек екенін айтқыңыз келсе, <a href="feedback.html">кері байланыс</a> бетінде жазыңыз.'],
-    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', hskTitle:'HSK-ға дайындық', hskText:'HSK 3.0 — Қытайдың ресми тіл емтиханы, 1-ден 9-ға дейін деңгей. Ресми сөздер тізімімен оқып, сынақ тест тапсырыңыз.', hskWords:n=>n+' сөз', hskLearn:'Сөздерді оқу', hskMock:'Сынақ тест', hskSoon:'Келесі деңгейлер дайындалуда. Алдымен 1–2-деңгейді меңгеріңіз.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'HSK '+l+' сөздері бойынша 40 сұрақ: 20 тыңдау, 20 оқу. Өту шегі — 60%.', mockStart:'Тестті бастау', mockTitle:l=>'HSK '+l+' сынақ тесті', secListen:'Тыңдау', secRead:'Оқу', qHearChar:'Тыңдап, иероглифті таңдаңыз', qPinyin:'Пиньиньге сай иероглифті таңдаңыз', mockNote:'Бұл ресми емтихан емес: сөздерді білуіңізді тексереді. Қате жауаптар қайталау тізіміне түседі.', mockPassed:'Өту шегінен асты!', mockFailed:'Әзірге 60%-ға жетпеді', mockAfter:'Қате сөздер «Қайталау» бөліміне қосылды. Оларды қайталап, тестті қайта тапсырыңыз.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
+    loading:'Жүктелуде…', notFound:'Сабақ табылмады.', grammar:'Грамматика', qSentence:'Сөйлемнің мағынасын таңдаңыз', qHearSentence:'Тыңдап, сөйлемнің мағынасын таңдаңыз', qFill:'Бос орынға сәйкес сөзді таңдаңыз', qOrder:'Сөздерді дұрыс ретпен басыңыз', check:'Тексеру', hskTitle:'HSK-ға дайындық', hskText:'HSK 3.0 — Қытайдың ресми тіл емтиханы, 1-ден 9-ға дейін деңгей. Ресми сөздер тізімімен оқып, сынақ тест тапсырыңыз.', hskWords:n=>n+' сөз', hskLearn:'Сөздерді оқу', hskMock:'Сынақ тест', hskSoon:'Келесі деңгейлер дайындалуда. Алдымен 1–2-деңгейді меңгеріңіз.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'HSK '+l+' сөздері мен грамматикасы бойынша 40 сұрақ: 20 тыңдау, 20 оқу (сөздер, сөйлемдер, бос орын). Өту шегі — 60%.', mockStart:'Тестті бастау', mockTitle:l=>'HSK '+l+' сынақ тесті', secListen:'Тыңдау', secRead:'Оқу', qHearChar:'Тыңдап, иероглифті таңдаңыз', qPinyin:'Пиньиньге сай иероглифті таңдаңыз', mockNote:'Бұл ресми емтихан емес, бірақ формасы HSK-ға ұқсас: тыңдау және оқу. Қате жауаптар қайталау тізіміне түседі.', mockPassed:'Өту шегінен асты!', mockFailed:'Әзірге 60%-ға жетпеді', mockAfter:'Қате сөздер «Қайталау» бөліміне қосылды. Оларды қайталап, тестті қайта тапсырыңыз.', pyOn:'Пиньинь: көрсету', pyOff:'Пиньинь: жасыру', syll:n=>'Кеңес: '+n+' буын'
   },
   ru: {
     brandSub:'Китайский · на казахском и русском', navCourses:'Курсы', navMe:'Моё обучение', navFeedback:'Обратная связь', navAbout:'О проекте',
@@ -76,7 +76,7 @@ const T = {
     fbCats:[['课程建议','Предложение по курсу'],['内容纠错','Нашёл ошибку'],['网站问题','Проблема с сайтом'],['账号问题','Аккаунт'],['其他','Другое']],
     aboutTitle:'Зачем я сделал этот сайт',
     aboutText:['В 2013 году я переехал из Китая в Казахстан. Сейчас я переводчик и каждый день работаю с китайским, казахским и русским языками.','В Казахстане много людей работают в китайских компаниях или хотят учиться в Китае. Но бесплатных и понятных материалов, которые учат китайскому с нуля на казахском и русском, мало. Поэтому я сделал этот сайт.','Сайт бесплатный. От пиньиня и тонов до разговорных фраз, иероглифов и рабочих ситуаций — у каждой фразы есть озвучка и упражнения.','Если нашли ошибку или хотите предложить тему урока, напишите на странице <a href="feedback.html">обратной связи</a>.'],
-    loading:'Загрузка…', notFound:'Урок не найден.', hskTitle:'Подготовка к HSK', hskText:'HSK 3.0 — официальный экзамен по китайскому языку, уровни с 1 по 9. Учите слова по официальному списку и проходите пробный тест.', hskWords:n=>n+' слов', hskLearn:'Учить слова', hskMock:'Пробный тест', hskSoon:'Следующие уровни готовятся. Сначала освойте уровни 1–2.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'40 вопросов по словам HSK '+l+': 20 на аудирование, 20 на чтение. Проходной балл — 60%.', mockStart:'Начать тест', mockTitle:l=>'Пробный тест HSK '+l, secListen:'Аудирование', secRead:'Чтение', qHearChar:'Послушайте и выберите иероглиф', qPinyin:'Выберите иероглиф по пиньиню', mockNote:'Это не официальный экзамен: тест проверяет знание слов. Ошибки попадут в повторение.', mockPassed:'Проходной балл набран!', mockFailed:'Пока меньше 60%', mockAfter:'Слова с ошибками добавлены в «Повторение». Повторите их и пройдите тест ещё раз.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
+    loading:'Загрузка…', notFound:'Урок не найден.', grammar:'Грамматика', qSentence:'Выберите значение предложения', qHearSentence:'Послушайте и выберите значение предложения', qFill:'Выберите слово для пропуска', qOrder:'Нажимайте слова в правильном порядке', check:'Проверить', hskTitle:'Подготовка к HSK', hskText:'HSK 3.0 — официальный экзамен по китайскому языку, уровни с 1 по 9. Учите слова по официальному списку и проходите пробный тест.', hskWords:n=>n+' слов', hskLearn:'Учить слова', hskMock:'Пробный тест', hskSoon:'Следующие уровни готовятся. Сначала освойте уровни 1–2.', mockBest:p=>'тест: '+p+'%', mockInfo:l=>'40 вопросов по словам и грамматике HSK '+l+': 20 на аудирование, 20 на чтение (слова, предложения, пропуски). Проходной балл — 60%.', mockStart:'Начать тест', mockTitle:l=>'Пробный тест HSK '+l, secListen:'Аудирование', secRead:'Чтение', qHearChar:'Послушайте и выберите иероглиф', qPinyin:'Выберите иероглиф по пиньиню', mockNote:'Это не официальный экзамен, но формат похож на HSK: аудирование и чтение. Ошибки попадут в повторение.', mockPassed:'Проходной балл набран!', mockFailed:'Пока меньше 60%', mockAfter:'Слова с ошибками добавлены в «Повторение». Повторите их и пройдите тест ещё раз.', pyOn:'Пиньинь: показать', pyOff:'Пиньинь: скрыть', syll:n=>'Подсказка: слогов — '+n
   }
 };
 const LANG_KEY = 'nihao-ui';
@@ -117,15 +117,20 @@ const COURSES = [
     const a = i * 10 + 1, b = Math.min(n, (i + 5) * 10);
     modules.push({ title:{kk:`${a}–${b}-сөздер`, ru:`Слова ${a}–${b}`}, lessons:lessons.slice(i, i + 5) });
   }
+  // Grammar: official HSK 3.0 grammar points of the level, grouped into lessons (pattern, explanation, 3 examples).
+  const gram = (NH.hskGrammar || {})[h.level] || [];
+  gram.forEach(g => modules.push({ gram:true, title:{kk:'Грамматика: ' + g.t[0], ru:'Грамматика: ' + g.t[1]},
+    lessons:g.lessons.map(x => ({ kind:'gram', title:{kk:x.t[0], ru:x.t[1]}, pat:x.p, note:{kk:x.n[0], ru:x.n[1]}, refs:x.r, ex:x.e })) }));
+  const nGram = gram.reduce((k, g) => k + g.lessons.length, 0);
   COURSES.push({ id:'hsk' + h.level, icon:String(h.level), hsk:h.level, open:true,
-    title:{kk:`HSK ${h.level} сөздері`, ru:`Слова HSK ${h.level}`},
-    desc:{kk:`HSK 3.0 ресми тізімі бойынша ${h.level}-деңгейдің ${n} сөзі. Әр сабақта 10 сөз, соңында сынақ тест.`, ru:`${n} слов уровня ${h.level} по официальному списку HSK 3.0. В каждом уроке 10 слов, в конце — пробный тест.`},
+    title:{kk:`HSK ${h.level}`, ru:`HSK ${h.level}`},
+    desc:{kk:`HSK 3.0 ресми тізімі бойынша ${n} сөз және ${nGram} грамматика сабағы (барлық ресми грамматикалық тақырыптар). Соңында сынақ тест.`, ru:`${n} слов по официальному списку HSK 3.0 и ${nGram} уроков грамматики (все официальные грамматические темы). В конце — пробный тест.`},
     modules });
 });
 COURSES.forEach(c => c.modules.forEach((m, mi) => m.lessons.forEach((l, li) => { l.id = `${c.id}-${mi + 1}-${li + 1}`; l.mi = mi; l.li = li; l.course = c; })));
 const courseById = id => COURSES.find(c => c.id === id);
 const allLessons = c => c.modules.flatMap(m => m.lessons);
-const lessonTitle = l => l.kind === 'set' ? L(l.title) : l.hz;
+const lessonTitle = l => l.kind === 'set' || l.kind === 'gram' ? L(l.title) : l.hz;
 // Audio key of a word row [hz, py, kk, ru, key?]: polyphones and variant words have their own clip.
 const aKey = x => x[4] || x[0];
 const meaning = x => Array.isArray(x) ? (lang === 'kk' ? x[2] : x[3]) : (lang === 'kk' ? x.kk : x.ru);
@@ -328,7 +333,7 @@ function home() {
   const hskList = document.getElementById('hskList');
   if (hskList) hskList.innerHTML = COURSES.filter(c => c.hsk).map(c => {
     const all = allLessons(c), dn = all.filter(l => Store.isDone(l.id)).length, best = Store.state().tests?.[c.id + ':mock'] || 0;
-    return `<article class="course-card hsk-card"><div class="course-top">${glyph(c)}<span class="course-step">${t('hskWords', c.modules.reduce((n, m) => n + m.lessons.reduce((k, l) => k + l.items.length, 0), 0))}</span></div><h3>${esc(L(c.title))}</h3><p>${esc(L(c.desc))}</p><div class="course-foot">${meter(pct(dn, all.length))}<small>${dn} / ${all.length} ${t('lessons')}${best ? ' · ' + t('mockBest', best) : ''}</small></div><div class="hsk-actions"><a class="primary-btn" href="${dn ? nextStep(c) : courseUrl(c)}">${dn ? t('continue') : t('hskLearn')} →</a><a class="secondary-btn" href="test.html?c=${c.id}&mock=1">${t('hskMock')}</a></div></article>`;
+    return `<article class="course-card hsk-card"><div class="course-top">${glyph(c)}<span class="course-step">${t('hskWords', c.modules.reduce((n, m) => n + m.lessons.reduce((k, l) => k + (l.items?.length || 0), 0), 0))}</span></div><h3>${esc(L(c.title))}</h3><p>${esc(L(c.desc))}</p><div class="course-foot">${meter(pct(dn, all.length))}<small>${dn} / ${all.length} ${t('lessons')}${best ? ' · ' + t('mockBest', best) : ''}</small></div><div class="hsk-actions"><a class="primary-btn" href="${dn ? nextStep(c) : courseUrl(c)}">${dn ? t('continue') : t('hskLearn')} →</a><a class="secondary-btn" href="test.html?c=${c.id}&mock=1">${t('hskMock')}</a></div></article>`;
   }).join('') + `<article class="course-card hsk-card soon"><div class="course-top"><span class="glyph g-soon">3+</span></div><h3>HSK 3–9</h3><p>${t('hskSoon')}</p></article>`;
   document.getElementById('courseList').innerHTML = COURSES.filter(c => !c.hsk).map((c, i) => {
     const all = allLessons(c), dn = all.filter(l => Store.isDone(l.id)).length, p = pct(dn, all.length);
@@ -350,7 +355,7 @@ function course() {
       const status = best >= PASS ? t('passed') + ' · ' + best + '%' : open ? t('unlocked') : t('locked');
       const head = `<summary><div><span class="eyebrow">${t('module')} ${mi + 1} · ${status}</span><h3>${m.icon || ''} ${esc(L(m.title))}</h3></div><span>${d} / ${m.lessons.length}</span></summary>`;
       if (!open) return `<details class="module locked">${head}<p class="muted">${t('lockedText')}</p></details>`;
-      const rows = m.lessons.map(l => `<a class="lesson-row" href="${lessonUrl(l)}"><span class="num">${Store.isDone(l.id) ? '✓' : l.li + 1}</span><span class="row-main"><strong>${esc(lessonTitle(l))}</strong><small>${esc(l.kind === 'set' ? l.items.map(x => x[0]).join(' · ') : l.py + ' — ' + meaning(l))}</small></span><span class="arrow">→</span></a>`).join('');
+      const rows = m.lessons.map(l => `<a class="lesson-row" href="${lessonUrl(l)}"><span class="num">${Store.isDone(l.id) ? '✓' : l.li + 1}</span><span class="row-main"><strong>${esc(lessonTitle(l))}</strong><small>${esc(l.kind === 'set' ? l.items.map(x => x[0]).join(' · ') : l.kind === 'gram' ? l.pat : l.py + ' — ' + meaning(l))}</small></span><span class="arrow">→</span></a>`).join('');
       const action = d === m.lessons.length ? `<a class="primary-btn" href="${testUrl(c, mi)}">${best ? t('retakeTest') : t('takeTest')}</a>` : `<p class="muted">${t('leftN', m.lessons.length - d)}</p>`;
       return `<details class="module" ${mi === current ? 'open' : ''}>${head}${rows}${action}</details>`;
     }).join('')}</div></section>`;
@@ -378,14 +383,71 @@ function questionsFor(l) {
     const q2 = {prompt:c.id === 'pinyin' ? t('qWhichChar') : t('qHowSay'), big:c.id === 'pinyin' ? it2[1] : meaning(it2), answer:it2[0], zhOptions:true, options:fill(same.length >= 4 ? same.map(x => x[0]) : pick(x => x[0]), it2[0]), item:item(it2)};
     return [q1, q2];
   }
+  if (l.kind === 'gram') {
+    const ex = shuffle(l.ex), a = ex[0], b = ex[1] || ex[0];
+    const ord = orderWords(b); // very short sentences (请坐。) cannot be put in order: fill the blank instead
+    return [sentenceMeaning(c, a, l), Math.random() < 0.5 || ord.order.length < 3 ? fillBlank(c, b, l) : ord];
+  }
   const chars = pool(c, 'char').filter(x => x.hz !== l.hz);
   return [
     {prompt:t('qMeaning'), big:l.hz, answer:meaning(l), options:shuffle([meaning(l), ...shuffle(uniq(chars.map(meaning)).filter(x => x !== meaning(l))).slice(0, 3)]), item:l},
     {prompt:t('qWhichChar'), play:l.hz, answer:l.hz, zhOptions:true, options:shuffle([l.hz, ...shuffle(chars.filter(x => x.py !== l.py).map(x => x.hz)).slice(0, 3)]), item:l}
   ];
 }
+// Sentence questions (HSK grammar): example = [漢字, pinyin, kk, ru, key word]
+const exItem = x => ({hz:x[0], py:x[1], kk:x[2], ru:x[3]});
+function sentenceMeaning(c, x, l) {
+  const others = pool(c, 'gram').filter(g => g !== l).flatMap(g => g.ex).map(meaning);
+  return {prompt:t('qSentence'), big:x[0], play:x[0], answer:meaning(x), options:shuffle([meaning(x), ...shuffle(uniq(others).filter(v => v !== meaning(x))).slice(0, 3)]), item:exItem(x)};
+}
+// Fill the blank: distractors come from other grammar modules and never share a character with the answer.
+// Word classes for fill-in distractors: a wrong option never comes from the answer's own class (很 vs 非常 would both fit).
+const WORD_CLASS = (() => {
+  const m = {}, add = (cls, list) => list.split(' ').forEach(w => { m[w] = cls; });
+  add('deg', '很 非常 太 真 最 更 特别 挺 有点儿 十分 多么 这么 那么 一点儿');
+  add('part', '吗 吧 呢 了 的 地 得 着 过 啊 好吗 可以吗 是不是 的话 什么的 等 喂');
+  add('meas', '个 杯 本 口 件 条 位 层 封 次 遍 下 一下 块 毛 岁 年 分钟 号 点 分 半 两 千 万 亿 第 星期');
+  add('qw', '几 多少 多 什么 谁 哪儿 怎么 为什么 怎么样 多久');
+  add('neg', '不 没 没有 别 不如');
+  add('verb', '是 有 在 要 想 会 能 可以 可能 应该 该 愿意 必须 去 来 坐 用 给 教 告诉 请 看书 进来 出去 回来 星期一 懂 完 错 快要 就要');
+  add('adv', '也 都 还 再 又 就 才 已经 刚 一直 忽然 经常 常常 马上 先 然后 一起 只 全 一共 重新 正好 故意 好像 差不多 越来越 正在 有时候 不一会儿');
+  add('link', '和 跟 还是 或者 因为 所以 虽然 但是 可是 不过 如果 只要 不但 而且 一边 一 以前 以后 当 为 比 从 往 向 对 离 又');
+  add('pron', '这 那 这些 那些 我们 大家 自己 咱们 这样 东边 上 里');
+  return m;
+})();
+function fillBlank(c, x, l) {
+  const key = x[4], mod = l.course.modules[l.mi];
+  const pool2 = uniq(pool(c, 'gram').filter(g => g.course.modules[g.mi] !== mod).flatMap(g => g.ex.map(e => e[4])))
+    .filter(k => k !== key && ![...k].some(ch => key.includes(ch)) && !x[0].includes(k) && WORD_CLASS[k] && WORD_CLASS[k] !== WORD_CLASS[key]
+      // before a verb almost any adverb, negation or verb fits: then only use particles, measure words, question words, pronouns
+      && (['part', 'meas', 'qw', 'pron'].includes(WORD_CLASS[key]) || ['part', 'meas', 'qw', 'pron'].includes(WORD_CLASS[k])));
+  return {prompt:t('qFill'), big:x[0].replace(key, '＿＿'), sub2:meaning(x), answer:key, zhOptions:true, options:shuffle([key, ...shuffle(pool2).slice(0, 3)]), item:exItem(x)};
+}
+// Word order: the sentence split into words (Intl.Segmenter; single characters if unavailable).
+function orderWords(x) {
+  const text = x[0].replace(/[。！？，、.!?]+$/u, ''), seg = window.Intl?.Segmenter ? [...new Intl.Segmenter('zh', {granularity:'word'}).segment(text)].map(s => s.segment) : [...text];
+  // The segmenter splits some names and HSK words (哈萨克|斯坦): glue neighbours back when together they form a known word.
+  const known = orderWords.known ||= new Set(['哈萨克斯坦', ...(NH.hsk || []).flatMap(h => h.words.map(w => w[0].split(' / ')[0]))]);
+  const raw = seg.filter(s => s.trim()), parts = [];
+  for (let i = 0; i < raw.length;) {
+    let end = i; // longest run raw[i..end] that is a known word
+    for (let j = i + 1; j < Math.min(raw.length, i + 4); j++) if (known.has(raw.slice(i, j + 1).join(''))) end = j;
+    parts.push(raw.slice(i, end + 1).join('')); i = end + 1;
+  }
+  return {prompt:t('qOrder'), sub2:meaning(x), order:parts, answer:parts.join(''), item:exItem(x)};
+}
 function renderQuestion(host, q, onAnswer) {
-  host.innerHTML = `<p class="q-prompt">${esc(q.prompt)}</p>${q.big ? `<p class="q-big ${/[一-鿿]/.test(q.big) ? 'zh' : ''}">${esc(q.big)}</p>` : ''}${q.sub ? `<p class="q-sub">${toneHtml(q.sub)}</p>` : ''}${q.play ? btn(t('play'), 'class="play-btn" data-play') : ''}
+  if (q.order) {
+    const picked = [];
+    host.innerHTML = `<p class="q-prompt">${esc(q.prompt)}</p><p class="q-big">${esc(q.sub2)}</p><p class="order-line zh" aria-live="polite"></p><div class="options order">${shuffle(q.order.map((w, i) => [w, i])).map(([w, i]) => `<button type="button" class="option zh" data-o="${i}">${esc(w)}</button>`).join('')}</div><div class="tools"><button type="button" data-reset>↺</button><button type="button" class="check" data-check>${t('check')}</button></div><p class="feedback" role="status"></p>`;
+    const line = host.querySelector('.order-line');
+    host.querySelectorAll('[data-o]').forEach(b => b.onclick = () => { picked.push(q.order[+b.dataset.o]); b.disabled = true; line.textContent = picked.join(''); });
+    host.querySelector('[data-reset]').onclick = () => { picked.length = 0; line.textContent = ''; host.querySelectorAll('[data-o]').forEach(b => b.disabled = false); };
+    host.querySelector('[data-check]').onclick = e => { if (picked.length === q.order.length) onAnswer(picked.join('') === q.answer, e.currentTarget); };
+    return;
+  }
+  if (q.sub2 && !q.order) q.sub = null;
+  host.innerHTML = `<p class="q-prompt">${esc(q.prompt)}</p>${q.big ? `<p class="q-big ${/[一-鿿]/.test(q.big) ? 'zh' : ''}">${esc(q.big)}</p>` : ''}${q.sub ? `<p class="q-sub">${toneHtml(q.sub)}</p>` : ''}${q.sub2 ? `<p class="muted">${esc(q.sub2)}</p>` : ''}${q.play ? btn(t('play'), 'class="play-btn" data-play') : ''}
     <div class="options">${q.options.map((o, i) => `<button type="button" class="option ${q.zhOptions ? 'zh' : ''}" data-i="${i}">${esc(o)}</button>`).join('')}</div><p class="feedback" role="status"></p>`;
   const p = host.querySelector('[data-play]'); if (p) { p.onclick = () => Audio2.play(q.play); }
   host.querySelectorAll('.option').forEach(b => b.onclick = () => onAnswer(q.options[+b.dataset.i] === q.answer, b));
@@ -426,13 +488,15 @@ function lesson() {
   let body = '';
   if (l.kind === 'say') body = `<p class="py">${toneHtml(l.py)}</p><p class="hz">${esc(l.hz)}</p><p class="tr">${esc(meaning(l))}</p>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}`;
   if (l.kind === 'set') body = `<h2 class="set-title">${esc(L(l.title))}</h2>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}<div class="items">${l.items.map((x, i) => `<button type="button" class="item" data-item="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
-  if (l.kind === 'char') body = `<div class="char-wrap"><div class="char-box" id="charBox" aria-label="${esc(l.hz)}"><span class="char-fallback">${esc(l.hz)}</span></div><div class="char-info"><p class="py">${toneHtml(l.py)}</p><p class="tr">${esc(meaning(l))}</p><div class="tools">${btn(t('strokes'), 'data-animate')}${btn(t('tryWrite'), 'data-quiz')}</div><p class="feedback" id="writeStatus" role="status"></p></div></div>
+  if (l.kind === 'gram') body = `<span class="eyebrow">${t('grammar')} · HSK ${c.hsk} · №${esc(l.refs)}</span><h2 class="set-title">${esc(L(l.title))}</h2><p class="pattern">${esc(l.pat)}</p><p class="note">${esc(L(l.note))}</p>
+    <div class="examples">${l.ex.map((x, i) => `<button type="button" class="example" data-ex="${i}"><span class="ex-hz">${esc(x[0])}</span><span class="py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
+  if (l.kind === 'char') body =`<div class="char-wrap"><div class="char-box" id="charBox" aria-label="${esc(l.hz)}"><span class="char-fallback">${esc(l.hz)}</span></div><div class="char-info"><p class="py">${toneHtml(l.py)}</p><p class="tr">${esc(meaning(l))}</p><div class="tools">${btn(t('strokes'), 'data-animate')}${btn(t('tryWrite'), 'data-quiz')}</div><p class="feedback" id="writeStatus" role="status"></p></div></div>
     <h3 class="words-title">${t('words')}</h3><div class="items">${l.words.map((x, i) => `<button type="button" class="item" data-word="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
-  const main = l.kind === 'set' ? l.items.map(aKey) : [l.hz];
+  const main = l.kind === 'set' ? l.items.map(aKey) : l.kind === 'gram' ? l.ex.map(x => x[0]) : [l.hz];
   app().innerHTML = `<section class="section lesson-section"><div class="container narrow">
     <div class="lesson-top"><a href="${courseUrl(c)}">${t('back')}</a>${c.id === 'pinyin' ? '' : '<button type="button" class="py-toggle" id="pyToggle"></button>'}<span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
     <article class="lesson-card">${body}
-      <section class="tool-box"><div class="tools">${btn(l.kind === 'set' ? t('playAll') : t('normal'), 'data-rate="1"')}${btn(t('slow'), 'data-rate="0.7"')}${btn(t('record'), 'data-rec')}</div><p class="rec-status muted">${t('recHelp')}</p><audio controls hidden></audio></section>
+      <section class="tool-box"><div class="tools">${btn(l.kind === 'set' || l.kind === 'gram' ? t('playAll') : t('normal'), 'data-rate="1"')}${btn(t('slow'), 'data-rate="0.7"')}${btn(t('record'), 'data-rec')}</div><p class="rec-status muted">${t('recHelp')}</p><audio controls hidden></audio></section>
       <section class="practice" id="practice"></section>
       <div class="lesson-actions"><a class="secondary-btn" href="${prevUrl}">${t('prev')}</a><a class="primary-btn" id="nextBtn" href="${nextUrl}">${last ? t('nextTest') : t('next')} →</a></div>
     </article></div></section>`;
@@ -443,6 +507,7 @@ function lesson() {
   if (pyBtn) pyBtn.onclick = () => { try { localStorage.setItem('nihao-py', pyHidden() ? 'on' : 'off'); } catch {} pyApply(); };
   pyApply();
   root.querySelectorAll('[data-rate]').forEach(b => b.onclick = () => main.length > 1 ? Audio2.list(main, +b.dataset.rate) : Audio2.play(main[0], +b.dataset.rate));
+  root.querySelectorAll('[data-ex]').forEach(b => b.onclick = () => Audio2.play(l.ex[+b.dataset.ex][0]));
   root.querySelectorAll('[data-item]').forEach(b => b.onclick = () => Audio2.play(aKey(l.items[+b.dataset.item])));
   root.querySelectorAll('[data-word]').forEach(b => b.onclick = () => Audio2.play(l.words[+b.dataset.word][0]));
   root.querySelector('.hz')?.addEventListener('click', () => Audio2.play(l.hz));
@@ -482,24 +547,31 @@ function lesson() {
 /* ---------- module test ---------- */
 /* ---------- HSK mock test: 40 words of the level, 20 listening + 20 reading, pass at 60 % ---------- */
 function mock(c) {
-  const words = allLessons(c).flatMap(l => l.items), MOCK_PASS = 60;
+  const words = allLessons(c).flatMap(l => l.items || []), MOCK_PASS = 60;
   const wrap = h => `<section class="section"><div class="container narrow"><article class="lesson-card">${h}</article></div></section>`;
   const row = x => ({hz:x[0], py:x[1], kk:x[2], ru:x[3], a:x[4]});
   // Distractors never share the answer's meaning or sound, so every question has exactly one right option.
   const opts = (ans, pool) => shuffle([ans, ...shuffle(uniq(pool).filter(v => v !== ans)).slice(0, 3)]);
   const others = (x, same) => words.filter(y => y !== x && !same(y));
+  // 20 listening (12 words + 8 sentences) and 20 reading (12 words + 4 fill-in + 4 sentences) when grammar examples exist.
   function make() {
-    return shuffle(words).slice(0, 40).map((x, k) => {
-      const m = meaning(x), sec = k < 20 ? 'listen' : 'read';
+    const gl = pool(c, 'gram'), sents = shuffle(gl.flatMap(g => g.ex.map(e => [e, g])));
+    const nS = gl.length ? 8 : 0, nF = gl.length ? 4 : 0, nR = gl.length ? 4 : 0;
+    const wq = shuffle(words).slice(0, 40 - nS - nF - nR).map((x, k, arr) => {
+      const m = meaning(x), half = Math.floor(arr.length / 2), sec = k < half ? 'listen' : 'read';
       const hzPool = others(x, y => meaning(y) === m || y[1] === x[1]).map(y => y[0]);
-      if (k < 10) return {sec, prompt:t('qHear'), play:aKey(x), answer:m, options:opts(m, others(x, y => meaning(y) === m).map(meaning)), item:row(x)};
-      if (k < 20) return {sec, prompt:t('qHearChar'), play:aKey(x), answer:x[0], zhOptions:true, options:opts(x[0], hzPool), item:row(x)};
-      if (k < 30) return {sec, prompt:t('qMeaning'), big:x[0], answer:m, options:opts(m, others(x, y => meaning(y) === m).map(meaning)), item:row(x)};
-      if (k < 35) return {sec, prompt:t('qHowSay'), big:m, answer:x[0], zhOptions:true, options:opts(x[0], hzPool), item:row(x)};
+      if (k < half * 0.6) return {sec, prompt:t('qHear'), play:aKey(x), answer:m, options:opts(m, others(x, y => meaning(y) === m).map(meaning)), item:row(x)};
+      if (k < half) return {sec, prompt:t('qHearChar'), play:aKey(x), answer:x[0], zhOptions:true, options:opts(x[0], hzPool), item:row(x)};
+      if (k < half + (arr.length - half) * 0.6) return {sec, prompt:t('qMeaning'), big:x[0], answer:m, options:opts(m, others(x, y => meaning(y) === m).map(meaning)), item:row(x)};
+      if (k < arr.length - 2) return {sec, prompt:t('qHowSay'), big:m, answer:x[0], zhOptions:true, options:opts(x[0], hzPool), item:row(x)};
       return {sec, prompt:t('qPinyin'), big:x[1], answer:x[0], zhOptions:true, options:opts(x[0], hzPool), item:row(x)};
     });
-  }
-  document.title = t('mockTitle', c.hsk) + ' | Нихао';
+    const listen = wq.filter(q => q.sec === 'listen'), read = wq.filter(q => q.sec === 'read');
+    sents.slice(0, nS).forEach(([e, g]) => { const q = sentenceMeaning(c, e, g); q.big = null; q.prompt = t('qHearSentence'); listen.push({...q, sec:'listen'}); });
+    sents.slice(nS, nS + nF).forEach(([e, g]) => read.push({...fillBlank(c, e, g), sec:'read'}));
+    sents.slice(nS + nF, nS + nF + nR).forEach(([e, g]) => { const q = sentenceMeaning(c, e, g); q.play = null; read.push({...q, sec:'read'}); });
+    return [...shuffle(listen), ...shuffle(read)];
+  }  document.title = t('mockTitle', c.hsk) + ' | Нихао';
   let bank = [], i = 0, score = {listen:0, read:0}, answered = false;
   function intro() {
     app().innerHTML = wrap(`<span class="eyebrow">HSK ${c.hsk}</span><h2>${t('mockTitle', c.hsk)}</h2><p>${t('mockInfo', c.hsk)}</p><ul class="mock-parts"><li><b>${t('secListen')}</b> · 20</li><li><b>${t('secRead')}</b> · 20</li></ul><p class="muted">${t('mockNote')}</p><div class="lesson-actions"><a class="secondary-btn" href="${courseUrl(c)}">${t('backCourse')}</a><button type="button" class="primary-btn" id="mStart">${t('mockStart')} →</button></div>`);
@@ -510,7 +582,7 @@ function mock(c) {
     app().innerHTML = wrap(`<span class="eyebrow">${q.sec === 'listen' ? t('secListen') : t('secRead')}</span><h2>${t('mockTitle', c.hsk)}</h2><p class="muted">${t('qOf', i + 1, bank.length).split('·')[0]}</p>${meter(Math.round(i / bank.length * 100))}<div class="q"></div><div class="lesson-actions"><a class="secondary-btn" href="${courseUrl(c)}">${t('backCourse')}</a><button type="button" class="primary-btn" id="tNext" disabled>${i === bank.length - 1 ? t('submit') : t('nextQ')}</button></div>`);
     renderQuestion(app().querySelector('.q'), q, (ok, b) => {
       if (answered) return; answered = true;
-      app().querySelectorAll('.option').forEach(x => { x.disabled = true; if (q.options[+x.dataset.i] === q.answer) x.classList.add('right'); });
+      app().querySelectorAll('.option').forEach(x => { x.disabled = true; if (q.options?.[+x.dataset.i] === q.answer) x.classList.add('right'); });
       if (ok) score[q.sec]++; else { b.classList.add('wrong'); Store.miss(q.item); }
       app().querySelector('.feedback').textContent = ok ? t('correct') : t('answerIs', q.answer);
       app().querySelector('#tNext').disabled = false;
@@ -545,7 +617,7 @@ function test() {
     const q = bank[i];
     renderQuestion(app().querySelector('.q'), q, (ok, b) => {
       if (answered) return; answered = true;
-      app().querySelectorAll('.option').forEach(x => { x.disabled = true; if (q.options[+x.dataset.i] === q.answer) x.classList.add('right'); });
+      app().querySelectorAll('.option').forEach(x => { x.disabled = true; if (q.options?.[+x.dataset.i] === q.answer) x.classList.add('right'); });
       if (ok) right++; else { b.classList.add('wrong'); Store.miss(q.item); }
       app().querySelector('.feedback').textContent = ok ? t('correct') : t('answerIs', q.answer);
       app().querySelector('#tNext').disabled = false;
@@ -669,6 +741,6 @@ async function boot() {
   await Store.pulled; // signed-in progress first, so locks and ✓ are right
   ({home, course, lesson, test, me})[page]?.();
 }
-window.NihaoDebug = {COURSES, Store, Audio2};
+window.NihaoDebug = {COURSES, Store, Audio2, fillBlank, orderWords};
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
