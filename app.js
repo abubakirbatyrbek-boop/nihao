@@ -261,6 +261,16 @@ const Store = (() => {
     else if (r.daily && s.daily && r.daily.date === s.daily.date) s.daily.lessons = Math.max(s.daily.lessons || 0, r.daily.lessons || 0);
     return s;
   }
+  // Нихао moved to its own Supabase project (Oct 2026): accounts of the old shared project no longer exist, so progress
+  // they left on this device becomes guest progress, which the new account adopts on its first sign-in (below).
+  try {
+    if (!localStorage.getItem('nihao-project2')) {
+      let g = read('nihao:guest');
+      Object.keys(localStorage).filter(k => /^nihao:[0-9a-f-]{36}$/.test(k)).forEach(k => { g = merge(g, read(k)); localStorage.removeItem(k); });
+      if (Object.keys(g).length > 1) localStorage.setItem('nihao:guest', JSON.stringify(g));
+      localStorage.setItem('nihao-project2', '1');
+    }
+  } catch {}
   // Signed in: adopt guest progress made on this device once, then merge the newest account snapshot.
   const pulled = (async () => {
     await Auth.ready;
@@ -913,7 +923,7 @@ function authPage() {
       try {
         const back = new URL('auth.html', location.href).href;
         if (mode === 'login') { const {error} = await c.auth.signInWithPassword({email, password:pass}); if (error) throw error; draw(t('loginOk'), true); location.href = nextUrl; }
-        else if (mode === 'signup') { const {data, error} = await c.auth.signUp({email, password:pass, options:{emailRedirectTo:back, data:{display_name:app().querySelector('#aName')?.value.trim() || ''}}}); if (error) throw error; if (data.session) location.href = nextUrl; else draw(t('signupOk'), true); }
+        else if (mode === 'signup') { const {data, error} = await c.auth.signUp({email, password:pass, options:{emailRedirectTo:back, data:{display_name:app().querySelector('#aName')?.value.trim() || '', site:'nihao', ui_lang:lang}}}); if (error) throw error; if (data.session) location.href = nextUrl; else draw(t('signupOk'), true); }
         else if (mode === 'forgot') { const {error} = await c.auth.resetPasswordForEmail(email, {redirectTo:back + '?mode=reset'}); if (error) throw error; draw(t('resetSent'), true); }
         else { const {error} = await c.auth.updateUser({password:pass}); if (error) throw error; mode = 'login'; draw(t('resetOk'), true); }
       } catch (err) { draw(friendly(err)); }
@@ -946,7 +956,7 @@ function feedback() {
     const b = f.querySelector('button'); b.disabled = true; b.textContent = t('fbSending');
     try {
       const u = Auth.user();
-      // Same feedback table as the main site; the subject is tagged so the two sites can be told apart.
+      // Нихао's own feedback table; the subject keeps the UI language tag.
       const {error} = await c.from('feedback').insert([{user_id:u?.id || null, email:email || u?.email || null, category:f.querySelector('#fbCat').value,
         subject:'[Нихао ' + lang + '] ' + f.querySelector('#fbSubject').value.trim(), message:msg, rating:+(f.querySelector('input[name=rating]:checked')?.value || 0) || null}]);
       if (error) throw error;
