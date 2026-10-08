@@ -96,7 +96,7 @@ const NH = window.NH;
 const say = (r, extra) => ({ kind:'say', hz:r[0], py:r[1], kk:r[2], ru:r[3], note:r[4], ...extra });
 const COURSES = [
   { id:'pinyin', icon:'拼', title:{kk:'Пиньинь және тондар', ru:'Пиньинь и тоны'},
-    desc:{kk:'Қытай тілінің дыбыстары, төрт тон және буын оқу. Бәрі осыдан басталады.', ru:'Звуки китайского, четыре тона и чтение слогов. С этого начинается всё.'},
+    desc:{kk:'23 бастауыш, 24 соңғы дыбыс, 4 тон, буын құрау ережелері және 400 буынның толық кестесі — бәрі дыбыспен. Бәрі осыдан басталады.', ru:'23 инициали, 24 финали, 4 тона, правила сложения слогов и полная таблица из 400 слогов — всё с озвучкой. С этого начинается всё.'},
     modules: NH.pinyin.map(m => ({ title:m.title, lessons:m.lessons })) },
   { id:'daily', icon:'说', title:{kk:'Күнделікті сөйлесу', ru:'Разговорный китайский'},
     desc:{kk:'Сәлемдесу, танысу, сандар, уақыт, дүкен, жол сұрау, жұмыс. Әр сөйлем пиньиньмен.', ru:'Приветствие, знакомство, числа, время, покупки, дорога, работа. Каждая фраза с пиньинем.'},
@@ -138,7 +138,8 @@ const COURSES = [
 COURSES.forEach(c => c.modules.forEach((m, mi) => m.lessons.forEach((l, li) => { l.id = `${c.id}-${mi + 1}-${li + 1}`; l.mi = mi; l.li = li; l.course = c; })));
 const courseById = id => COURSES.find(c => c.id === id);
 const allLessons = c => c.modules.flatMap(m => m.lessons);
-const lessonTitle = l => l.kind === 'set' || l.kind === 'gram' || l.kind === 'vocab' ? L(l.title) : l.hz;
+const lessonTitle = l => l.kind === 'set' || l.kind === 'gram' || l.kind === 'vocab' || l.kind === 'chart' ? L(l.title) : l.hz;
+const chartCells = l => l.groups.flatMap(g => g.cells);
 // Audio key of a word row [hz, py, kk, ru, key?]: polyphones and variant words have their own clip.
 const aKey = x => x[4] || x[0];
 const meaning = x => Array.isArray(x) ? (lang === 'kk' ? x[2] : x[3]) : (lang === 'kk' ? x.kk : x.ru);
@@ -225,7 +226,18 @@ const SRS_DAYS = [1, 3, 7, 16, 35];
 /* ---------- progress: localStorage per user, snapshot synced to the account ---------- */
 const Store = (() => {
   const key = () => 'nihao:' + (Auth.user()?.id || 'guest');
-  const read = k => { try { return JSON.parse(localStorage.getItem(k) || '{}'); } catch { return {}; } };
+  // The pinyin course was reorganised (Oct 2026, 17 → 30 lessons): move old lesson / test ids onto the same lessons in the new order.
+  const PY_LESSON = {'1-1':'1-2', '1-2':'1-3', '1-3':'1-5', '2-1':'3-2', '2-2':'3-3', '2-3':'3-6', '3-1':'2-2', '3-2':'2-3', '3-3':'2-4', '3-4':'2-5', '3-5':'2-6', '3-6':'2-7',
+    '4-1':'4-1', '4-2':'4-3', '5-1':'6-1', '5-2':'6-2', '5-3':'6-3'}, PY_TEST = {0:0, 1:2, 2:1, 3:3, 4:5};
+  function migrate(s) {
+    if (!s || s.py2) return s;
+    const id = k => k.startsWith('pinyin-') ? 'pinyin-' + (PY_LESSON[k.slice(7)] || k.slice(7)) : k;
+    if (s.done) s.done = Object.fromEntries(Object.entries(s.done).map(([k, v]) => [id(k), v]));
+    if (s.tests) s.tests = Object.fromEntries(Object.entries(s.tests).map(([k, v]) => [/^pinyin:\d+$/.test(k) ? 'pinyin:' + (PY_TEST[k.slice(7)] ?? k.slice(7)) : k, v]));
+    if (s.last?.id) s.last.id = id(s.last.id);
+    s.py2 = 1; return s;
+  }
+  const read = k => { try { return migrate(JSON.parse(localStorage.getItem(k) || '{}')); } catch { return {}; } };
   const state = () => read(key());
   let timer = null;
   function save(s) { localStorage.setItem(key(), JSON.stringify(s)); if (Auth.user()) { clearTimeout(timer); timer = setTimeout(push, 2500); } }
@@ -239,6 +251,7 @@ const Store = (() => {
   addEventListener('pagehide', () => { if (timer) push(); });
   function merge(s, r) {
     if (!r) return s;
+    r = migrate(r);
     s.done = {...(r.done || {}), ...(s.done || {})};
     s.tests ||= {}; for (const [k, v] of Object.entries(r.tests || {})) s.tests[k] = Math.max(s.tests[k] || 0, v);
     s.review ||= {}; for (const [k, v] of Object.entries(r.review || {})) if (!s.review[k] || (v.due || 0) > (s.review[k].due || 0)) s.review[k] = v;
@@ -273,7 +286,7 @@ const Store = (() => {
     finish(l) { update(s => { const first = !s.done?.[l.id]; (s.done ||= {})[l.id] = 1; const d = dayKey(); if (s.daily?.date !== d) s.daily = {date:d, lessons:0}; if (first) s.daily.lessons++; s.days = uniq([...(s.days || []), d]).sort().slice(-400); }); },
     visit(l) { update(s => { s.last = {c:l.course.id, id:l.id, at:Date.now()}; }); },
     test(c, mi, pct) { update(s => { (s.tests ||= {})[c.id + ':' + mi] = Math.max(s.tests[c.id + ':' + mi] || 0, pct); const d = dayKey(); s.days = uniq([...(s.days || []), d]).sort().slice(-400); }); },
-    miss(x) { update(s => { (s.review ||= {})[x.a || x.hz] = {hz:x.hz, py:x.py, kk:x.kk, ru:x.ru, a:x.a, due:Date.now(), n:0}; }); },
+    miss(x) { if (!x?.hz) return; update(s => { (s.review ||= {})[x.a || x.hz] = {hz:x.hz, py:x.py, kk:x.kk, ru:x.ru, a:x.a, due:Date.now(), n:0}; }); },
     // Spaced repetition (Leitner): "don't know" → again in 10 minutes; each "know" pushes the word further: 1, 3, 7, 16, 35 days.
     reviewed(hz, known) { update(s => { const r = s.review?.[hz]; if (!r) return; r.n = known ? (r.n || 0) + 1 : 0; r.due = Date.now() + (known ? 864e5 * SRS_DAYS[Math.min(r.n, SRS_DAYS.length) - 1] : 6e5); }); },
     // A word card seen in a lesson joins the review deck (or moves in it).
@@ -380,7 +393,7 @@ function course() {
       const status = best >= PASS ? t('passed') + ' · ' + best + '%' : open ? t('unlocked') : t('locked');
       const head = `<summary><div><span class="eyebrow">${t('module')} ${k + 1} · ${status}</span><h3>${m.icon || ''} ${esc(L(m.title))}</h3></div><span>${d} / ${m.lessons.length}</span></summary>`;
       if (!open) return `<details class="module locked">${head}<p class="muted">${t('lockedText')}</p></details>`;
-      const rows = m.lessons.map(l => `<a class="lesson-row" href="${lessonUrl(l)}"><span class="num">${Store.isDone(l.id) ? '✓' : l.li + 1}</span><span class="row-main"><strong>${esc(lessonTitle(l))}</strong><small>${esc(l.kind === 'set' || l.kind === 'vocab' ? l.items.map(x => x[0]).join(' · ') : l.kind === 'gram' ? l.pat : l.py + ' — ' + meaning(l))}</small></span><span class="arrow">→</span></a>`).join('');
+      const rows = m.lessons.map(l => `<a class="lesson-row" href="${lessonUrl(l)}"><span class="num">${Store.isDone(l.id) ? '✓' : l.li + 1}</span><span class="row-main"><strong>${esc(lessonTitle(l))}</strong><small>${esc(l.kind === 'set' || l.kind === 'vocab' ? l.items.map(x => x[0]).join(' · ') : l.kind === 'chart' ? chartCells(l).slice(0, 10).map(x => x[0]).join(' · ') + (chartCells(l).length > 10 ? ' …' : '') : l.kind === 'gram' ? l.pat : l.py + ' — ' + meaning(l))}</small></span><span class="arrow">→</span></a>`).join('');
       const action = d === m.lessons.length ? `<a class="primary-btn" href="${testUrl(c, mi)}">${best ? t('retakeTest') : t('takeTest')}</a>` : `<p class="muted">${t('leftN', m.lessons.length - d)}</p>`;
       return `<details class="module" ${mi === current ? 'open' : ''}>${head}${rows}${action}</details>`;
     }).join('')}</div></section>`;
@@ -409,6 +422,7 @@ function questionsFor(l) {
     return [q1, q2];
   }
   if (l.kind === 'vocab') return shuffle(vocabQuestions(l)).slice(0, 3);
+  if (l.kind === 'chart') return shuffle(l.groups.filter(g => g.cells.length > 1)).slice(0, 2).map(g => chartQuestion(l, g));
   if (l.kind === 'gram') {
     const ex = shuffle(l.ex), a = ex[0], b = ex[1] || ex[0];
     const ord = orderWords(b); // very short sentences (请坐。) cannot be put in order: fill the blank instead
@@ -419,6 +433,13 @@ function questionsFor(l) {
     {prompt:t('qMeaning'), big:l.hz, answer:meaning(l), options:shuffle([meaning(l), ...shuffle(uniq(chars.map(meaning)).filter(x => x !== meaning(l))).slice(0, 3)]), item:l},
     {prompt:t('qWhichChar'), play:l.hz, answer:l.hz, zhOptions:true, options:shuffle([l.hz, ...shuffle(chars.filter(x => x.py !== l.py).map(x => x.hz)).slice(0, 3)]), item:l}
   ];
+}
+// Pinyin chart: hear a sound, pick it among its row (topped up from other rows, never a cell with the same sound).
+function chartQuestion(l, g) {
+  const x = shuffle(g.cells)[0], same = c => c[1] === x[1] || c[0] === x[0];
+  const near = shuffle(g.cells.filter(c => !same(c))), far = shuffle(chartCells(l).filter(c => !same(c) && !g.cells.includes(c)));
+  const opts = uniq([...near, ...far].map(c => c[0])).slice(0, 3);
+  return {prompt:t('qHear'), play:x[1], answer:x[0], options:shuffle([x[0], ...opts]), item:null};
 }
 // Sentence questions (HSK grammar): example = [漢字, pinyin, kk, ru, key word]
 const exItem = x => ({hz:x[0], py:x[1], kk:x[2], ru:x[3]});
@@ -571,13 +592,17 @@ function lesson() {
   let body = '';
   if (l.kind === 'say') body = `<p class="py">${toneHtml(l.py)}</p><p class="hz">${esc(l.hz)}</p><p class="tr">${esc(meaning(l))}</p>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}`;
   if (l.kind === 'set') body = `<h2 class="set-title">${esc(L(l.title))}</h2>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}<div class="items">${l.items.map((x, i) => `<button type="button" class="item" data-item="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
+  if (l.kind === 'chart') body = `<h2 class="set-title">${esc(L(l.title))}</h2>${l.note ? `<p class="note">${esc(L(l.note))}</p>` : ''}
+    ${l.stats ? `<div class="py-stats">${l.stats.map(s => `<div><b>${esc(s[0])}</b><span>${esc(lang === 'kk' ? s[1] : s[2])}</span></div>`).join('')}</div>` : ''}
+    <div class="chart${l.tight ? ' tight' : ''}">${l.groups.map((g, gi) => `<section class="chart-group"><h3>${esc(L(g.t))}</h3><div class="cells">${g.cells.map((x, i) =>
+      `<button type="button" class="pcell" data-cell="${gi}-${i}"><b>${toneHtml(x[0])}</b>${x[2] ? `<small>${esc(lang === 'kk' ? x[2] : x[3])}</small>` : ''}</button>`).join('')}</div></section>`).join('')}</div>`;
   if (l.kind === 'gram') body = `<span class="eyebrow">${t('grammar')} · HSK ${c.hsk}</span><h2 class="set-title">${esc(L(l.title))}</h2>
     <div class="pattern">${patternHtml(l.pat)}</div><p class="note">${esc(L(l.note))}</p>
     <p class="muted ex-help">${t('exHelp')}</p>
     <div class="examples">${l.ex.map((x, i) => `<button type="button" class="example" data-ex="${i}"><span class="ex-hz">🔊 ${markKey(x)}</span><span class="py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small>${glossHtml(x, c.hsk)}</button>`).join('')}</div>`;
   if (l.kind === 'char') body =`<div class="char-wrap"><div class="char-box" id="charBox" aria-label="${esc(l.hz)}"><span class="char-fallback">${esc(l.hz)}</span></div><div class="char-info"><p class="py">${toneHtml(l.py)}</p><p class="tr">${esc(meaning(l))}</p><div class="tools">${btn(t('strokes'), 'data-animate')}${btn(t('tryWrite'), 'data-quiz')}</div><p class="feedback" id="writeStatus" role="status"></p></div></div>
     <h3 class="words-title">${t('words')}</h3><div class="items">${l.words.map((x, i) => `<button type="button" class="item" data-word="${i}"><span class="item-hz">${esc(x[0])}</span><span class="item-py">${toneHtml(x[1])}</span><small>${esc(meaning(x))}</small></button>`).join('')}</div>`;
-  const main = l.kind === 'set' ? l.items.map(aKey) : l.kind === 'gram' ? l.ex.map(x => x[0]) : [l.hz];
+  const main = l.kind === 'set' ? l.items.map(aKey) : l.kind === 'gram' ? l.ex.map(x => x[0]) : l.kind === 'chart' ? uniq(chartCells(l).map(x => x[1])) : [l.hz];
   app().innerHTML = `<section class="section lesson-section"><div class="container narrow">
     <div class="lesson-top"><a href="${back}">${t('back')}</a>${c.id === 'pinyin' ? '' : '<button type="button" class="py-toggle" id="pyToggle"></button>'}<span>${esc(L(m.title))} · ${l.li + 1} / ${m.lessons.length}</span></div>
     <article class="lesson-card">${body}
@@ -594,6 +619,7 @@ function lesson() {
   root.querySelectorAll('[data-rate]').forEach(b => b.onclick = () => main.length > 1 ? Audio2.list(main, +b.dataset.rate) : Audio2.play(main[0], +b.dataset.rate));
   root.querySelectorAll('[data-ex]').forEach(b => b.onclick = () => Audio2.play(l.ex[+b.dataset.ex][0]));
   root.querySelectorAll('[data-item]').forEach(b => b.onclick = () => Audio2.play(aKey(l.items[+b.dataset.item])));
+  root.querySelectorAll('[data-cell]').forEach(b => b.onclick = () => { const [gi, i] = b.dataset.cell.split('-'); Audio2.play(l.groups[gi].cells[i][1]); });
   root.querySelectorAll('[data-word]').forEach(b => b.onclick = () => Audio2.play(l.words[+b.dataset.word][0]));
   root.querySelector('.hz')?.addEventListener('click', () => Audio2.play(l.hz));
   recorder(root.querySelector('.tool-box'));
